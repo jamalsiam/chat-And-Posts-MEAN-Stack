@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "epmty structrue ",
+  "main": "server.js ",
+  "scripts": {
+    "test": "node server.js "
+  },
+  "keywords": [
+    "start",
+    "project",
+    "-jamal"
+  ],
+  "author": "jamal siam",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.0-rc1",
+    "q": "^1.5.1"
+  }
+}
