@@ -1,15 +1,14 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-var session = require('express-session');
-var url=require('url');
+const session = require('express-session');
+const url=require('url');
 const mongoose = require('mongoose');
-var handlers = require('./handlers/handlers');
-
+let handlers = require('./handlers');
 
 //middleware
 //app.use(express.static(__dirname + '/../client/dist'));
-app.use('/', express.static(__dirname + './dist'));
+app.use('/', express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json({limit: '2mb'}));
 app.use(bodyParser.urlencoded({limit: '2mb', extended: true}));
 

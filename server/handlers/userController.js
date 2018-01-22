@@ -1,5 +1,5 @@
 
-module.exports.handelUser = {
+module.exports = {
 
     getData: function(req, res) {
 
