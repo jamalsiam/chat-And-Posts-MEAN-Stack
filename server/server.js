@@ -18,3 +18,6 @@ app.post('/api/comment/putcomment',handlers.handelComment.putComment);
 app.post('/api/comment/deletecomment',handlers.handelComment.deleteComment);
 app.post('/api/comment/getcommentpost',handlers.handelComment.getCommentPost);
 
+//comment APIs
+app.post('/api/like/putlike',handlers.handelLike.putLike);
+
