@@ -21,3 +21,6 @@ app.post('/api/comment/getcommentpost',handlers.handelComment.getCommentPost);
 //comment APIs
 app.post('/api/like/putlike',handlers.handelLike.putLike);
 
+//message APIs
+app.post('/api/message/message',handlers.handelMessage.sendMessage);
+
