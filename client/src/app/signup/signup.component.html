@@ -1,0 +1,20 @@
+<div class="body">
+  <div class="x">
+  <div class="sigin">
+    <p class="h3">chat and post <span>SignUp</span></p>
+    <input type="text" placeholder="username" [(ngModel)]='formData.username'  >
+    <input type="email" placeholder="example@example.com"     [(ngModel)]='formData.email' >    
+    <input type="password" placeholder="Password"   [(ngModel)]='formData.password'  >
+    <input type="password" placeholder="Confirm Password"   [(ngModel)]='formData.confirmPassword' >
+    <div>
+      <small class="{{msg.type}}" >{{msg.data}}</small>  
+    </div> 
+    
+    <button (click)="signup()">
+      <span class="glyphicon glyphicon-arrow-right {{btnSignupDegree}}"></span>
+    </button>
+      <h6 class="or">OR</h6>
+    <small class="guest" (click)="signupGuest()">Signup As Guest</small>
+  </div>
+</div>
+</div>

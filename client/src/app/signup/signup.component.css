@@ -1,0 +1,142 @@
+.deg0{
+    transform: rotate(0deg)!important;
+    transition: all 1s ease;
+}
+.deg90{
+    transform: rotate(450deg)!important;
+    transition: all 1s ease;
+}
+.deg360{
+   
+    transition: all 10s ease;
+    transform: rotate(100080deg)!important;
+}
+.err{
+    color: #f10000;
+    font-size: 16px;
+    text-shadow: 0px 0px 52px white;
+}
+.hdn{
+    font-size: 16px;
+    text-shadow: 0px 0px 52px transparent;
+    color:transparent;
+}
+.body{
+    background: url('img/login_bg.jpg' ) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+min-height: 100vh;
+}
+span{
+    color: rgba(102, 138, 255, 0.973)
+}
+.x{
+      width: 100%;
+      min-height: 100vh;
+   background: #00000042;
+   color: white;
+   display: flex;
+
+}
+.sigin{
+width: 664px;
+min-height: 60vh;
+margin: auto;
+text-align: center;
+}
+.sigin p{
+    font-weight: 100;
+font-family: initial;
+letter-spacing: 5px;
+word-wrap: inherit;
+   margin-bottom: 75px;
+   font-size: 25px;
+}
+
+
+
+.sigin input:invalid{
+    border-bottom: 1px solid rgba(211, 38, 26, 0.651);
+    background: #fb9a9a1f;
+}
+.sigin input:valid {
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+
+.sigin input{
+    display: block;
+      width: 325px;
+   padding: 18px;
+   background: transparent;
+   border: none;
+   color: white;
+   border-bottom: 1px solid white;
+   margin: auto;
+}
+
+ 
+.sigin button{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    height: 60px;
+    width: 60px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: #ffffff0a;
+    color: #ffffff96;
+    cursor: pointer;
+}
+.sigin button span{
+    color: white;
+    font-size: 20px;
+    transform: rotate(0deg); 
+
+}
+.sigin button:hover{
+    background: #3b3a3a59;
+}
+.sigin button:active{
+    background: #3b3a3a9e;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ffffff96;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #ffffff96;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #ffffff96;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #ffffff96;
+}
+.or{
+    background: #18151563;
+    width: 28px;
+    /* height: 20px; */
+    padding-bottom: 6px;
+    border-radius: 50%;
+    margin: 13px auto;
+    padding-top: 9px;
+    font-weight: 100;
+}
+.guest{
+    font-size: 17px;
+    color: white;
+    border-bottom: 1px solid white;
+    font-family: sans-serif;
+    padding: 2px;
+    cursor: pointer;
+}
+@media (max-width: 375px) {
+    .sigin p{
+        font-size: 15px
+    }
+    .sigin input{
+        width: unset
+    }
+}

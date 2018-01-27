@@ -23,12 +23,12 @@ export class DataService {
   }
 
 
-  postData(record)  {
+  signUp(record)  {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/postdata', record, {headers: headers}).map(res => res.json());
+    return this.http.post('/api/user/signup', record, {headers: headers}).map(res => res.json());
   }
   // getData() {
   //   return this.http.get('/api/getdata').map(res => res.json());
