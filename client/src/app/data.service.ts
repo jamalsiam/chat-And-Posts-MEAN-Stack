@@ -23,7 +23,7 @@ export class DataService {
   }
 
 
-  signUp(record)  {
+  signUp(record)  { 
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);

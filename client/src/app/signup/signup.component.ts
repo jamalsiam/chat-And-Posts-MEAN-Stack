@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit { 
   formData: any;
   btnSignupDegree: string = '';
   msg: any;
