@@ -58,6 +58,28 @@ module.exports = {
     
         console.log(req.body)
         res.json('ss')
+    },
+    signUpAsGuest:(req, res) => {
+        let randomId = Math.floor(Math.random() * (9000000000 - 1000000000) ) + 1000000000;
+        model.User.find({email:randomId+'@guest.com'}).then((result) => {
+            if(result==''){   
+                model.User.create({
+                    username: 'Guest',
+                    email:randomId+'@guest.com',
+                    password:randomId,
+                },(err, newUser) =>{
+                    if(err){
+                        res.json(err);
+                    } else {
+                        res.json({status:'signup',id:newUser._id});
+                    }
+                });          
+            }else{
+         
+                res.json({status:'recall'});
+            }
+        } )
+       
+
     }
 };
-

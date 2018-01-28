@@ -16,9 +16,14 @@ export class SignupComponent implements OnInit {
   signupGuest(){
     this.btnSignupDegree='deg90';
     this.service.signUpAsGuest().subscribe(res =>{
-      this.storage.set('chatUserId', res.id);
-      this.router.navigate(['guest']);
-      location.reload();
+      if(res.status==='signup'){
+        this.storage.set('chatUserId', res.id);
+        this.router.navigate(['guest']);
+        location.reload();
+      }else if ( res.status === 'recall' ){
+        this.signupGuest();
+      }
+      
     });
   }
 
