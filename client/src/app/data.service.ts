@@ -11,6 +11,13 @@ export class DataService {
    user:any;
   constructor(private http: Http, public storage: LocalStorageService) {
     this.user={name:'jamalsiam'}
+    if(this.storage.get('chatUserId') !== null || this.storage.get('chatUserId') !== undefined){
+      this.getProfileInfo({userId:''+this.storage.get('chatUserId')}).subscribe(res =>{
+        let d=res.data
+          this.user={username:d.username, address:d.address, email:d.email}
+        })
+    }
+   
   }
 
   createAuthorizationHeader(headers: Headers) {
@@ -35,6 +42,13 @@ export class DataService {
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/user/signin', record, {headers: headers}).map(res => res.json());
+  }
+  getProfileInfo(record)  { 
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/user/getuserinfo', record, {headers: headers}).map(res => res.json());
   }
   signOut(){
     this.storage.remove('chatUserId');

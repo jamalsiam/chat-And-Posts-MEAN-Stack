@@ -49,10 +49,12 @@ module.exports = {
     },
     getUserInfo:(req, res) => {
         let {userId}=req.body;
-        model.Post.findOne({_id:userId})
-         .then((data) => {
-            res.json({status:"success",data})
-         })
+        if(userId !='null'){
+            model.User.findOne({_id:userId})
+            .then((data) => {
+                res.json({status:"success",data})
+            })
+        }
     },
     postData:function(req, res) {
     

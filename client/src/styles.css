@@ -6,3 +6,49 @@ body {
     margin: 0;
     padding: 0
 }
+
+
+
+.haveId app-header , .haveId app-aside-bar{
+    display: block;
+}
+.haventId app-header , .haventId app-aside-bar{
+    display: none;
+}
+
+
+
+.haveId .content{
+    margin-left: 200px;
+}
+
+
+
+@media (max-width: 1000px) {
+    aside{
+        width: 100px!important;
+    }
+    
+.haveId .content{
+    margin-left: 100px;
+}
+}
+
+@media (max-width: 768px) {
+    aside{
+        width: 75px!important;
+     
+    }
+    
+    .haveId .content{
+        margin-left: 75px;
+    }
+}
+@media (max-width: 400px) {
+    aside{
+        width: 50px!important;
+    }
+    .haveId .content{
+        margin-left: 50px;
+    }
+}

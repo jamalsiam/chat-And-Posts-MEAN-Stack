@@ -4,23 +4,23 @@
 }
 
 
-
-
-
+.navbar{
+    margin-bottom: 0px
+}
 @media (min-width: 768px) {
-    .input{
+    .search{
         width:200px;
     transition: width .5s;
     
     }
-    .input:focus{
+    .search:focus{
         width: 300px;
     }
-    .input:active{
+    .search:active{
         width: 300px;
     }
 
-    .input:visited{
+    .search:visited{
         width: 300px;
     }
 }
@@ -28,21 +28,27 @@
 
 
 @media (min-width: 1000px) {
-    .input{
+    .search{
         width:400px;
     transition: width .5s;
     
     }
-    .input:focus{
+    .search:focus{
         width: 500px;
     }
-    .input:active{
+    .search:active{
         width: 500px;
     }
 
-    .input:visited{
+    .search:visited{
         width: 500px;
     }
 }
-
-
+.Index1{
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+}
+.header-space{
+    height: 50px;
+}
