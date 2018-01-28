@@ -30,7 +30,7 @@ export class DataService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/user/signup', record, {headers: headers}).map(res => res.json());
   }
-  // getData() {
-  //   return this.http.get('/api/getdata').map(res => res.json());
-  // }
+  signUpAsGuest() {
+     return this.http.get('/api/user/signupasguest').map(res => res.json());
+   }
 }

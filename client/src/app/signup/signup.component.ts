@@ -15,6 +15,11 @@ export class SignupComponent implements OnInit {
   constructor(private service:DataService,private storage:LocalStorageService, private router:Router) { }
   signupGuest(){
     this.btnSignupDegree='deg90';
+    this.service.signUpAsGuest().subscribe(res =>{
+      this.storage.set('chatUserId', res.id);
+      this.router.navigate(['guest']);
+      location.reload();
+    });
   }
 
   signup(){
