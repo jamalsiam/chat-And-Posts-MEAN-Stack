@@ -2,18 +2,14 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import { Http , Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
 
 export class DataService {
-  // To transfar data between component
-  /* private goals = new BehaviorSubject <any> ([]);
-   goal= this.goals.asObservable();
-   changeGoal(goal){
-     this.goals.next(goal);
-   }*/
+  
    user:any;
-  constructor(private http: Http) {
+  constructor(private http: Http, public storage: LocalStorageService) {
     this.user={name:'jamalsiam'}
   }
 
@@ -39,5 +35,9 @@ export class DataService {
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/user/signin', record, {headers: headers}).map(res => res.json());
+  }
+  signOut(){
+    this.storage.remove('chatUserId');
+    this.user={};
   }
 }

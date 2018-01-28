@@ -11,16 +11,15 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   username:string;
   query:string;
-  constructor(private service:DataService,private storage:LocalStorageService, private router:Router) {
-
-   }
-   search(query){
-     this.query=query;
+  constructor(public service:DataService,private storage:LocalStorageService, private router:Router) {}
+  
+   search(query){ 
+    this.query=query;
     console.log(query)
    }
 
   ngOnInit() {
-    this.username=this.service.user.name;
+    
   }
 
 }

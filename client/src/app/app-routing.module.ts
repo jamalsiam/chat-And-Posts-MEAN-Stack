@@ -3,20 +3,26 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { MainComponent } from './main/main.component';
+import { SignoutComponent } from './signout/signout.component';
 
 const routes: Routes = [
   {
+    path: '' , 
+    component:MainComponent 
+  },
+  {
     path: 'signup' , 
-    component: SignupComponent 
-},
-{
-  path: 'signin' , 
-  component: SigninComponent 
-},
-{
-  path: '' , 
-  component:MainComponent 
-}
+    component: SignupComponent
+  },
+  {
+    path: 'signin' , 
+    component: SigninComponent 
+  },
+  {
+    path:'signout',
+    component:SignoutComponent
+  }
+
 ];
 
 @NgModule({
