@@ -33,4 +33,11 @@ export class DataService {
   signUpAsGuest() {
      return this.http.get('/api/user/signupasguest').map(res => res.json());
    }
+   signIn(record)  { 
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/user/signin', record, {headers: headers}).map(res => res.json());
+  }
 }

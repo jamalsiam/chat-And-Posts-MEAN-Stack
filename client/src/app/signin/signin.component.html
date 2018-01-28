@@ -1,0 +1,16 @@
+<div class="body">
+  <div class="x">
+  <div class="sigin">
+    <p class="h3">chat and post <span>SignIn</span></p>
+    <input type="email" placeholder="example@example.com"     [(ngModel)]='formData.email' >    
+    <input type="password" placeholder="Password"   [(ngModel)]='formData.password'  >
+    <div>
+      <small class="{{msg.type}}" >{{msg.data}}</small>   
+    </div> 
+    
+    <button (click)="signin()">
+      <span class="glyphicon glyphicon-arrow-right {{btnSignupDegree}}"></span>
+    </button>   
+  </div>
+</div>
+</div>

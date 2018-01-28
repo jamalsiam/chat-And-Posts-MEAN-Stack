@@ -8,7 +8,7 @@
 }
 .deg360{
    
-    transition: all 10s ease;
+    transition: all 50s ease;
     transform: rotate(100080deg)!important;
 }
 .err{
