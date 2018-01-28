@@ -12,9 +12,9 @@ export class DataService {
    changeGoal(goal){
      this.goals.next(goal);
    }*/
-
+   user:any;
   constructor(private http: Http) {
-
+    this.user={name:'jamalsiam'}
   }
 
   createAuthorizationHeader(headers: Headers) {

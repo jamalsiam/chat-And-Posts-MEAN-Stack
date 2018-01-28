@@ -9,13 +9,17 @@ import { LocalStorageModule } from 'angular-2-local-storage';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { MainComponent } from './main/main.component';
+import { AsideBarComponent } from './aside-bar/aside-bar.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     SigninComponent,
-    MainComponent
+    MainComponent,
+    AsideBarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

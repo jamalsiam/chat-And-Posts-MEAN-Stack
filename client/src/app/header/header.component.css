@@ -1,0 +1,48 @@
+.navbar-form {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .input{
+        width:200px;
+    transition: width .5s;
+    
+    }
+    .input:focus{
+        width: 300px;
+    }
+    .input:active{
+        width: 300px;
+    }
+
+    .input:visited{
+        width: 300px;
+    }
+}
+
+
+
+@media (min-width: 1000px) {
+    .input{
+        width:400px;
+    transition: width .5s;
+    
+    }
+    .input:focus{
+        width: 500px;
+    }
+    .input:active{
+        width: 500px;
+    }
+
+    .input:visited{
+        width: 500px;
+    }
+}
+
+
