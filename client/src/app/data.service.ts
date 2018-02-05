@@ -13,7 +13,7 @@ export class DataService {
     this.user={name:'jamalsiam'}
     if(this.storage.get('chatUserId') !== null || this.storage.get('chatUserId') !== undefined){
       this.getProfileInfo({userId:''+this.storage.get('chatUserId')}).subscribe(res =>{
-        let d=res.data
+        let d=res.data;
           this.user={username:d.username, address:d.address, email:d.email}
         })
     }

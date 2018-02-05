@@ -1,0 +1,47 @@
+.cover{
+        background: url('a.jpg' ) no-repeat center center ; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 300px;
+}
+
+.image-profile-container img{
+    height: 167px;
+    margin: auto;
+    width: 167px;
+    margin-top: -133px;
+    display: block;
+    -webkit-box-shadow: 0 0 16px 0 #000;
+    box-shadow: 0 0 16px 0 #000;
+    border: 5px solid #fff;
+    border-radius: 6px;
+}
+
+.follow{
+    width: 95px;
+    height: 95px;
+    text-align: center;
+    border: 5px solid #e8e8d2;
+    border-radius: 50%;
+    display: inline-flex;
+}
+.follow p{
+    margin: auto;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.short_info{
+    text-align: center;
+    margin: 8px
+}
+
+.short_info span{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 500;
+    line-height: 30px;
+    max-width: 275px;
+}

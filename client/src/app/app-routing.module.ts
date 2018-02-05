@@ -4,6 +4,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { MainComponent } from './main/main.component';
 import { SignoutComponent } from './signout/signout.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'signout',
     component:SignoutComponent
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
   }
 
 ];

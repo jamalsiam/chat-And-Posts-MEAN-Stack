@@ -12,6 +12,7 @@ import { MainComponent } from './main/main.component';
 import { AsideBarComponent } from './aside-bar/aside-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { SignoutComponent } from './signout/signout.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SignoutComponent } from './signout/signout.component';
     MainComponent,
     AsideBarComponent,
     HeaderComponent,
-    SignoutComponent
+    SignoutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
