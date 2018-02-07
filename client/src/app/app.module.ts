@@ -13,6 +13,10 @@ import { AsideBarComponent } from './aside-bar/aside-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { SignoutComponent } from './signout/signout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SharePostComponent } from './share-post/share-post.component';
+import { ViewPostComponent } from './view-post/view-post.component';
+import { AboutComponent } from './about/about.component';
+import { OriginalPostComponent } from './original-post/original-post.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { ProfileComponent } from './profile/profile.component';
     AsideBarComponent,
     HeaderComponent,
     SignoutComponent,
-    ProfileComponent
+    ProfileComponent,
+    SharePostComponent,
+    ViewPostComponent,
+    AboutComponent,
+    OriginalPostComponent
   ],
   imports: [
     BrowserModule,
