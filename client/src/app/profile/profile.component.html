@@ -11,4 +11,26 @@
     
 </div>
 
-<hr>
+ 
+
+<ul class="nav nav-tabs">
+    <li (click)="routeTabs('Posts')" [class.active]="tapRouteVal === 'Posts'" ><a >Posts</a></li>
+    <li (click)="routeTabs('Photos')" [class.active]="tapRouteVal === 'Photos'" ><a>Photos</a></li>
+    <li (click)="routeTabs('About')" [class.active]="tapRouteVal === 'About'"  ><a>About</a></li>
+    <li><a></a></li>
+  </ul>
+
+
+  <div  *ngIf="tapRouteVal=='Posts'">
+<p>Posts</p>
+</div>
+
+
+<div  *ngIf="tapRouteVal==='Photos'" >
+    <p>Photos</p>
+</div>
+
+
+<div  *ngIf="tapRouteVal==='About'">
+    <p>About</p>
+</div>

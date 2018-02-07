@@ -26,6 +26,7 @@
     border: 5px solid #e8e8d2;
     border-radius: 50%;
     display: inline-flex;
+    margin: 8px 26px;
 }
 .follow p{
     margin: auto;
