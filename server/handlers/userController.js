@@ -52,7 +52,8 @@ module.exports = {
         if(userId !='null'){
             model.User.findOne({_id:userId})
             .then((data) => {
-                res.json({status:"success",data})
+
+                res.json({status:"success",userInfo:data,id:userId,post:[]})
             })
         }
     },

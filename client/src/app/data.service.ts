@@ -10,16 +10,17 @@ export class DataService {
   
    user:any;
   constructor(private http: Http, public storage: LocalStorageService) {
-    this.user={name:'jamalsiam'}
+    this.user={id:null, post:[] ,userInfo:{}}
     if(this.storage.get('chatUserId') !== null || this.storage.get('chatUserId') !== undefined){
+      this.user['id']=this.storage.get('chatUserId');
+     
       this.getProfileInfo({userId:''+this.storage.get('chatUserId')}).subscribe(res =>{
-        let d=res.data;
-          this.user={username:d.username, address:d.address, email:d.email}
-        })
+        this.user=res;
+      })
     }
    
   }
-
+  
   createAuthorizationHeader(headers: Headers) {
     headers.append('Authorization', 'Basic ' +
       btoa('a20e6aca-ee83-44bc-8033-b41f3078c2b6:c199f9c8-0548-4be79655-7ef7d7bf9d20'));
@@ -53,5 +54,12 @@ export class DataService {
   signOut(){
     this.storage.remove('chatUserId');
     this.user={};
+  }
+  sharePost (record)  { 
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/post/sharepost', record, {headers: headers}).map(res => res.json());
   }
 }

@@ -17,8 +17,15 @@
     </tr>
    
   </table>
+  <div *ngIf="photoPost" class="photoPostContainer">
+      <img   src='data:image/jpeg;base64,{{photoPost}}' >
+  </div>
   <div class="marginTop10">
-      <a class="float-left"> <span class="glyphicon glyphicon-picture"> </span>Add Photo</a>
+      <a class="float-left"> <span class="glyphicon glyphicon-picture"> </span>
+        <input type="file" id="filePicker" (change)="handleFileSelect($event)"  > 
+        
+    </a>
   <button class="float-right btn btn-primary" [disabled]=' !textPost && !photoPost ' (click)="sharePost()" >Post</button>  
     </div>
 </div>
+<div class="clearFix"></div>
