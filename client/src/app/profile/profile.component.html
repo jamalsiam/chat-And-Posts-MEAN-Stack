@@ -22,15 +22,17 @@
 
 
   <div  *ngIf="tapRouteVal=='Posts'">
-<p>Posts</p>
+        <p class="writeapost">write a post:</p>
+    <sharePost></sharePost>
+    <viewPost></viewPost>
 </div>
 
 
 <div  *ngIf="tapRouteVal==='Photos'" >
-    <p>Photos</p>
+    <viewPost></viewPost>
 </div>
 
 
 <div  *ngIf="tapRouteVal==='About'">
-    <p>About</p>
+    <About></About>
 </div>

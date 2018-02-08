@@ -1,5 +1,5 @@
 .cover{
-        background: url('a.jpg' ) no-repeat center center ; 
+    background: url('a.jpg' ) no-repeat center center ; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -7,6 +7,11 @@
     min-height: 300px;
 }
 
+.writeapost{
+    width: 73%;
+    margin: 12px auto -13px;
+    color: #888888;
+}
 .image-profile-container img{
     height: 167px;
     margin: auto;

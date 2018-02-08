@@ -1,3 +1,24 @@
-<p>
-  share-post works!
-</p>
+<div class="post">
+  
+  <table>
+    <tr>
+      <td class="td20">
+          <div class="imgPosterContainer">
+              <img class="imgPoster" src="assets/profile.jpg" alt="qqqqqqq">
+            </div>
+      </td>
+
+
+      <td class="td80">
+          <div class="textAreaContainer"> 
+              <textarea class="form-control" [(ngModel)]='textPost' placeholder="What's On Your Mind, Jamal? "   rows="5" id="comment"></textarea> 
+            </div>
+      </td>
+    </tr>
+   
+  </table>
+  <div class="marginTop10">
+      <a class="float-left"> <span class="glyphicon glyphicon-picture"> </span>Add Photo</a>
+  <button class="float-right btn btn-primary" [disabled]=' !textPost && !photoPost ' (click)="sharePost()" >Post</button>  
+    </div>
+</div>
