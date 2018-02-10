@@ -1,3 +1,32 @@
-<p>
-  view-post works!
-</p>
+
+<div class="post">
+  <div class="userpart" >
+    <img src="assets/profile.jpg" class="userImage" alt="">
+    <div>
+      <p class="userName" >wdo wokd </p>
+      <a class="date">{{data.date}}</a>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+    <p class="posttext">
+      {{data.postContent.text}}
+    </p>
+
+    <div [class.displaynone]="data.postContent.image == '' ||  data.postContent.image == undefined">
+        <img src="assets/profile.jpg" 
+        [class.postImageWithText]="data.postContent.text !== '' ||  data.postContent.text !== undefined" 
+        [class.postImageWithoutText]="data.postContent.text === '' || data.postContent.text === undefined">
+    </div>
+<hr>
+  <div class="tool">
+    <p>
+        <i class="fa fa-thumbs-o-up"></i> Like {{data.like}}</p>
+    <p>
+        <i class="fa fa-comment-o" aria-hidden="true"></i>
+        Comment {{data.comment}}</p>
+    <p>
+        <i class="fa fa-share" aria-hidden="true"></i>
+      Share</p>
+  </div>
+  <div class="clearfix"></div>
+</div>

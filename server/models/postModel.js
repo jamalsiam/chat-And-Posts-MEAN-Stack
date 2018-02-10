@@ -1,6 +1,6 @@
  
 var mongoose = require('mongoose');
- 
+
 
 // use schema to add it to mongo data base
 var postSchema = new mongoose.Schema({
@@ -15,6 +15,10 @@ var postSchema = new mongoose.Schema({
     image:{
       type:String
     }
+  },
+  date:{
+    type:Date,
+    default:Date.now
   }
   
 });

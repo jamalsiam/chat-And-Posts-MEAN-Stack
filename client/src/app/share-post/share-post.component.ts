@@ -11,18 +11,29 @@ export class SharePostComponent implements OnInit {
   photoPost:string;
   constructor( private service:DataService) { }
   sharePost(){
+   
+
+
     this.service.sharePost({_id:this.service.user.id,
        postContent:{
          text:this.textPost,
          image:this.photoPost}})
     .subscribe(res =>{
-      this.service.user['post'].push({text: this.textPost,
-                                      image: this.photoPost});
-                                      
-      console.log(this.service.user);
+
+      let oldPosts=this.service.user['post'];
+      let newPost=[{userId: this.service.user.id, 
+        postContent: {text: this.textPost,image: this.photoPost},
+        id_: '',
+        date: 'Just Now',
+        like: 0,
+        comment: 0,
+        imageUser:this.service.user.userInfo.photo,
+        username:this.service.user.userInfo.username
+      }];
+      
+      this.service.user.post=newPost.concat(oldPosts);
       this.textPost='';
       this.photoPost='';
-
     })
   }
   handleFileSelect(evt) {

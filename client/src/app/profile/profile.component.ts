@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  tapRouteVal:string="Posts"
-  constructor() { }
+  tapRouteVal:string="Posts";
+  constructor(public service:DataService) { }
   routeTabs(a:string){
      this.tapRouteVal=a;
   }
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
 
 }

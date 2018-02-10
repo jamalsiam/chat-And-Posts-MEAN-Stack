@@ -24,7 +24,7 @@
   <div  *ngIf="tapRouteVal=='Posts'">
         <p class="writeapost">write a post:</p>
     <sharePost></sharePost>
-    <viewPost></viewPost>
+    <viewPost *ngFor="let post  of service.user.post" [data]="post"></viewPost>
 </div>
 
 

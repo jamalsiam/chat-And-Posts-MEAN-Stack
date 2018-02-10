@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input } from '@angular/core';
 
 @Component({
   selector: 'viewPost',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-post.component.css']
 })
 export class ViewPostComponent implements OnInit {
-
+  @Input() data: any;
   constructor() { }
 
   ngOnInit() {
