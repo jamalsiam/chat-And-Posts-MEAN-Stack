@@ -15,7 +15,18 @@ export class DataService {
       this.user['id']=this.storage.get('chatUserId');
      
       this.getProfileInfo({userId:''+this.storage.get('chatUserId')}).subscribe(res =>{
+       
+        let post=res.post;
+        let userInfo=res.userInfo;
+        
+        for(let i=0;i<post.length;i++){
+          post[i]['imageUser']=userInfo.image;
+          post[i]['username']=userInfo.username;
+          post[i]['userId']=userInfo._id;
+        }
+        
         this.user=res;
+        this.user['post']=post;
       })
     }
    

@@ -1,4 +1,4 @@
-let model=require('../models');
+const model=require('../models');
 module.exports = {
     signUp: (req, res) => {
         let {email, username, password}=req.body;
@@ -52,8 +52,11 @@ module.exports = {
         if(userId !='null'){
             model.User.findOne({_id:userId})
             .then((data) => {
-
-                res.json({status:"success",userInfo:data,id:userId,post:[]})
+                model.Post.find({userId})
+                .sort('-_id')
+                .then((post)=>{
+                    res.json({status:"success",userInfo:data,id:userId,post:post})
+                })
             })
         }
     },
@@ -82,7 +85,5 @@ module.exports = {
                 res.json({status:'recall'});
             }
         } )
-       
-
     }
 };
