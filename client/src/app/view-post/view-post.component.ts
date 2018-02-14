@@ -7,7 +7,12 @@ import { Component, OnInit ,Input } from '@angular/core';
 })
 export class ViewPostComponent implements OnInit {
   @Input() data: any;
-  constructor() { }
+  
+  
+  constructor() {
+  
+   
+   }
   
   viewProfile(userId:string){
     console.log(userId);
@@ -19,7 +24,7 @@ export class ViewPostComponent implements OnInit {
     console.log(newPost);
   }
   ngOnInit() {
-   
+    
   }
 
 }

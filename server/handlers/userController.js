@@ -49,13 +49,19 @@ module.exports = {
     },
     getUserInfo:(req, res) => {
         let {userId}=req.body;
+       
         if(userId !='null'){
             model.User.findOne({_id:userId})
             .then((data) => {
                 model.Post.find({userId})
                 .sort('-_id')
                 .then((post)=>{
-                    res.json({status:"success",userInfo:data,id:userId,post:post})
+                    model.Follow.count({followerId:userId},(err,follower)=>{
+                        model.Follow.count({followingId:userId},(err,following)=>{
+                            res.json({status:"success",userInfo:data,id:userId,post:post,follow:{follower,following}})
+                            console.log({status:"success",userInfo:data,id:userId,post:post,follow:{follower,following}})
+                        })
+                    })
                 })
             })
         }

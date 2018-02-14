@@ -10,7 +10,7 @@ export class DataService {
   
    user:any;
   constructor(private http: Http, public storage: LocalStorageService) {
-    this.user={id:null, post:[] ,userInfo:{}}
+    this.user={id:null, post:[] ,userInfo:{},follow:{}}
     if(this.storage.get('chatUserId') !== null || this.storage.get('chatUserId') !== undefined){
       this.user['id']=this.storage.get('chatUserId');
      

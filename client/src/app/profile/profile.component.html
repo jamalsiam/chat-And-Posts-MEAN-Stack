@@ -5,9 +5,9 @@
 <div class="short_info">
     <span>Jamal siam</span>
     <br>
-    <div class="follow"><p>12 <br> Follower</p></div>  
+    <div class="follow"><p>{{service.user.follow.follower}} <br> Follower</p></div>  
     
-    <div class="follow"><p>12 <br> Following</p></div>  
+    <div class="follow"><p>{{service.user.follow.following}} <br> Following</p></div>  
     
 </div>
 
@@ -24,12 +24,12 @@
   <div  *ngIf="tapRouteVal=='Posts'">
         <p class="writeapost">write a post:</p>
     <sharePost></sharePost>
-    <viewPost *ngFor="let post  of service.user.post" [data]="post"></viewPost>
+    <viewPost *ngFor="let post  of service.user.post" [data]='post'  ></viewPost>
 </div>
 
 
 <div  *ngIf="tapRouteVal==='Photos'" >
-    <viewPost></viewPost>
+    <viewPost *ngFor="let post  of service.user.post" [data]='post' ></viewPost>
 </div>
 
 
