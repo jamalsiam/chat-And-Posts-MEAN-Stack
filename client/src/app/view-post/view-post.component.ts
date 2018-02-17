@@ -10,6 +10,7 @@ export class ViewPostComponent implements OnInit {
   @Input() data: any;
   btnFollowText=""
   deleteCss:string;
+  share:string="Share"
   constructor(public service:DataService) {
     
   }
@@ -44,7 +45,11 @@ export class ViewPostComponent implements OnInit {
     console.log(postId);
   }
   sharePost(newPost){
-    console.log(newPost);
+    this.service.sharePost({_id:this.service.user.id,
+      postContent:newPost})
+   .subscribe(res =>{
+    this.share="Shared"
+   })
   }
   ngOnInit() {
     this.checkIfFollow(this.data.userId);
