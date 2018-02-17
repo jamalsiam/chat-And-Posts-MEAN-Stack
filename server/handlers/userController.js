@@ -67,8 +67,7 @@ module.exports = {
     },
     postData:function(req, res) {
     
-        console.log(req.body)
-        res.json('ss')
+     
     },
     signUpAsGuest:(req, res) => {
         let randomId = Math.floor(Math.random() * (9000000000 - 1000000000) ) + 1000000000;

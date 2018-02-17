@@ -19,6 +19,7 @@ app.post('/api/post/deletepost',handlers.handelPost.deletePost);
 
 
 
+
 //comment APIs
 app.post('/api/comment/putcomment',handlers.handelComment.putComment);
 app.post('/api/comment/deletecomment',handlers.handelComment.deleteComment);
@@ -29,4 +30,8 @@ app.post('/api/like/putlike',handlers.handelLike.putLike);
 
 //message APIs
 app.post('/api/message/message',handlers.handelMessage.sendMessage);
+
+//follow APIs
+app.post('/api/follow/checkiffollow',handlers.handelFollow.checkIfFollow);
+app.post('/api/follow/addorremovefollow',handlers.handelFollow.follow);
 

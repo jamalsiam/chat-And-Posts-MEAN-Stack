@@ -93,4 +93,20 @@ export class DataService {
     return this.http.get('/api/post/randomSuggest').map(res => res.json());
   
   }
+  checkIfFollow(record){ 
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/follow/checkiffollow', record, {headers: headers}).map(res => res.json());
+  }
+  
+  follow(record){ 
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/follow/addorremovefollow', record, {headers: headers}).map(res => res.json());
+  }
+  
 }

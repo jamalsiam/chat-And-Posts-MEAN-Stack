@@ -23,30 +23,19 @@ export class ViewPostComponent implements OnInit {
   }
 
   checkIfFollow(id){
-    for(let i=0;i<this.service.user.follow.following;i++){
-      if(this.service.user.follow.following[i]==id){
-        
-        this.btnFollowText="Unfolow";  
-      }
-      
-    }
-    this.btnFollowText="Follow";
+    console.log({followerId: id, followingId:this.service.user.id+"++ME"})
+    this.service.checkIfFollow({followerId: id, followingId:this.service.user.id})
+    .subscribe(res=>{
+      this.btnFollowText=res.data;
+    })
   }
-  follow(id){
-    for(let i=0;i<this.service.user.follow.following;i++){
-      if(this.service.user.follow.following[i]==id){
-        this.service.user.follow.following[i].splice(i,i+1)
-        this.btnFollowText="Follow";
-      }
-      else
-      {
-        this.btnFollowText="Unfollow";
-        this.service.user.follow.following.push({followerId:id, followingId:this.service.user.id})
-      }
-      
-    }
-    
+
+  follow(id){  
+   this.service.follow({followerId: id, followingId:this.service.user.id }).subscribe(res =>{
+    this.btnFollowText=res.data;
+   })
   } 
+   
   
   viewProfile(userId:string){
     console.log(userId);

@@ -29,7 +29,7 @@ module.exports = {
          })
     },
     getFollowingPosts:(req, res)=>{
-        console.log(req.body)
+        
     },
     randomSuggest:(req, res) => {
        model.Post.count().exec(function (err, count) {
@@ -49,7 +49,6 @@ module.exports = {
     },
     deletePost:(req, res) => {
         let {postId,userId} = req.body;
-        console.log({postId,userId})
         model.Post.remove({ _id:postId,userId:userId }, function (err) {
             if (err) return handleError(err);
             res.json({data:"Deleted"})

@@ -1,7 +1,7 @@
 <sharePost></sharePost>
 
 
-<div *ngIf="randomSuggestPost">
+<div *ngIf="!randomSuggestPost==[]">
     <hr>
     <p class="randomSuggestPostTEXT">Random Suggest...</p>
     <viewPost *ngFor="let post of randomSuggestPost" [data]='post'  ></viewPost>
