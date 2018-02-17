@@ -4,8 +4,9 @@
     <tr>
       <td class="td20">
           <div class="imgPosterContainer">
-              <img class="imgPoster" src="assets/profile.jpg" alt="qqqqqqq">
-            </div>
+              <img class="imgPoster" *ngIf="service.user.userInfo.image" src='data:image/jpeg;base64,{{service.user.userInfo.image}}' >
+              <img class="imgPoster" *ngIf="!service.user.userInfo.image" src="assets/profile.png" >
+          </div>
       </td>
 
 

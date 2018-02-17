@@ -27,6 +27,33 @@ module.exports = {
          .then((data) => {
             res.json({status:"success", data})
          })
+    },
+    getFollowingPosts:(req, res)=>{
+        console.log(req.body)
+    },
+    randomSuggest:(req, res) => {
+       model.Post.count().exec(function (err, count) {
+
+            // Get a random entry
+            var random = Math.floor(Math.random() * count)
+          
+            // Again query all users but only fetch one offset by our random #
+            model.Post.findOne().skip(random).exec(
+              function (err, result) {
+                // Tada! random user
+                model.User.findOne({_id:result.userId}).then((userInfo)=>{
+                    res.json({post:result,user:userInfo})
+                })
+              })
+          })
+    },
+    deletePost:(req, res) => {
+        let {postId,userId} = req.body;
+        console.log({postId,userId})
+        model.Post.remove({ _id:postId,userId:userId }, function (err) {
+            if (err) return handleError(err);
+            res.json({data:"Deleted"})
+        });
     }
 };
 

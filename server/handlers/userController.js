@@ -56,10 +56,9 @@ module.exports = {
                 model.Post.find({userId})
                 .sort('-_id')
                 .then((post)=>{
-                    model.Follow.count({followerId:userId},(err,follower)=>{
-                        model.Follow.count({followingId:userId},(err,following)=>{
+                    model.Follow.find({followerId:userId},(err,follower)=>{
+                        model.Follow.find({followingId:userId},(err,following)=>{
                             res.json({status:"success",userInfo:data,id:userId,post:post,follow:{follower,following}})
-                            console.log({status:"success",userInfo:data,id:userId,post:post,follow:{follower,following}})
                         })
                     })
                 })

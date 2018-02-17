@@ -9,6 +9,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 export class DataService {
   
    user:any;
+   followingPost:any;
   constructor(private http: Http, public storage: LocalStorageService) {
     this.user={id:null, post:[] ,userInfo:{},follow:{}}
     if(this.storage.get('chatUserId') !== null || this.storage.get('chatUserId') !== undefined){
@@ -65,6 +66,7 @@ export class DataService {
   signOut(){
     this.storage.remove('chatUserId');
     this.user={};
+    this.followingPost=[];
   }
   sharePost (record)  { 
     let headers: Headers;
@@ -72,5 +74,23 @@ export class DataService {
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/post/sharepost', record, {headers: headers}).map(res => res.json());
+  }
+  getFollowingPosts (record)  { 
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/post/getFollowingPosts', record, {headers: headers}).map(res => res.json());
+  }
+  deletePost(record)  { 
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/post/deletepost', record, {headers: headers}).map(res => res.json());
+  }
+  randomSuggest()  { 
+    return this.http.get('/api/post/randomSuggest').map(res => res.json());
+  
   }
 }

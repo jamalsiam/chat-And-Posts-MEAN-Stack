@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 export class SharePostComponent implements OnInit {
   textPost:string;
   photoPost:string;
-  constructor( private service:DataService) { }
+  constructor( public service:DataService) { }
   sharePost(){
    
 

@@ -1,13 +1,15 @@
-<div class="cover"> </div>
+<div class="cover" *ngIf="!service.user.userInfo.cover" ></div>
+<div class="cover" *ngIf="service.user.userInfo.cover"  style="background: url('data:image/jpeg;base64,{{service.user.userInfo.cover}}' ) no-repeat center center ; "></div>
 <div class="image-profile-container">
-    <img src="assets/profile.jpg" alt="qqqqqqq">
+    <img *ngIf="service.user.userInfo.image" src='data:image/jpeg;base64,{{service.user.userInfo.image}}' >
+    <img *ngIf="!service.user.userInfo.image" src="assets/profile.png" >
 </div>
 <div class="short_info">
-    <span>Jamal siam</span>
+    <span>{{service.user.userInfo.username}}</span>
     <br>
-    <div class="follow"><p>{{service.user.follow.follower}} <br> Follower</p></div>  
+    <div class="follow"><p>{{service.user.follow.follower.length}} <br> Follower</p></div>  
     
-    <div class="follow"><p>{{service.user.follow.following}} <br> Following</p></div>  
+    <div class="follow"><p>{{service.user.follow.following.length}} <br> Following</p></div>  
     
 </div>
 
@@ -29,7 +31,10 @@
 
 
 <div  *ngIf="tapRouteVal==='Photos'" >
-    <viewPost *ngFor="let post  of service.user.post" [data]='post' ></viewPost>
+    <div *ngFor="let post  of service.user.post" >
+        <viewPost  [data]='post'></viewPost>
+    </div>    
+    
 </div>
 
 

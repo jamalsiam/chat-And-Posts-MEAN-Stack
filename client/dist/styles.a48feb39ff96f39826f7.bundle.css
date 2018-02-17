@@ -1,3 +1,0 @@
-/* You can add global styles to this file, and also import other style files */body *{outline:none}body{
-  /*  margin: 0;
-    padding: 0 */padding-left:200px;padding-top:40px;background:#fafafb}.haveId app-aside-bar,.haveId app-header{display:block}.haventId app-aside-bar,.haventId app-header{display:none}.haveId .content{margin-left:200px;margin-right:200px}@media (max-width:1000px){aside{width:100px!important}.haveId .content{margin-left:100px;margin-right:100px}}@media (max-width:768px){aside{width:75px!important}.haveId .content{margin-left:75px;margin-right:75px}}@media (max-width:400px){aside{width:50px!important}.haveId .content{margin-left:0;margin-right:0}}

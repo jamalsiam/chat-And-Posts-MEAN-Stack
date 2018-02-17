@@ -3,10 +3,10 @@ body *{
     outline: none;
 }
 body {
-  /*  margin: 0;
-    padding: 0 */
-    padding-left: 200px;
-    padding-top: 40px;
+   margin: 0;
+    padding: 0 ;    
+/* padding-left: 200px;
+    padding-top: 40px; */
     background: #fafafb;
 }
 
@@ -35,7 +35,7 @@ body {
     
 .haveId .content{
     margin-left: 100px;
-    margin-right: 100px;
+    margin-right: 0px;
 }
 }
 
@@ -47,7 +47,11 @@ body {
     
     .haveId .content{
         margin-left: 75px;
-        margin-right: 75px;
+        margin-right: 0px;
+    }
+    
+    .post{
+        width: 80%!important;
     }
 }
 @media (max-width: 400px) {
@@ -57,5 +61,8 @@ body {
     .haveId .content{
         margin-left: 0px;
         margin-right: 0px;
+    }
+    .post{
+        width: 90%!important;
     }
 }

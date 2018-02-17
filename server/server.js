@@ -13,6 +13,11 @@ app.post('/api/post/sharepost',handlers.handelPost.sharePost);
 app.post('/api/post/deletepost',handlers.handelPost.deletePost);
 app.post('/api/post/getprofilepost',handlers.handelPost.getProfilePost);
 app.post('/api/post/getonepost',handlers.handelPost.getOnePost);
+app.post('/api/post/getFollowingPosts',handlers.handelPost.getFollowingPosts);
+app.get('/api/post/randomSuggest',handlers.handelPost.randomSuggest);
+app.post('/api/post/deletepost',handlers.handelPost.deletePost);
+
+
 
 //comment APIs
 app.post('/api/comment/putcomment',handlers.handelComment.putComment);

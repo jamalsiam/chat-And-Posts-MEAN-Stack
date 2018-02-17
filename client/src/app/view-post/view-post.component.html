@@ -1,8 +1,17 @@
 
-<div class="post">
+<div class="post {{deleteCss}}">
+
+  <p class="post-tool" *ngIf="service.user.id===data.userId" (click)="deletePost(data.userId,data._id)"><span class="glyphicon glyphicon-remove"></span></p>
+
+
+  <p class="post-tool" *ngIf="service.user.id!==data.userId" (click)="follow(data.userId)" ><span class="glyphicon glyphicon-remove-sign"></span>{{btnFollowText}} </p>
+  
+
   <div class="userpart" (click)="viewProfile(data.userId)" >
-    <img src="data:image/jpeg;base64,{{data.imageUser ||''}}" class="userImage" alt="">
-    <div>
+    <img class="userImage" *ngIf="data.imageUser" src="data:image/jpeg;base64,{{data.imageUser ||''}}" class="userImage" alt="">
+    <img class="userImage" *ngIf="!data.imageUser" src="assets/profile.png" >
+
+    <div class="userName-date">
       <p class="userName" >{{data.username}} </p>
       <a class="date">{{data.date}}</a>
     </div>
@@ -32,3 +41,4 @@
   </div>
   <div class="clearfix"></div>
 </div>
+<div class="clearfix"></div>
