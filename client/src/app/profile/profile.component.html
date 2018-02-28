@@ -7,9 +7,9 @@
 <div class="short_info">
     <span>{{service.user.userInfo.username}}</span>
     <br>
-    <div class="follow"><p>{{service.user.follow.follower.length}} <br> Follower</p></div>  
+    <div class="follow"><p>{{service.user.follow.follower.length }} <br> Follower</p></div>  
     
-    <div class="follow"><p>{{service.user.follow.following.length}} <br> Following</p></div>  
+    <div class="follow"><p>{{service.user.follow.following.length }} <br> Following</p></div>  
     
 </div>
 
@@ -32,7 +32,7 @@
 
 <div  *ngIf="tapRouteVal==='Photos'" >
     <div *ngFor="let post  of service.user.post" >
-        <viewPost  [data]='post'></viewPost>
+        <viewImage  [data]='post'></viewImage>
     </div>    
     
 </div>

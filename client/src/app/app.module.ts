@@ -17,6 +17,7 @@ import { SharePostComponent } from './share-post/share-post.component';
 import { ViewPostComponent } from './view-post/view-post.component';
 import { AboutComponent } from './about/about.component';
 import { OriginalPostComponent } from './original-post/original-post.component';
+import { ViewImageComponent } from './view-image/view-image.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OriginalPostComponent } from './original-post/original-post.component';
     SharePostComponent,
     ViewPostComponent,
     AboutComponent,
-    OriginalPostComponent
+    OriginalPostComponent,
+    ViewImageComponent
   ],
   imports: [
     BrowserModule,

@@ -2,19 +2,20 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const url=require('url');
+const url = require('url');
 const mongoose = require('mongoose');
 let handlers = require('./handlers');
+
 
 //middleware
 //app.use(express.static(__dirname + '/../client/dist'));
 app.use('/', express.static(__dirname + '/../client/dist'));
-app.use(bodyParser.json({limit: '2mb'}));
-app.use(bodyParser.urlencoded({limit: '2mb', extended: true}));
+app.use(bodyParser.json({ limit: '2mb' }));
+app.use(bodyParser.urlencoded({ limit: '2mb', extended: true }));
 
-app.all('*',function (req,res,next) {
-    var route= req.originalUrl.split('/');
-    if(route[1]!=='api'){
+app.all('*', function (req, res, next) {
+    var route = req.originalUrl.split('/');
+    if (route[1] !== 'api') {
         app.use(req.originalUrl, express.static(__dirname + '/../client/dist'));
     }
     next();
@@ -31,5 +32,5 @@ app.listen(process.env.PORT || 8000);
 console.log('Running on port 8000...');
 
 
-module.exports =app;
-module.exports.handlers=handlers;
+module.exports = app;
+module.exports.handlers = handlers;

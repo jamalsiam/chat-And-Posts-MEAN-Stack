@@ -7,16 +7,16 @@ import { DataService } from '../data.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  tapRouteVal:string="Posts";
-  p:string='sq';
-  constructor(public service:DataService) {
-console.log(this.service.user)
-    
-   }
-  routeTabs(a:string){
-     this.tapRouteVal=a;
+  tapRouteVal: String = 'Posts';
+  p: String = 'sq';
+  constructor(public service: DataService) {  }
+
+  routeTabs(a: string) {
+    this.tapRouteVal = a;
   }
-  
-  ngOnInit() {}
+
+  ngOnInit() {
+    console.log(this.service.user, 'from base');
+   }
 
 }

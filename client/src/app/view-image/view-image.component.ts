@@ -3,11 +3,11 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector:  'viewPost',
-  templateUrl: './view-post.component.html',
-  styleUrls: ['./view-post.component.css']
+  selector: 'viewImage',
+  templateUrl: './view-image.component.html',
+  styleUrls: ['./view-image.component.css']
 })
-export class ViewPostComponent implements OnInit {
+export class ViewImageComponent implements OnInit {
   @Input() data: any;
   btnFollowText = '';
   deleteCss: string;

@@ -1,4 +1,4 @@
-<div class="post {{deleteCss}}">
+<div *ngIf="data.postContent.image" class="post {{deleteCss}}">
 
   <p class="post-tool" *ngIf="service.user.id===data.userId " (click)="deletePost(data.userId,data._id)">
     <span class="glyphicon glyphicon-remove"></span>
@@ -25,8 +25,7 @@
     </p>
 
     <div [class.displaynone]="data.postContent.image == '' ||  data.postContent.image == undefined">
-      <img src="data:image/jpeg;base64,{{data.postContent.image ||''}}" [class.postImageWithText]="data.postContent.text !== '' ||  data.postContent.text !== undefined"
-        [class.postImageWithoutText]="data.postContent.text === '' || data.postContent.text === undefined">
+      <img src="data:image/jpeg;base64,{{data.postContent.image ||''}}" class="postImageWithoutText">
     </div>
   </span>
   <hr>
