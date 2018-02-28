@@ -13,6 +13,10 @@
     margin: 12px auto -13px;
     color: #888888;
 }
+.image-profile-container{
+    margin: auto;
+    width: fit-content;
+}
 .image-profile-container img{
     height: 167px;
     margin: auto;
@@ -23,6 +27,41 @@
     box-shadow: 0 0 16px 0 #000;
     border: 5px solid #fff;
     border-radius: 6px;
+}
+
+.image-profile-container:hover .change-image-profile-container{
+    opacity: 1;
+     
+ 
+}
+
+
+
+.change-image-profile-container{
+    height: 167px;
+    margin: auto;
+    width: 167px;
+    position: relative;
+    margin-top: -167px;
+    z-index: 11;
+    border: 5px solid #fff;
+    border-radius: 6px;
+    opacity: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff00), to(#001527fc));
+    background: linear-gradient(#ffffff00, #001527fc);
+    transition: all .4s ease;
+}
+
+
+.change-image-profile-container label {
+    bottom: 0px;
+    right: 6px;
+    position: absolute;
+    background: #00509654;
+    color: white;
+    border: 1px solid #6f6f6f70;
+    width: auto;
+    zoom: 0.8;
 }
 
 .follow{

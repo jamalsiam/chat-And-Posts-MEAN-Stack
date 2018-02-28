@@ -7,34 +7,38 @@ import { DataService } from '../data.service';
   styleUrls: ['./share-post.component.css']
 })
 export class SharePostComponent implements OnInit {
-  textPost:string;
-  photoPost:string;
-  constructor( public service:DataService) { }
-  sharePost(){
-   
+  textPost: string;
+  photoPost: string;
+  constructor(public service: DataService) { }
+  sharePost() {
 
 
-    this.service.sharePost({_id:this.service.user.id,
-       postContent:{
-         text:this.textPost,
-         image:this.photoPost}})
-    .subscribe(res =>{
 
-      let oldPosts=this.service.user['post'];
-      let newPost=[{userId: this.service.user.id, 
-        postContent: {text: this.textPost,image: this.photoPost},
-        id_: '',
-        date: 'Just Now',
-        like: 0,
-        comment: 0,
-        imageUser:this.service.user.userInfo.photo,
-        username:this.service.user.userInfo.username
-      }];
-      
-      this.service.user.post=newPost.concat(oldPosts);
-      this.textPost='';
-      this.photoPost='';
+    this.service.sharePost({
+      _id: this.service.user.id,
+      postContent: {
+        text: this.textPost,
+        image: this.photoPost
+      }
     })
+      .subscribe(res => {
+
+        let oldPosts = this.service.user['post'];
+        let newPost = [{
+          userId: this.service.user.id,
+          postContent: { text: this.textPost, image: this.photoPost },
+          id_: '',
+          date: 'Just Now',
+          like: 0,
+          comment: 0,
+          imageUser: this.service.user.userInfo.photo,
+          username: this.service.user.userInfo.username
+        }];
+
+        this.service.user.post = newPost.concat(oldPosts);
+        this.textPost = '';
+        this.photoPost = '';
+      });
   }
   handleFileSelect(evt) {
     const files = evt.target.files;
@@ -50,7 +54,7 @@ export class SharePostComponent implements OnInit {
   _handleReaderLoaded(readerEvt) {
     const binaryString = readerEvt.target.result;
     this.photoPost = btoa(binaryString);
-  
+
   }
   ngOnInit() {
   }

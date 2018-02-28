@@ -12,7 +12,7 @@
 
       <td class="td80">
           <div class="textAreaContainer"> 
-              <textarea class="form-control" [(ngModel)]='textPost' placeholder="What's On Your Mind, Jamal? "   rows="5" id="comment"></textarea> 
+              <textarea class="form-control" [(ngModel)]='textPost' placeholder="What's On Your Mind, {{service.user.userInfo.username}}? "   rows="5" id="comment"></textarea> 
             </div>
       </td>
     </tr>

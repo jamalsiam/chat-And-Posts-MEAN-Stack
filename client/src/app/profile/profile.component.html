@@ -3,6 +3,15 @@
 <div class="image-profile-container">
     <img *ngIf="service.user.userInfo.image" src='data:image/jpeg;base64,{{service.user.userInfo.image}}' >
     <img *ngIf="!service.user.userInfo.image" src="assets/profile.png" >
+    <div class="change-image-profile-container">
+            <form class="float-left" id="test_form" method="GET" action="">
+                    <label id="pic1">
+                            <span class="glyphicon glyphicon-picture"> </span>
+                            Change 
+                      <input type="file" id="filePicker" (change)="handleFileSelect($event)">
+                    </label>
+                  </form>
+    </div>
 </div>
 <div class="short_info">
     <span>{{service.user.userInfo.username}}</span>

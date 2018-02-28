@@ -43,8 +43,8 @@ table{
     box-shadow: 0px 0px 110px 1px #242406;
 }
 .post .imgPoster{
-    max-width: 60px;
-    max-height: 60px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     box-shadow: 0px 0px 0px 1px #88888859;
 }
