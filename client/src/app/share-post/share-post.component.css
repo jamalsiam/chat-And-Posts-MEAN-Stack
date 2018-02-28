@@ -31,6 +31,8 @@ table{
     padding: 8px 16px;
     border: none;
     background: #fafafb;
+    resize: none;
+    box-shadow: 0px 0px 1px 0px #cca2a2;
 }
 
 .post .textAreaContainer textarea:focus{
@@ -64,12 +66,6 @@ table{
     width: 90%;
     margin: auto;
     display: block;
-}
-input[type=file] {
-    display: inline;
-    color: transparent;
-    width: 91px;
-    height: 20px;
 }
 .clearFix{
     clear: both;

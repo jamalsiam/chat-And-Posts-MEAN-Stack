@@ -66,3 +66,21 @@ body {
         width: 90%!important;
     }
 }
+
+input[type=file] {
+    display: none;
+  }
+  
+  label {
+    border: 1px solid white;
+    /* text-align: center; */
+    color: #4073ad;
+    border-radius: 4px;
+    /* margin: auto; */
+    width: 24px;
+    height: 24px;
+    padding: 2px 4px;
+    display: block;
+    background-color: #e8e8d2;
+    cursor: pointer;
+  }

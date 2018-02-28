@@ -22,10 +22,13 @@
       <img   src='data:image/jpeg;base64,{{photoPost}}' >
   </div>
   <div class="marginTop10">
-      <a class="float-left"> <span class="glyphicon glyphicon-picture"> </span>
-        <input type="file" id="filePicker" (change)="handleFileSelect($event)"  > 
-        
-    </a>
+        <form class="float-left" id="test_form" method="GET" action="">
+                <label id="pic1">
+                        <span class="glyphicon glyphicon-picture"> </span> 
+                  <input type="file" id="filePicker" (change)="handleFileSelect($event)"  >
+              
+                </label>
+              </form>
   <button class="float-right btn btn-primary" [disabled]=' !textPost && !photoPost ' (click)="sharePost()" >Post</button>  
     </div>
 </div>
