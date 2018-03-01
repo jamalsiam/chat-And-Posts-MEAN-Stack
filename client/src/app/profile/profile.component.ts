@@ -28,11 +28,11 @@ export class ProfileComponent implements OnInit {
   _handleReaderLoadedImage(readerEvt) {
     const binaryString = readerEvt.target.result;
     this.service.user.userInfo['image'] = btoa(binaryString);
-  this.service.changeProfileImage({}).subscribe(res => {
-    this.service.user.userInfo['image'] = btoa(binaryString);
-  });
+    this.service.changeProfileImage({ image: btoa(binaryString), _id: this.service.user.id }).subscribe(res => {
+      this.service.user.userInfo['image'] = btoa(binaryString);
+    });
   }
- /*END Change image profile*/
+  /*END Change image profile*/
 
   /*Change cover profile*/
   handleFileSelectCover(evt) {
@@ -47,9 +47,12 @@ export class ProfileComponent implements OnInit {
   _handleReaderLoadedCover(readerEvt) {
     const binaryString = readerEvt.target.result;
     this.service.user.userInfo['cover'] = btoa(binaryString);
+    this.service.changeProfileCover({ cover: btoa(binaryString), _id: this.service.user.id }).subscribe(res => {
+      this.service.user.userInfo['cover'] = btoa(binaryString);
+    });
 
   }
-/*END Change cover profile*/
+  /*END Change cover profile*/
 
   ngOnInit() {
 

@@ -116,5 +116,12 @@ export class DataService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/user/changeprofileimage', record, { headers: headers }).map(res => res.json());
   }
+  changeProfileCover(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/user/changeprofilecover', record, { headers: headers }).map(res => res.json());
+  }
 
 }

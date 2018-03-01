@@ -1,7 +1,5 @@
 <div>
-    <div class="cover" *ngIf="!service.user.userInfo.cover"></div>
-    <div class="cover" *ngIf="service.user.userInfo.cover" [ngStyle]="{background: 'url(data:image/jpeg;base64,' + service.user.userInfo.cover + ')  no-repeat  center'}"></div>
-    <div class="change-cover-profile-container">
+    <div class="cover" *ngIf="!service.user.userInfo.cover">
         <form method="GET">
             <label id="pic1">
                 <span class="glyphicon glyphicon-picture"> </span> <span class="cover-changer">Change Cover</span> 
@@ -9,7 +7,15 @@
             </label>
         </form>
     </div>
-
+    <div class="cover" *ngIf="service.user.userInfo.cover" [ngStyle]="{background: 'url(data:image/jpeg;base64,' + service.user.userInfo.cover + ')  no-repeat  center'}">
+        <form method="GET">
+            <label id="pic1">
+                <span class="glyphicon glyphicon-picture"> </span> <span class="cover-changer">Change Cover</span> 
+                <input type="file" id="filePicker" (change)="handleFileSelectCover($event)">
+            </label>
+        </form>
+    </div>
+  
 </div>
 <div class="image-profile-container">
     <img *ngIf="service.user.userInfo.image" src='data:image/jpeg;base64,{{service.user.userInfo.image}}'>

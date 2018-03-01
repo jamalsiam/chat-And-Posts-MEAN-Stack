@@ -7,6 +7,7 @@ app.post('/api/user/signin', handlers.handelUser.signIn);
 app.post('/api/user/getuserinfo',handlers.handelUser.getUserInfo);
 app.post('/api/user/postdata',handlers.handelUser.postData);
 app.get('/api/user/signupasguest',handlers.handelUser.signUpAsGuest);
+app.post('/api/user/changeprofileimage',handlers.handelUser.changeProfileImage);
 
 //post APIs
 app.post('/api/post/sharepost',handlers.handelPost.sharePost);

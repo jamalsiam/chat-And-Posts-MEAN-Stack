@@ -5,17 +5,11 @@
     background-size: cover!important;
     min-height: 300px;
     background-color: #001527;
+    position: relative
 }
 
-.change-cover-profile-container{
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    top: 0px;
-    opacity: 0;
-    transition: all .4s ease;  
-}
-.change-cover-profile-container label{
+ 
+.cover label{
     position: absolute;
     background: #00509654;
     color: white;
@@ -23,10 +17,11 @@
     width: auto;
     zoom: 0.8;
     right: 68px;  
-    bottom: 14px;  
+    bottom: 14px;
+    opacity: 0;  
 }
 
-.change-cover-profile-container:hover  {
+.cover:hover  label {
     opacity: 1;
 }
 
@@ -38,6 +33,10 @@
 .image-profile-container{
     margin: auto;
     width: fit-content;
+}
+.image-profile-container{
+    z-index: 33;
+    position: relative;
 }
 .image-profile-container img{
     height: 167px;
