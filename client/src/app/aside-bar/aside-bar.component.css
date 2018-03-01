@@ -3,9 +3,25 @@ aside{
     width: 200px;
     height: 100vh;
     float: left;
+    position: relative;
+    border-right: 1px solid #d5d5d5;
 }
 
 .Index0{
-    z-index: 0;
+    z-index: 40;
     position: fixed;
+}
+.side-btn{
+    position: absolute;
+    right: -12px;
+    top: 41px;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    text-align: center;
+    background: #79a7cf;
+    box-shadow: 0px 0px 9px 1px #888888;
+    color: white;
+    padding: 3px;
+    cursor: pointer;
 }

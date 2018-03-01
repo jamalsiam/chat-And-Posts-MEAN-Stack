@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
       .subscribe(res => {
         this.randomSuggestPost.push({
           userId: res.user._id,
-          imageUser: res.user.imageUser,
+          imageUser: res.user.image,
           username: res.user.username,
           date: res.post.date,
           postContent: res.post.postContent,

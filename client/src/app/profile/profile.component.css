@@ -11,7 +11,7 @@
  
 .cover label{
     position: absolute;
-    background: #00509654;
+    background: #0050964f;
     color: white;
     border: 1px solid #6f6f6f70;
     width: auto;
@@ -19,6 +19,9 @@
     right: 68px;  
     bottom: 14px;
     opacity: 0;  
+}
+.cover label:hover{
+    background: #5f9dd375;
 }
 
 .cover:hover  label {
@@ -46,15 +49,14 @@
     display: block;
     -webkit-box-shadow: 0 0 16px 0 #000;
     box-shadow: 0 0 16px 0 #000;
-    border: 5px solid #fff;
+    /* border: 5px solid #fff; */
     border-radius: 6px;
 }
 
 .image-profile-container:hover .change-image-profile-container{
     opacity: 1;
 }
-
-
+ 
 
 .change-image-profile-container{
     height: 167px;
