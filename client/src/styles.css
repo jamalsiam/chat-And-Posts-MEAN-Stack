@@ -53,6 +53,12 @@ body {
     .post{
         width: 80%!important;
     }
+    .change-cover-profile-container label{
+        right: 20px!important;
+    }
+    .cover-changer{
+        display: none;
+    }
 }
 @media (max-width: 400px) {
     aside{
@@ -65,6 +71,7 @@ body {
     .post{
         width: 90%!important;
     }
+
 }
 
 input[type=file] {

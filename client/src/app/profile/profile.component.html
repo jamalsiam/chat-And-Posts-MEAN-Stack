@@ -1,52 +1,77 @@
-<div class="cover" *ngIf="!service.user.userInfo.cover" ></div>
-<div class="cover" *ngIf="service.user.userInfo.cover"  style="background: url('data:image/jpeg;base64,{{service.user.userInfo.cover}}' ) no-repeat center center ; "></div>
+<div>
+    <div class="cover" *ngIf="!service.user.userInfo.cover"></div>
+    <div class="cover" *ngIf="service.user.userInfo.cover" [ngStyle]="{background: 'url(data:image/jpeg;base64,' + service.user.userInfo.cover + ')  no-repeat  center'}"></div>
+    <div class="change-cover-profile-container">
+        <form method="GET">
+            <label id="pic1">
+                <span class="glyphicon glyphicon-picture"> </span> <span class="cover-changer">Change Cover</span> 
+                <input type="file" id="filePicker" (change)="handleFileSelectCover($event)">
+            </label>
+        </form>
+    </div>
+
+</div>
 <div class="image-profile-container">
-    <img *ngIf="service.user.userInfo.image" src='data:image/jpeg;base64,{{service.user.userInfo.image}}' >
-    <img *ngIf="!service.user.userInfo.image" src="assets/profile.png" >
+    <img *ngIf="service.user.userInfo.image" src='data:image/jpeg;base64,{{service.user.userInfo.image}}'>
+    <img *ngIf="!service.user.userInfo.image" src="assets/profile.png">
     <div class="change-image-profile-container">
-            <form class="float-left" id="test_form" method="GET" action="">
-                    <label id="pic1">
-                            <span class="glyphicon glyphicon-picture"> </span>
-                            Change 
-                      <input type="file" id="filePicker" (change)="handleFileSelect($event)">
-                    </label>
-                  </form>
+        <form method="GET">
+            <label id="pic1">
+                <span class="glyphicon glyphicon-picture"> </span>
+                Change
+                <input type="file" id="filePicker" (change)="handleFileSelectImage($event)">
+            </label>
+        </form>
     </div>
 </div>
 <div class="short_info">
     <span>{{service.user.userInfo.username}}</span>
     <br>
-    <div class="follow"><p>{{service.user.follow.follower.length }} <br> Follower</p></div>  
-    
-    <div class="follow"><p>{{service.user.follow.following.length }} <br> Following</p></div>  
-    
+    <div class="follow">
+        <p>{{service.user.follow.follower.length }}
+            <br> Follower</p>
+    </div>
+
+    <div class="follow">
+        <p>{{service.user.follow.following.length }}
+            <br> Following</p>
+    </div>
+
 </div>
 
- 
+
 
 <ul class="nav nav-tabs">
-    <li (click)="routeTabs('Posts')" [class.active]="tapRouteVal === 'Posts'" ><a >Posts</a></li>
-    <li (click)="routeTabs('Photos')" [class.active]="tapRouteVal === 'Photos'" ><a>Photos</a></li>
-    <li (click)="routeTabs('About')" [class.active]="tapRouteVal === 'About'"  ><a>About</a></li>
-    <li><a></a></li>
-  </ul>
+    <li (click)="routeTabs('Posts')" [class.active]="tapRouteVal === 'Posts'">
+        <a>Posts</a>
+    </li>
+    <li (click)="routeTabs('Photos')" [class.active]="tapRouteVal === 'Photos'">
+        <a>Photos</a>
+    </li>
+    <li (click)="routeTabs('About')" [class.active]="tapRouteVal === 'About'">
+        <a>About</a>
+    </li>
+    <li>
+        <a></a>
+    </li>
+</ul>
 
 
-  <div  *ngIf="tapRouteVal=='Posts'">
-        <p class="writeapost">write a post:</p>
+<div *ngIf="tapRouteVal=='Posts'">
+    <p class="writeapost">write a post:</p>
     <sharePost></sharePost>
-    <viewPost *ngFor="let post  of service.user.post" [data]='post'  ></viewPost>
+    <viewPost *ngFor="let post  of service.user.post" [data]='post'></viewPost>
 </div>
 
 
-<div  *ngIf="tapRouteVal==='Photos'" >
-    <div *ngFor="let post  of service.user.post" >
-        <viewImage  [data]='post'></viewImage>
-    </div>    
-    
+<div *ngIf="tapRouteVal==='Photos'">
+    <div *ngFor="let post  of service.user.post">
+        <viewImage [data]='post'></viewImage>
+    </div>
+
 </div>
 
 
-<div  *ngIf="tapRouteVal==='About'">
+<div *ngIf="tapRouteVal==='About'">
     <About></About>
 </div>
