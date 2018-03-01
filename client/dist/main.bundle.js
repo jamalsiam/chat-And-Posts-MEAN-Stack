@@ -486,6 +486,13 @@ var DataService = /** @class */ (function () {
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/user/changeprofileimage', record, { headers: headers }).map(function (res) { return res.json(); });
     };
+    DataService.prototype.changeProfileCover = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/user/changeprofilecover', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3_angular_2_local_storage__["LocalStorageService"]])
@@ -801,8 +808,12 @@ var ProfileComponent = /** @class */ (function () {
         }
     };
     ProfileComponent.prototype._handleReaderLoadedCover = function (readerEvt) {
+        var _this = this;
         var binaryString = readerEvt.target.result;
         this.service.user.userInfo['cover'] = btoa(binaryString);
+        this.service.changeProfileCover({ cover: btoa(binaryString), _id: this.service.user.id }).subscribe(function (res) {
+            _this.service.user.userInfo['cover'] = btoa(binaryString);
+        });
     };
     /*END Change cover profile*/
     ProfileComponent.prototype.ngOnInit = function () {

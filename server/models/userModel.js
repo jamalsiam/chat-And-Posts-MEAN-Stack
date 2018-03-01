@@ -30,7 +30,11 @@ var UserSchema = new mongoose.Schema({
   image:{
     type:String,
     default:""
-  }
+  },
+  cover:{
+    type:String,
+    default:""
+  },
   
 });
 

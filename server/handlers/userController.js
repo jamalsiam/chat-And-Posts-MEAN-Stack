@@ -91,16 +91,20 @@ module.exports = {
     },
     changeProfileImage: (req, res) => {
         let { image, _id } = req.body;
-        console.log(_id)
-        //model.User.update({ image, _id }).then(() => {
 
-        //});
-        model.User.update({_id}, {
+        model.User.update({ _id }, {
             image
-        }, function(err, affected, resp) {
-           console.log(resp);
+        }, function (err, affected, resp) {
+            res.json({ status: 'succses' })
         })
-         
-    
-}
+    },
+    changeProfileCover: (req, res) => {
+        let { cover, _id } = req.body;
+
+        model.User.update({ _id }, {
+            cover
+        }, function (err, affected, resp) {
+            res.json({ status: 'succses' })
+        })
+    }
 }

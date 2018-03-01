@@ -8,6 +8,8 @@ app.post('/api/user/getuserinfo',handlers.handelUser.getUserInfo);
 app.post('/api/user/postdata',handlers.handelUser.postData);
 app.get('/api/user/signupasguest',handlers.handelUser.signUpAsGuest);
 app.post('/api/user/changeprofileimage',handlers.handelUser.changeProfileImage);
+app.post('/api/user/changeprofilecover',handlers.handelUser.changeProfileCover);
+
 
 //post APIs
 app.post('/api/post/sharepost',handlers.handelPost.sharePost);
@@ -17,8 +19,6 @@ app.post('/api/post/getonepost',handlers.handelPost.getOnePost);
 app.post('/api/post/getFollowingPosts',handlers.handelPost.getFollowingPosts);
 app.get('/api/post/randomSuggest',handlers.handelPost.randomSuggest);
 app.post('/api/post/deletepost',handlers.handelPost.deletePost);
-
-
 
 
 //comment APIs
