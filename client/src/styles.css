@@ -75,7 +75,18 @@ body {
     .post{
         width: 90%!important;
     }
+    .side-btn{
+        display: block!important;
+    }
 
+}
+
+@media(min-width: 401px){
+    .closed , .opened{
+        left: unset!important;
+        transition:unset!important;
+    }
+    
 }
 
 input[type=file] {

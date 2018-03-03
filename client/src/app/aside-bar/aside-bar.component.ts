@@ -6,9 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aside-bar.component.css']
 })
 export class AsideBarComponent implements OnInit {
-
+  changeSideBarStateVal: String = 'closed' ;
   constructor() { }
-
+  sideBarStateChanger () {
+    if ( this.changeSideBarStateVal === 'closed' ) {
+      this.changeSideBarStateVal = 'opened';
+    } else {
+      this.changeSideBarStateVal = 'closed';
+    }
+  }
   ngOnInit() {
   }
 

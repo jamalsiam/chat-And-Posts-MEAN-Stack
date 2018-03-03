@@ -24,4 +24,16 @@ aside{
     color: white;
     padding: 3px;
     cursor: pointer;
+    display: none;
+}
+.side-btn:hover{
+    background: #3f78ab;
+}
+.closed{
+    left: -50px;
+    transition: all 0.3s ease;
+}
+.opened{
+    left: 0px;
+    transition: all 0.3s ease;
 }
