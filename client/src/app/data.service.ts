@@ -131,5 +131,13 @@ export class DataService {
     return this.http.post('/api/user/changeprofileinfo', record, { headers: headers }).map(res => res.json());
 
   }
+  changeUserInterests(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/user/changeuserinterests', record, { headers: headers }).map(res => res.json());
+
+  }
 
 }

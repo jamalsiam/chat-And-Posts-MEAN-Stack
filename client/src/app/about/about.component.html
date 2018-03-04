@@ -117,7 +117,7 @@
     <div class="tableContainer">
         <hr>
 
-        <span class="interest"   *ngFor="let interest  of interests ;let indx = index"    >{{interest}} <span class="deleteInterest" (click)="deleteInterest(indx) ">x </span></span>
+        <span class="interest"   *ngFor="let interest  of service.user.userInfo.interests ;let indx = index"    >{{interest}} <span class="deleteInterest" (click)="deleteInterest(indx) ">x </span></span>
 
         <span class="interest"> <input type="text" class=" {{changeWidthInterestInputVal}}" placeholder="ADD" (click)="changeWidthInterestInput()" [(ngModel)]="newInterest"> <span class="addInterest glyphicon glyphicon-plus " (click)="addInterest() ">  </span></span>
     </div>

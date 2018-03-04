@@ -17,22 +17,29 @@ export class AboutComponent implements OnInit {
   gender: string;
   birth: string;
   newInterest: string;
-  interests = [];
+
   constructor(public service: DataService) {
 
   }
 
   deleteInterest(index) {
-    this.interests.splice(index, 1);
+    this.service.user.userInfo.interests.splice(index, 1);
+    this.service.changeUserInterests({ _id: this.service.user.id, interests: this.service.user.userInfo.interests }).subscribe(res => {
+      if (res.status === 'succses') {}
+    });
   }
 
   addInterest() {
 
     if (this.newInterest) {
-      if (this.interests.indexOf(this.newInterest) === -1) {
-        this.interests.push(this.newInterest);
+      if (this.service.user.userInfo.interests.indexOf(this.newInterest) === -1) {
+        this.service.user.userInfo.interests.push(this.newInterest);
         this.newInterest = '';
-        this.changeWidthInterestInputVal = '';
+        this.service.changeUserInterests({ _id: this.service.user.id, interests: this.service.user.userInfo.interests }).subscribe(res => {
+          if (res.status === 'succses') {
+            this.changeWidthInterestInputVal = '';
+          }
+        });
       } else {
         this.changeWidthInterestInputVal = 'err-color';
       }
