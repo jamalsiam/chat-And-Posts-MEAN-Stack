@@ -1,5 +1,6 @@
 .aboutContainer{
     position: relative;
+    margin-bottom: 50px;
 }
 .settings{
     position: absolute;
@@ -14,9 +15,8 @@
     cursor: pointer;
 }
 .form-control{
-    width: unset;
     display: unset;
-    height: 25px;
+    height: 29px;
 }
 .headerData{
     color: #888888;
@@ -30,22 +30,96 @@
 }
 .data{
     display: inline;
+    padding-left: 20px;
 }
 .changeData{
     display: none;
+    padding-left: 20px;
     
+}
+.error-border{
+    border-color: red;
 }
 .saveChange{
     width: 100px;
     display: none;
     margin: 50px auto;
+    background: #163d5e;
+    color: white;
+    border: 1px solid #6f6f6f70;
+    border-radius: 2px;
+}
+.saveChange:hover{
+    background: #1d496e;
 }
 
-.field{
-    width: 80%;
-    margin: 20px auto;
+.saveChange:active{
+    background: #3776ac;
 }
-.field .title{}
+.tableContainer{
+    margin: auto;
+    width: 80%;
+}
+tr{
+    height: 45px;
+}
+.interest{
+    background: #8dd1fb;
+    height: 30px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0px 0px 2px 0px #888888;
+    margin: 5px;
+}
+.deleteInterest{
+    display: none;
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    background: #2e739e;
+    height: 14px;
+    width: 14px;
+    border-radius: 48%;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+    /* box-shadow: 0px 0px 1px 0px #888888; */
+}
+
+.interest:hover .deleteInterest{
+    display: block;
+}
+
+.addInterest{
+    position: absolute;
+    right: 4px;
+    top: 8px;
+    background: #2e739e;
+    height: 14px;
+    width: 14px;
+    border-radius: 48%;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 2px;
+    /* font-weight: 900; */
+}
+
+
+
+
+.interest input{
+    width: 30px;
+    background: #8dd1fb;
+    border: none;
+    height: 15px;
+}
+
+
 
 /* change Mode */
 

@@ -4,18 +4,125 @@
   </div>
   <div class="shortUserInfo">
     <p class="headerData">general information:</p>
+  
+    <div class="tableContainer">
+        <hr>
 
-    <div class="field">
-        <span>Name:</span>
-        <span class="data">jamal siam</span>
-        <span class="changeData">
-          <input type="text" class="form-control" value="dd">
-        </span>
+      <table>
+        <tr>
+          <td>
+            <span>Name:</span>
+          </td>
+          <td>
+            <span class="data">{{name}}</span>
+            <span class="changeData">
+              <input type="text" class="form-control" [ngClass]="{'error-border': !name}"
+              value="{{name}}" [(ngModel)]='name'>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>E-mail:</span>
+
+          </td>
+          <td>
+            <span class="data">{{email}}</span>
+            <span class="changeData">
+              <input type="text" class="form-control" value="{{email}}" disabled>
+            </span>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <span>Work at:</span>
+            </td>
+            <td>
+              <span class="data">{{work}}</span>
+              <span class="changeData">
+                <input type="text" class="form-control" value="{{work}}"  [(ngModel)]='work'>
+              </span>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <span>Lives in:</span>
+              </td>
+              <td>
+                <span class="data">{{location}}</span>
+                <span class="changeData">
+                  <input type="text" class="form-control" value="{{location}}" [(ngModel)]='location'>
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+                <td>
+                  <span>Gender:</span>
+                </td>
+                <td>
+                  <span class="data">{{gender}}</span>
+                  <span class="changeData">
+                  
+                      <select class="form-control" [(ngModel)]='gender' >
+                          <option value="unset">unset</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                  </span>
+
+                  
+                </td>
+              </tr>
+
+              <tr>
+                  <td>
+                    <span>Relationship:</span>
+                  </td>
+                  <td>
+                    <span class="data">{{relationship}}</span>
+                    <span class="changeData">
+                        <select class="form-control"  [(ngModel)]='relationship'>
+                            <option value="unset">unset</option>
+                            <option value="single">Single</option>
+                            <option value="inrelationship" >In Relationship</option>
+                            <option value="engaged" >Engaged</option>
+                            <option value="marriage" >Marriage</option>
+                          </select>
+                    </span>
+  
+                    
+                  </td>
+                </tr>
+                <tr>
+                    <td>
+                      <span> Birth Date:</span>
+                    </td>
+                    <td>
+                      <span class="data">{{birth}}</span>
+                      <span class="changeData">
+                          <input type="date" class="form-control" value="{{birth}}"  [(ngModel)]='birth' >
+                      </span>
+    
+                      
+                    </td>
+                  </tr>
+
+
+      </table>
     </div>
 
+    <p class="headerData">Interests Of:</p>
+    <div class="tableContainer">
+        <hr>
+
+        <span class="interest"   *ngFor="let interest  of interests ;let indx = index"    >{{interest}} <span class="deleteInterest" (click)="deleteInterest(indx) ">x </span></span>
+
+        <span class="interest"> <input type="text" placeholder="ADD" [(ngModel)]="newInterest"> <span class="addInterest glyphicon glyphicon-plus " (click)="addInterest(newInterest) ">  </span></span>
+
+
+    </div>
+    <button class="saveChange" (click)="saveChange()">dd </button>
   </div>
 
-
-  <button class="saveChange" (click)="saveChange()">dd </button>
-</div>
 

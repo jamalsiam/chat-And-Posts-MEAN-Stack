@@ -7,14 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
   changeDateVal: String = '';
-  constructor() { }
+  name: string;
+  email: string;
+  work: string;
+  location: string;
+  relationship: string;
+  gender: string;
+  birth: string;
+  newInterest: string;
+  interests = [];
+  constructor() {
+    this.interests = ['facebook', 'linkedin', 'rettweer', 'rettweer', 'rettweer', 'rettweer', 'rettweer', 'rettweer'];
+  }
 
-  ngOnInit() {
+  deleteInterest(index) {
+    this.interests.splice(index, 1);
+  }
+
+  addInterest() {
+     
+    if (this.newInterest) {
+      this.interests.push(this.newInterest);
+      this.newInterest = '';
+    }
   }
   changeDate() {
     this.changeDateVal = 'changeMode';
   }
-  saveChange(){
+  saveChange() {
     this.changeDateVal = '';
+  }
+  ngOnInit() {
   }
 }
