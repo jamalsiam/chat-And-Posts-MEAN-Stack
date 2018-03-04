@@ -1,6 +1,7 @@
 <div class="aboutContainer {{changeDateVal}}">
-  <div class="settings" (click)="changeDate()">
+  <div class="settings" (click)="changeData()">
     <span class="glyphicon glyphicon-cog"></span>
+    <p>Change</p>
   </div>
   <div class="shortUserInfo">
     <p class="headerData">general information:</p>
@@ -14,10 +15,10 @@
             <span>Name:</span>
           </td>
           <td>
-            <span class="data">{{name}}</span>
+            <span class="data">{{service.user.userInfo.username}}</span>
             <span class="changeData">
               <input type="text" class="form-control" [ngClass]="{'error-border': !name}"
-              value="{{name}}" [(ngModel)]='name'>
+              value="{{service.user.userInfo.username}}" [(ngModel)]='name'>
             </span>
           </td>
         </tr>
@@ -27,9 +28,9 @@
 
           </td>
           <td>
-            <span class="data">{{email}}</span>
+            <span class="data">{{service.user.userInfo.email}}</span>
             <span class="changeData">
-              <input type="text" class="form-control" value="{{email}}" disabled>
+              <input type="text" class="form-control" value="{{service.user.userInfo.email}}" disabled>
             </span>
           </td>
         </tr>
@@ -38,9 +39,9 @@
               <span>Work at:</span>
             </td>
             <td>
-              <span class="data">{{work}}</span>
+              <span class="data">{{service.user.userInfo.work || 'unset'}}</span>
               <span class="changeData">
-                <input type="text" class="form-control" value="{{work}}"  [(ngModel)]='work'>
+                <input type="text" class="form-control" value="{{service.user.userInfo.work || 'unset' }}"  [(ngModel)]='work'>
               </span>
             </td>
           </tr>
@@ -49,9 +50,9 @@
                 <span>Lives in:</span>
               </td>
               <td>
-                <span class="data">{{location}}</span>
+                <span class="data">{{service.user.userInfo.location || 'unset'}}</span>
                 <span class="changeData">
-                  <input type="text" class="form-control" value="{{location}}" [(ngModel)]='location'>
+                  <input type="text" class="form-control" value="{{service.user.userInfo.location}}" [(ngModel)]='location'>
                 </span>
               </td>
             </tr>
@@ -61,7 +62,7 @@
                   <span>Gender:</span>
                 </td>
                 <td>
-                  <span class="data">{{gender}}</span>
+                  <span class="data">{{service.user.userInfo.gender || 'unset'}}</span>
                   <span class="changeData">
                   
                       <select class="form-control" [(ngModel)]='gender' >
@@ -80,7 +81,7 @@
                     <span>Relationship:</span>
                   </td>
                   <td>
-                    <span class="data">{{relationship}}</span>
+                    <span class="data">{{service.user.userInfo.relationship || 'unset'}}</span>
                     <span class="changeData">
                         <select class="form-control"  [(ngModel)]='relationship'>
                             <option value="unset">unset</option>
@@ -99,9 +100,9 @@
                       <span> Birth Date:</span>
                     </td>
                     <td>
-                      <span class="data">{{birth}}</span>
+                      <span class="data">{{service.user.userInfo.birth || 'unset'}}</span>
                       <span class="changeData">
-                          <input type="date" class="form-control" value="{{birth}}"  [(ngModel)]='birth' >
+                          <input type="date" class="form-control" value="{{service.user.userInfo.birth}}"  [(ngModel)]='birth' >
                       </span>
     
                       
@@ -111,17 +112,16 @@
 
       </table>
     </div>
-
+    <span class="interests-container">
     <p class="headerData">Interests Of:</p>
     <div class="tableContainer">
         <hr>
 
         <span class="interest"   *ngFor="let interest  of interests ;let indx = index"    >{{interest}} <span class="deleteInterest" (click)="deleteInterest(indx) ">x </span></span>
 
-        <span class="interest"> <input type="text" placeholder="ADD" [(ngModel)]="newInterest"> <span class="addInterest glyphicon glyphicon-plus " (click)="addInterest(newInterest) ">  </span></span>
-
-
+        <span class="interest"> <input type="text" class=" {{changeWidthInterestInputVal}}" placeholder="ADD" (click)="changeWidthInterestInput()" [(ngModel)]="newInterest"> <span class="addInterest glyphicon glyphicon-plus " (click)="addInterest() ">  </span></span>
     </div>
+  </span>
     <button class="saveChange" (click)="saveChange()">dd </button>
   </div>
 

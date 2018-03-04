@@ -1,108 +1,106 @@
 /* You can add global styles to this file, and also import other style files */
-body *{
-    outline: none;
+
+body * {
+  outline: none;
 }
+
 body {
-   margin: 0;
-    padding: 0 ;    
-/* padding-left: 200px;
+  margin: 0;
+  padding: 0;
+  /* padding-left: 200px;
     padding-top: 40px; */
-    background: #fafafb;
+  background: #fafafb;
 }
 
-
-
-.haveId app-header , .haveId app-aside-bar{
-    display: block;
-}
-.haventId app-header , .haventId app-aside-bar{
-    display: none;
+.haveId app-header,
+.haveId app-aside-bar {
+  display: block;
 }
 
-
-
-.haveId .content{
-    margin-left: 200px;
-    margin-right: 200px;
+.haventId app-header,
+.haventId app-aside-bar {
+  display: none;
 }
 
-
+.haveId .content {
+  margin-left: 200px;
+  margin-right: 200px;
+}
 
 @media (max-width: 1000px) {
-    aside{
-        width: 100px!important;
-    }
-    
-.haveId .content{
+  aside {
+    width: 100px !important;
+  }
+  .haveId .content {
     margin-left: 100px;
     margin-right: 0px;
-}
+  }
 }
 
 @media (max-width: 768px) {
-    aside{
-        width: 75px!important;
-     
-    }
-    
-    .haveId .content{
-        margin-left: 75px;
-        margin-right: 0px;
-    }
-    
-    .post{
-        width: 80%!important;
-    }
-    .cover label{
-        right: 20px!important;
-    }
-    .cover-changer{
-        display: none;
-    }
-    .short_info[_ngcontent-c3] {
-        zoom: 0.8;
-    }
+  aside {
+    width: 75px !important;
+  }
+  .haveId .content {
+    margin-left: 75px;
+    margin-right: 0px;
+  }
+  .post {
+    width: 80% !important;
+  }
+  .cover label {
+    right: 20px !important;
+  }
+  .cover-changer {
+    display: none;
+  }
+  .short_info[_ngcontent-c3] {
+    zoom: 0.8;
+  }
 }
+
 @media (max-width: 400px) {
-    aside{
-        width: 50px!important;
-        left:-50px;
-    }
-    .haveId .content{
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    .post{
-        width: 90%!important;
-    }
-    .side-btn{
-        display: block!important;
-    }
-
+  aside {
+    width: 50px !important;
+    left: -50px;
+  }
+  .haveId .content {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .post {
+    width: 90% !important;
+  }
+  .side-btn {
+    display: block !important;
+  }
+  .tableContainer {
+    width: 98%!important;
+  }
 }
 
-@media(min-width: 401px){
-    .closed , .opened{
-        left: unset!important;
-        transition:unset!important;
-    }
-    
+@media(min-width: 401px) {
+  .closed,
+  .opened {
+    left: unset !important;
+    transition: unset !important;
+  }
 }
 
 input[type=file] {
-    display: none;
+  display: none;
 }
 
 label {
-    border: 1px solid white;
-    /* text-align: center; */
-    color: #4073ad;
-    border-radius: 4px;
-    /* margin: auto; */
-    width: 24px;
-    height: 24px;
-    padding: 2px 4px;
-    display: block;
-    background-color: #e8e8d2;
-    cursor: pointer;
+  border: 1px solid white;
+  /* text-align: center; */
+  color: #4073ad;
+  border-radius: 4px;
+  /* margin: auto; */
+  width: 24px;
+  height: 24px;
+  padding: 2px 4px;
+  display: block;
+  background-color: #e8e8d2;
+  cursor: pointer;
 }

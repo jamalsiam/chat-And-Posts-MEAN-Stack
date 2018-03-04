@@ -13,6 +13,11 @@
     border-radius: 4px;
     color: #8e8a8a;
     cursor: pointer;
+    transition: all .5s;
+}
+.settings p{
+    display: none;
+    color: white;
 }
 .form-control{
     display: unset;
@@ -24,9 +29,14 @@
     width: 85%;
 
 }
-.aboutContainer:hover .settings{
+.aboutContainer:hover .settings {
     background: #a3adad;
     color: white;
+    width: 115px;
+    text-align: left;
+}
+.aboutContainer:hover .settings p{
+    display: inline
 }
 .data{
     display: inline;
@@ -72,6 +82,7 @@ tr{
     position: relative;
     box-shadow: 0px 0px 2px 0px #888888;
     margin: 5px;
+
 }
 .deleteInterest{
     display: none;
@@ -117,10 +128,20 @@ tr{
     background: #8dd1fb;
     border: none;
     height: 15px;
+    margin-left: -15px;
+    transition: width .5s;
+}
+.width100px{
+    width: 100px!important;
 }
 
-
-
+.interest ::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+}
+ .err-color{
+     color: red;
+ }
 /* change Mode */
 
 .changeMode .data{
@@ -136,5 +157,7 @@ tr{
 .changeMode .saveChange{
     display: block;
 }
-
+.changeMode .interests-container{
+    display: none;
+}
 /*END change Mode */

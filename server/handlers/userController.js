@@ -105,6 +105,19 @@ module.exports = {
             cover
         }, function (err, affected, resp) {
             res.json({ status: 'succses' })
+          })
+    },
+    changeProfileInfo: (req, res) => {
+        let {username, work, location,relationship,gender,birth, _id } = req.body;
+        model.User.update({ _id }, {
+            username,
+            location,
+            relationship,
+            gender,
+            work,
+            birth
+        }, function (err, affected, resp) {
+            res.json({ status: 'succses' })
         })
     }
 }

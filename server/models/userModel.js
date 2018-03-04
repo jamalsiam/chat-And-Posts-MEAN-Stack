@@ -35,8 +35,35 @@ var UserSchema = new mongoose.Schema({
     type:String,
     default:""
   },
-  
+  work:{
+    type:String,
+    default:""
+  }
+  ,
+  location:{
+    type:String,
+    default:""
+  },
+  relationship:{
+    type:String,
+    default:""
+  },
+  gender:{
+    type:String,
+    default:""
+  },
+  birth:{
+    type:String,
+    default:""
+  },
+  interests:{
+    type:Array,
+    default:[]
+  },
 });
+
+
+
 
 UserSchema.methods.comparePasswords = function (candidatePassword) {
   var savedPassword = this.password;

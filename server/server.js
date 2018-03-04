@@ -9,6 +9,7 @@ app.post('/api/user/postdata',handlers.handelUser.postData);
 app.get('/api/user/signupasguest',handlers.handelUser.signUpAsGuest);
 app.post('/api/user/changeprofileimage',handlers.handelUser.changeProfileImage);
 app.post('/api/user/changeprofilecover',handlers.handelUser.changeProfileCover);
+app.post('/api/user/changeprofileinfo',handlers.handelUser.changeProfileInfo);
 
 
 //post APIs

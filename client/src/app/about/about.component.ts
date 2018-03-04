@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'About',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
   changeDateVal: String = '';
+  changeWidthInterestInputVal: String = '';
   name: string;
   email: string;
   work: string;
@@ -16,8 +18,8 @@ export class AboutComponent implements OnInit {
   birth: string;
   newInterest: string;
   interests = [];
-  constructor() {
-    this.interests = ['facebook', 'linkedin', 'rettweer', 'rettweer', 'rettweer', 'rettweer', 'rettweer', 'rettweer'];
+  constructor(public service: DataService) {
+
   }
 
   deleteInterest(index) {
@@ -25,18 +27,55 @@ export class AboutComponent implements OnInit {
   }
 
   addInterest() {
-     
+
     if (this.newInterest) {
-      this.interests.push(this.newInterest);
-      this.newInterest = '';
+      if (this.interests.indexOf(this.newInterest) === -1) {
+        this.interests.push(this.newInterest);
+        this.newInterest = '';
+        this.changeWidthInterestInputVal = '';
+      } else {
+        this.changeWidthInterestInputVal = 'err-color';
+      }
     }
   }
-  changeDate() {
+  changeData() {
+    this.name = this.service.user.userInfo.username;
+    this.email = this.service.user.userInfo.email;
+    this.work = this.service.user.userInfo.work;
+    this.location = this.service.user.userInfo.location;
+    this.relationship = this.service.user.userInfo.relationship;
+    this.gender = this.service.user.userInfo.gender;
+    this.birth = this.service.user.userInfo.birth;
     this.changeDateVal = 'changeMode';
   }
   saveChange() {
-    this.changeDateVal = '';
+    if (this.name) {
+      this.service.changeInfoUser({
+        username: this.name,
+        work: this.work,
+        location: this.location,
+        relationship: this.relationship,
+        gender: this.gender,
+        birth: this.birth,
+        _id: this.service.user.id
+      }).subscribe(res => {
+        if (res.status === 'succses') {
+          this.service.user.userInfo.username = this.name;
+          this.service.user.userInfo.work = this.work;
+          this.service.user.userInfo.location = this.location;
+          this.service.user.userInfo.relationship = this.relationship;
+          this.service.user.userInfo.gender = this.gender;
+          this.service.user.userInfo.birth = this.birth;
+          this.changeDateVal = '';
+        }
+      });
+
+    }
+
   }
-  ngOnInit() {
+  changeWidthInterestInput() {
+    this.changeWidthInterestInputVal = 'width100px';
   }
+  ngOnInit() { }
+
 }

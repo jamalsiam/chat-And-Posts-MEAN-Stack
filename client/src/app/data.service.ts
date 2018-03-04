@@ -123,5 +123,13 @@ export class DataService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/user/changeprofilecover', record, { headers: headers }).map(res => res.json());
   }
+  changeInfoUser(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/user/changeprofileinfo', record, { headers: headers }).map(res => res.json());
+
+  }
 
 }
