@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-
+  changeDateVal: String = '';
   constructor() { }
 
   ngOnInit() {
   }
-
+  changeDate() {
+    this.changeDateVal = 'changeMode';
+  }
+  saveChange(){
+    this.changeDateVal = '';
+  }
 }

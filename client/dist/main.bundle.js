@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".aboutContainer{\n    position: relative;\n}\n.settings{\n    position: absolute;\n    top: 10px;\n    right: 10px;\n    background: #bcd2d2;\n    height: 18px;\n    width: 18px;\n    text-align: center;\n    border-radius: 4px;\n    color: #8e8a8a;\n    cursor: pointer;\n}\n.form-control{\n    width: unset;\n    display: unset;\n    height: 25px;\n}\n.headerData{\n    color: #888888;\n    margin: 30px auto 0px auto;\n    width: 85%;\n\n}\n.aboutContainer:hover .settings{\n    background: #a3adad;\n    color: white;\n}\n.data{\n    display: inline;\n}\n.changeData{\n    display: none;\n    \n}\n.saveChange{\n    width: 100px;\n    display: none;\n    margin: 50px auto;\n}\n.field{\n    width: 80%;\n    margin: 20px auto;\n}\n.field .title{}\n/* change Mode */\n.changeMode .data{\n    display: none;\n}\n.changeMode .changeData{\n    display: inline;\n}\n.changeMode .settings{\n    display: none;\n}\n.changeMode .saveChange{\n    display: block;\n}\n/*END change Mode */", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/about/about.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  about works!\n</p>\n"
+module.exports = "<div class=\"aboutContainer {{changeDateVal}}\">\n  <div class=\"settings\" (click)=\"changeDate()\">\n    <span class=\"glyphicon glyphicon-cog\"></span>\n  </div>\n  <div class=\"shortUserInfo\">\n    <p class=\"headerData\">general information:</p>\n\n    <div class=\"field\">\n        <span>Name:</span>\n        <span class=\"data\">jamal siam</span>\n        <span class=\"changeData\">\n          <input type=\"text\" class=\"form-control\" value=\"dd\">\n        </span>\n    </div>\n\n  </div>\n\n\n  <button class=\"saveChange\" (click)=\"saveChange()\">dd </button>\n</div>\n\n"
 
 /***/ }),
 
@@ -60,8 +60,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AboutComponent = /** @class */ (function () {
     function AboutComponent() {
+        this.changeDateVal = '';
     }
     AboutComponent.prototype.ngOnInit = function () {
+    };
+    AboutComponent.prototype.changeDate = function () {
+        this.changeDateVal = 'changeMode';
+    };
+    AboutComponent.prototype.saveChange = function () {
+        this.changeDateVal = '';
     };
     AboutComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -236,12 +243,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__about_about_component__ = __webpack_require__("../../../../../src/app/about/about.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__original_post_original_post_component__ = __webpack_require__("../../../../../src/app/original-post/original-post.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__view_image_view_image_component__ = __webpack_require__("../../../../../src/app/view-image/view-image.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__user_info_user_info_component__ = __webpack_require__("../../../../../src/app/user-info/user-info.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -280,7 +289,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_16__view_post_view_post_component__["a" /* ViewPostComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__about_about_component__["a" /* AboutComponent */],
                 __WEBPACK_IMPORTED_MODULE_18__original_post_original_post_component__["a" /* OriginalPostComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__view_image_view_image_component__["a" /* ViewImageComponent */]
+                __WEBPACK_IMPORTED_MODULE_19__view_image_view_image_component__["a" /* ViewImageComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__user_info_user_info_component__["a" /* UserInfoComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1214,6 +1224,67 @@ var SignupComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2_angular_2_local_storage__["LocalStorageService"], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
     ], SignupComponent);
     return SignupComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/user-info/user-info.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/user-info/user-info.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  user-info works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/user-info/user-info.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserInfoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var UserInfoComponent = /** @class */ (function () {
+    function UserInfoComponent() {
+    }
+    UserInfoComponent.prototype.ngOnInit = function () {
+    };
+    UserInfoComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'user-info',
+            template: __webpack_require__("../../../../../src/app/user-info/user-info.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/user-info/user-info.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], UserInfoComponent);
+    return UserInfoComponent;
 }());
 
 

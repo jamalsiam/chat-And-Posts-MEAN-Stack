@@ -1,0 +1,66 @@
+.aboutContainer{
+    position: relative;
+}
+.settings{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #bcd2d2;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    border-radius: 4px;
+    color: #8e8a8a;
+    cursor: pointer;
+}
+.form-control{
+    width: unset;
+    display: unset;
+    height: 25px;
+}
+.headerData{
+    color: #888888;
+    margin: 30px auto 0px auto;
+    width: 85%;
+
+}
+.aboutContainer:hover .settings{
+    background: #a3adad;
+    color: white;
+}
+.data{
+    display: inline;
+}
+.changeData{
+    display: none;
+    
+}
+.saveChange{
+    width: 100px;
+    display: none;
+    margin: 50px auto;
+}
+
+.field{
+    width: 80%;
+    margin: 20px auto;
+}
+.field .title{}
+
+/* change Mode */
+
+.changeMode .data{
+    display: none;
+}
+
+.changeMode .changeData{
+    display: inline;
+}
+.changeMode .settings{
+    display: none;
+}
+.changeMode .saveChange{
+    display: block;
+}
+
+/*END change Mode */

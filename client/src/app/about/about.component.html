@@ -1,3 +1,21 @@
-<p>
-  about works!
-</p>
+<div class="aboutContainer {{changeDateVal}}">
+  <div class="settings" (click)="changeDate()">
+    <span class="glyphicon glyphicon-cog"></span>
+  </div>
+  <div class="shortUserInfo">
+    <p class="headerData">general information:</p>
+
+    <div class="field">
+        <span>Name:</span>
+        <span class="data">jamal siam</span>
+        <span class="changeData">
+          <input type="text" class="form-control" value="dd">
+        </span>
+    </div>
+
+  </div>
+
+
+  <button class="saveChange" (click)="saveChange()">dd </button>
+</div>
+
