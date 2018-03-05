@@ -8,13 +8,8 @@ import { DataService } from '../data.service';
 })
 export class MainComponent implements OnInit {
   randomSuggestPost: any = [];
-  constructor(public servece: DataService) {
-    this.servece.getFollowingPosts({ id: this.servece.user.id })
-      .subscribe(res => {
-        this.servece.followingPost = res.following;
-      });
-
-  }
+  gropFollowerpost: any = [];
+  constructor(public servece: DataService) {}
 
 
 
@@ -36,6 +31,25 @@ export class MainComponent implements OnInit {
     for (let i = 1; i <= 3; i++) {
       this.randomSuggest();
     }
+    this.servece.getFollowingPosts({ id: this.servece.user.id })
+      .subscribe(res => {
+        const data = res.data[0];
+        for (let user = 0; user < data.userInfo.length; user++) {
+          for (let post = 0; post < data.postInfo.length; post++) {
+            if (data.userInfo[user]._id === data.postInfo[post].userId) {
+              this.gropFollowerpost.push({
+                userId : data.userInfo[user]._id,
+                imageUser : data.userInfo[user].image,
+                username : data.userInfo[user].username,
+                date : data.postInfo[post].date,
+                postContent : data.postInfo[post].postContent,
+                postId : data.postInfo[post]._id
+              });
+            }
+          }
+        }
+
+      });
   }
 
 }

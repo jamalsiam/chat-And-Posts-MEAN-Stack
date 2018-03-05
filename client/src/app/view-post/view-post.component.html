@@ -4,11 +4,6 @@
     <span class="glyphicon glyphicon-remove"></span>
   </p>
 
-
-  <p class="post-tool" *ngIf="service.user.id!==data.userId" (click)="follow(data.userId)">
-    <span class="glyphicon glyphicon-remove-sign"></span>{{btnFollowText}} </p>
-
-
   <div class="userpart" (click)="viewProfile(data.userId)">
     <img class="userImage" *ngIf="data.imageUser" src="data:image/jpeg;base64,{{data.imageUser ||''}}" class="userImage" alt="">
     <img class="userImage" *ngIf="!data.imageUser" src="assets/profile.png">

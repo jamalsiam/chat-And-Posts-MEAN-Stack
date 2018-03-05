@@ -29,6 +29,29 @@ module.exports = {
             })
     },
     getFollowingPosts: (req, res) => {
+        let { id } = req.body;
+        let idUsers = []
+        let arrOfFollowerId = [];
+
+        model.Follow.find({ followingId: id }).then((ids) => {
+            for (let i = 0; i < ids.length; i++) { idUsers.push(ids[i].followerId) }
+            model.User.find({ _id: { $in: idUsers } })
+                .select('username image')
+                .then((userInfo) => {
+                    model.Post.find({ userId: { $in: idUsers } })
+                        .then((postInfo) => {
+                            arrOfFollowerId.push({
+                                userInfo,
+                                postInfo
+                            });
+                            res.json({ data: arrOfFollowerId })
+                        })
+                })
+        });
+
+
+
+
 
     },
     randomSuggest: (req, res) => {
