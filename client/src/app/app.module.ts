@@ -19,6 +19,7 @@ import { AboutComponent } from './about/about.component';
 import { OriginalPostComponent } from './original-post/original-post.component';
 import { ViewImageComponent } from './view-image/view-image.component';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
     AboutComponent,
     OriginalPostComponent,
     ViewImageComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

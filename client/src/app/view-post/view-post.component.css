@@ -99,7 +99,9 @@ hr{
 .displaynone{
     display: none;
 }
-
+.cursor-pointer{
+    cursor: pointer;
+}
 .delete{
   opacity: 0;
   

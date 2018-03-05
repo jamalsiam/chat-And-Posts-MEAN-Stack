@@ -154,12 +154,16 @@ var AboutComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__main_main_component__ = __webpack_require__("../../../../../src/app/main/main.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__signout_signout_component__ = __webpack_require__("../../../../../src/app/signout/signout.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__original_post_original_post_component__ = __webpack_require__("../../../../../src/app/original-post/original-post.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -187,6 +191,18 @@ var routes = [
     {
         path: 'profile',
         component: __WEBPACK_IMPORTED_MODULE_6__profile_profile_component__["a" /* ProfileComponent */]
+    },
+    {
+        path: 'user/:id',
+        component: __WEBPACK_IMPORTED_MODULE_7__user_user_component__["a" /* UserComponent */]
+    },
+    {
+        path: 'originalpost',
+        component: __WEBPACK_IMPORTED_MODULE_8__original_post_original_post_component__["a" /* OriginalPostComponent */]
+    },
+    {
+        path: '**',
+        component: __WEBPACK_IMPORTED_MODULE_4__main_main_component__["a" /* MainComponent */]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -194,8 +210,8 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -301,12 +317,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__original_post_original_post_component__ = __webpack_require__("../../../../../src/app/original-post/original-post.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__view_image_view_image_component__ = __webpack_require__("../../../../../src/app/view-image/view-image.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__user_info_user_info_component__ = __webpack_require__("../../../../../src/app/user-info/user-info.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -347,7 +365,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_17__about_about_component__["a" /* AboutComponent */],
                 __WEBPACK_IMPORTED_MODULE_18__original_post_original_post_component__["a" /* OriginalPostComponent */],
                 __WEBPACK_IMPORTED_MODULE_19__view_image_view_image_component__["a" /* ViewImageComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__user_info_user_info_component__["a" /* UserInfoComponent */]
+                __WEBPACK_IMPORTED_MODULE_20__user_info_user_info_component__["a" /* UserInfoComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__user_user_component__["a" /* UserComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -660,7 +679,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/header/header.component.html"),
             styles: [__webpack_require__("../../../../../src/app/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2_angular_2_local_storage__["LocalStorageService"], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2_angular_2_local_storage__["LocalStorageService"], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -690,7 +709,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<sharePost></sharePost>\r\n\r\n<viewPost *ngFor=\"let post of gropFollowerpost\" [data]='post'></viewPost>\r\n<div *ngIf=\"!randomSuggestPost==[]\">\r\n    <hr>\r\n    <p class=\"randomSuggestPostTEXT\">Random Suggest...</p>\r\n    <viewPost *ngFor=\"let post of randomSuggestPost\" [data]='post'></viewPost>\r\n</div>"
+module.exports = "<sharePost></sharePost>\r\n\r\n<viewPost *ngFor=\"let post of servece.followingPost\" [data]='post'></viewPost>\r\n<div *ngIf=\"!randomSuggestPost==[]\">\r\n    <hr>\r\n    <p class=\"randomSuggestPostTEXT\">Random Suggest...</p>\r\n    <viewPost *ngFor=\"let post of randomSuggestPost\" [data]='post'></viewPost>\r\n</div>"
 
 /***/ }),
 
@@ -716,7 +735,6 @@ var MainComponent = /** @class */ (function () {
     function MainComponent(servece) {
         this.servece = servece;
         this.randomSuggestPost = [];
-        this.gropFollowerpost = [];
     }
     MainComponent.prototype.randomSuggest = function () {
         var _this = this;
@@ -739,11 +757,12 @@ var MainComponent = /** @class */ (function () {
         }
         this.servece.getFollowingPosts({ id: this.servece.user.id })
             .subscribe(function (res) {
+            _this.servece.followingPost = [];
             var data = res.data[0];
             for (var user = 0; user < data.userInfo.length; user++) {
                 for (var post = 0; post < data.postInfo.length; post++) {
                     if (data.userInfo[user]._id === data.postInfo[post].userId) {
-                        _this.gropFollowerpost.push({
+                        _this.servece.followingPost.push({
                             userId: data.userInfo[user]._id,
                             imageUser: data.userInfo[user].image,
                             username: data.userInfo[user].username,
@@ -792,7 +811,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/original-post/original-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  original-post works!\r\n</p>\r\n"
+module.exports = "<div>\r\n  <viewPost  [data]='service.originPost'></viewPost>\r\n\r\n</div>\r\n "
 
 /***/ }),
 
@@ -802,6 +821,7 @@ module.exports = "<p>\r\n  original-post works!\r\n</p>\r\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OriginalPostComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -812,8 +832,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var OriginalPostComponent = /** @class */ (function () {
-    function OriginalPostComponent() {
+    function OriginalPostComponent(service) {
+        this.service = service;
     }
     OriginalPostComponent.prototype.ngOnInit = function () {
     };
@@ -823,7 +845,7 @@ var OriginalPostComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/original-post/original-post.component.html"),
             styles: [__webpack_require__("../../../../../src/app/original-post/original-post.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
     ], OriginalPostComponent);
     return OriginalPostComponent;
 }());
@@ -995,6 +1017,7 @@ var SharePostComponent = /** @class */ (function () {
             }
         })
             .subscribe(function (res) {
+            var oldfollowingPost = _this.service.followingPost;
             var oldPosts = _this.service.user['post'];
             var newPost = [{
                     userId: _this.service.user.id,
@@ -1003,9 +1026,10 @@ var SharePostComponent = /** @class */ (function () {
                     date: 'Just Now',
                     like: 0,
                     comment: 0,
-                    imageUser: _this.service.user.userInfo.photo,
+                    imageUser: _this.service.user.userInfo.image,
                     username: _this.service.user.userInfo.username
                 }];
+            _this.service.followingPost = newPost.concat(oldfollowingPost);
             _this.service.user.post = newPost.concat(oldPosts);
             _this.textPost = '';
             _this.photoPost = '';
@@ -1112,7 +1136,7 @@ var SigninComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/signin/signin.component.html"),
             styles: [__webpack_require__("../../../../../src/app/signup/signup.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1_angular_2_local_storage__["LocalStorageService"], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1_angular_2_local_storage__["LocalStorageService"], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], SigninComponent);
     return SigninComponent;
 }());
@@ -1182,7 +1206,7 @@ var SignoutComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/signout/signout.component.html"),
             styles: [__webpack_require__("../../../../../src/app/signout/signout.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
     ], SignoutComponent);
     return SignoutComponent;
 }());
@@ -1283,7 +1307,7 @@ var SignupComponent = /** @class */ (function () {
                 this.btnSignupDegree = 'deg360';
                 this.service.signUp(this.formData).subscribe(function (res) {
                     _this.btnSignupDegree = 'deg0';
-                    if (res.status == 'signup') {
+                    if (res.status === 'signup') {
                         _this.storage.set('chatUserId', res.id);
                         _this.router.navigate(['']);
                         location.reload();
@@ -1298,8 +1322,9 @@ var SignupComponent = /** @class */ (function () {
     SignupComponent.prototype.ngOnInit = function () {
         this.formData = { username: '', email: '', password: '', confirmPassword: '' };
         this.msg = { type: 'hdn', data: '|' };
-        if (this.storage.get('chatUserId'))
+        if (this.storage.get('chatUserId')) {
             this.router.navigate(['']);
+        }
     };
     SignupComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -1307,7 +1332,7 @@ var SignupComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/signup/signup.component.html"),
             styles: [__webpack_require__("../../../../../src/app/signup/signup.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2_angular_2_local_storage__["LocalStorageService"], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2_angular_2_local_storage__["LocalStorageService"], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], SignupComponent);
     return SignupComponent;
 }());
@@ -1377,6 +1402,76 @@ var UserInfoComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/user/user.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/user/user.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  user works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/user/user.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var UserComponent = /** @class */ (function () {
+    function UserComponent(service, route) {
+        this.service = service;
+        this.route = route;
+    }
+    UserComponent.prototype.ngOnInit = function () {
+        this.route.params.subscribe(function (res) {
+            console.log(res.id);
+        });
+    };
+    UserComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-user',
+            template: __webpack_require__("../../../../../src/app/user/user.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/user/user.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+    ], UserComponent);
+    return UserComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/view-image/view-image.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1439,7 +1534,6 @@ var ViewImageComponent = /** @class */ (function () {
     };
     ViewImageComponent.prototype.checkIfFollow = function (id) {
         var _this = this;
-        console.log({ followerId: id, followingId: this.service.user.id + '++ME' });
         this.service.checkIfFollow({ followerId: id, followingId: this.service.user.id })
             .subscribe(function (res) {
             _this.btnFollowText = res.data;
@@ -1480,7 +1574,7 @@ var ViewImageComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/view-image/view-image.component.html"),
             styles: [__webpack_require__("../../../../../src/app/view-image/view-image.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], ViewImageComponent);
     return ViewImageComponent;
 }());
@@ -1497,7 +1591,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".post{\r\n    background: white;\r\n    margin:10px auto;\r\n    width: 70%;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n    padding: 15px;\r\n    border-radius: 4px;\r\n}\r\n.post-tool{\r\n    font-size: 10px;\r\n    float: right;\r\n    color: #888888;\r\n    cursor: pointer;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n    padding: 3px;\r\n    border-radius: 4px;\r\n}\r\n.post-tool:hover{\r\n    color: #2e2d2d;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #2e2d2d;\r\n            box-shadow: 0px 0px 1px 0px #2e2d2d;\r\n}\r\n.userImage{\r\n    border-radius: 50%;\r\n    width: 40px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n    box-shadow: 0px 0px 1px 0px #888888;\r\n    margin: 0px 8px 0px 0px;\r\n}\r\n.userpart{\r\n\r\n}\r\n.userpart >* {\r\n    float: left;\r\n}\r\n.clearfix{\r\n    clear: both\r\n}\r\n.userName-date{\r\n    position: absolute;\r\n    margin-left: 50px;\r\n}\r\n.userName{\r\n    font-weight: bold;\r\n    color: #4176b1;\r\n    cursor: pointer;\r\n    font-family: inherit;\r\n    font-size: 14px;\r\n    line-height: 1.38;\r\n}\r\n.userName:hover{\r\n    text-decoration: underline;\r\n}\r\n.posttext{\r\n    margin: 15px 0px 25px 5px;\r\n}\r\n.date{\r\n    color: #90949c;\r\n    font-size: 12px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n    font-weight: normal;\r\n    margin-top: -9px;\r\n    display: block;\r\n}\r\n.tool > *{\r\n    float: left;\r\n    width: 33%;\r\n    text-align: center;\r\n    font-size: 13px;\r\n    color: #616770;\r\n    font-weight: bold;\r\n    position: relative;\r\n    top: 15px;\r\n    cursor: pointer;\r\n}\r\n.tool > *:hover{\r\n    color: #4176b1;\r\n    background: #eeeeef4a;\r\n}\r\nhr{\r\n    margin-top: 10px;\r\n    margin-bottom: -5px;\r\n}\r\n.postImageWithText{\r\n    width: 60%;\r\n    margin: auto;\r\n    display: block;\r\n}\r\n.postImageWithoutText{\r\n    width: 100%;\r\n}\r\n.displaynone{\r\n    display: none;\r\n}\r\n.delete{\r\n  opacity: 0;\r\n  \r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  height: 0px!important;\r\n  -webkit-transition: all 1s ease;\r\n  transition: all 1s ease;\r\n}\r\n.delete >*{\r\n    opacity: 0;\r\n    display: none;\r\n    -webkit-transition: all .5s ease;\r\n    transition: all .5s ease;\r\n}", ""]);
+exports.push([module.i, ".post{\r\n    background: white;\r\n    margin:10px auto;\r\n    width: 70%;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n    padding: 15px;\r\n    border-radius: 4px;\r\n}\r\n.post-tool{\r\n    font-size: 10px;\r\n    float: right;\r\n    color: #888888;\r\n    cursor: pointer;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n    padding: 3px;\r\n    border-radius: 4px;\r\n}\r\n.post-tool:hover{\r\n    color: #2e2d2d;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #2e2d2d;\r\n            box-shadow: 0px 0px 1px 0px #2e2d2d;\r\n}\r\n.userImage{\r\n    border-radius: 50%;\r\n    width: 40px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n    box-shadow: 0px 0px 1px 0px #888888;\r\n    margin: 0px 8px 0px 0px;\r\n}\r\n.userpart{\r\n\r\n}\r\n.userpart >* {\r\n    float: left;\r\n}\r\n.clearfix{\r\n    clear: both\r\n}\r\n.userName-date{\r\n    position: absolute;\r\n    margin-left: 50px;\r\n}\r\n.userName{\r\n    font-weight: bold;\r\n    color: #4176b1;\r\n    cursor: pointer;\r\n    font-family: inherit;\r\n    font-size: 14px;\r\n    line-height: 1.38;\r\n}\r\n.userName:hover{\r\n    text-decoration: underline;\r\n}\r\n.posttext{\r\n    margin: 15px 0px 25px 5px;\r\n}\r\n.date{\r\n    color: #90949c;\r\n    font-size: 12px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n    font-weight: normal;\r\n    margin-top: -9px;\r\n    display: block;\r\n}\r\n.tool > *{\r\n    float: left;\r\n    width: 33%;\r\n    text-align: center;\r\n    font-size: 13px;\r\n    color: #616770;\r\n    font-weight: bold;\r\n    position: relative;\r\n    top: 15px;\r\n    cursor: pointer;\r\n}\r\n.tool > *:hover{\r\n    color: #4176b1;\r\n    background: #eeeeef4a;\r\n}\r\nhr{\r\n    margin-top: 10px;\r\n    margin-bottom: -5px;\r\n}\r\n.postImageWithText{\r\n    width: 60%;\r\n    margin: auto;\r\n    display: block;\r\n}\r\n.postImageWithoutText{\r\n    width: 100%;\r\n}\r\n.displaynone{\r\n    display: none;\r\n}\r\n.cursor-pointer{\r\n    cursor: pointer;\r\n}\r\n.delete{\r\n  opacity: 0;\r\n  \r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  height: 0px!important;\r\n  -webkit-transition: all 1s ease;\r\n  transition: all 1s ease;\r\n}\r\n.delete >*{\r\n    opacity: 0;\r\n    display: none;\r\n    -webkit-transition: all .5s ease;\r\n    transition: all .5s ease;\r\n}", ""]);
 
 // exports
 
@@ -1510,7 +1604,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/view-post/view-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"post {{deleteCss}}\">\r\n\r\n  <p class=\"post-tool\" *ngIf=\"service.user.id===data.userId \" (click)=\"deletePost(data.userId,data._id)\">\r\n    <span class=\"glyphicon glyphicon-remove\"></span>\r\n  </p>\r\n\r\n  <div class=\"userpart\" (click)=\"viewProfile(data.userId)\">\r\n    <img class=\"userImage\" *ngIf=\"data.imageUser\" src=\"data:image/jpeg;base64,{{data.imageUser ||''}}\" class=\"userImage\" alt=\"\">\r\n    <img class=\"userImage\" *ngIf=\"!data.imageUser\" src=\"assets/profile.png\">\r\n\r\n    <div class=\"userName-date\">\r\n      <p class=\"userName\">{{data.username}} </p>\r\n      <a class=\"date\">{{data.date}}</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n  <span (click)=\"viewOriginPost(data)\">\r\n    <p class=\"posttext\">\r\n      {{data.postContent.text}}\r\n    </p>\r\n\r\n    <div [class.displaynone]=\"data.postContent.image == '' ||  data.postContent.image == undefined\">\r\n      <img src=\"data:image/jpeg;base64,{{data.postContent.image ||''}}\" [class.postImageWithText]=\"data.postContent.text !== '' ||  data.postContent.text !== undefined\"\r\n        [class.postImageWithoutText]=\"data.postContent.text === '' || data.postContent.text === undefined\">\r\n    </div>\r\n  </span>\r\n  <hr>\r\n  <div class=\"tool\">\r\n    <p>\r\n      <i class=\"fa fa-thumbs-o-up\"></i> Like {{data.like || 0}}</p>\r\n    <p>\r\n      <i class=\"fa fa-comment-o\" aria-hidden=\"true\"></i>\r\n      Comment {{data.comment || 0}}</p>\r\n    <p (click)=\"sharePost(data.postContent)\">\r\n      <i class=\"fa fa-share\" aria-hidden=\"true\"></i>\r\n      {{share}}</p>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n"
+module.exports = "<div class=\"post {{deleteCss}}\">\r\n\r\n  <p class=\"post-tool\" *ngIf=\"service.user.id===data.userId \" (click)=\"deletePost(data.userId,data._id)\">\r\n    <span class=\"glyphicon glyphicon-remove\"></span>\r\n  </p>\r\n\r\n  <div class=\"userpart\" (click)=\"viewProfile(data.userId)\">\r\n    <img class=\"userImage\" *ngIf=\"data.imageUser\" src=\"data:image/jpeg;base64,{{data.imageUser ||''}}\" class=\"userImage\" alt=\"\">\r\n    <img class=\"userImage\" *ngIf=\"!data.imageUser\" src=\"assets/profile.png\">\r\n\r\n    <div class=\"userName-date\">\r\n      <p class=\"userName\">{{data.username}} </p>\r\n      <a class=\"date\">{{data.date}}</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n  <span (click)=\"viewOriginPost(data)\" class=\"cursor-pointer\">\r\n    <p class=\"posttext\">\r\n      {{data.postContent.text}}\r\n    </p>\r\n\r\n    <div [class.displaynone]=\"data.postContent.image == '' ||  data.postContent.image == undefined\">\r\n      <img src=\"data:image/jpeg;base64,{{data.postContent.image ||''}}\" [class.postImageWithText]=\"data.postContent.text !== '' ||  data.postContent.text !== undefined\"\r\n        [class.postImageWithoutText]=\"data.postContent.text === '' || data.postContent.text === undefined\">\r\n    </div>\r\n  </span>\r\n  <hr>\r\n  <div class=\"tool\">\r\n    <p>\r\n      <i class=\"fa fa-thumbs-o-up\"></i> Like {{data.like || 0}}</p>\r\n    <p>\r\n      <i class=\"fa fa-comment-o\" aria-hidden=\"true\"></i>\r\n      Comment {{data.comment || 0}}</p>\r\n    <p (click)=\"sharePost(data.postContent)\">\r\n      <i class=\"fa fa-share\" aria-hidden=\"true\"></i>\r\n      {{share}}</p>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n"
 
 /***/ }),
 
@@ -1549,39 +1643,31 @@ var ViewPostComponent = /** @class */ (function () {
             }
         });
     };
-    ViewPostComponent.prototype.checkIfFollow = function (id) {
-        var _this = this;
-        console.log({ followerId: id, followingId: this.service.user.id + '++ME' });
-        this.service.checkIfFollow({ followerId: id, followingId: this.service.user.id })
-            .subscribe(function (res) {
-            _this.btnFollowText = res.data;
-        });
-    };
-    ViewPostComponent.prototype.follow = function (id) {
-        var _this = this;
-        this.service.follow({ followerId: id, followingId: this.service.user.id }).subscribe(function (res) {
-            _this.btnFollowText = res.data;
-        });
-    };
     ViewPostComponent.prototype.viewProfile = function (userId) {
-        console.log(userId);
+        if (userId !== this.service.user.id) {
+            this.router.navigate(['user/id:' + userId]);
+        }
+        else {
+            this.router.navigate(['profile']);
+        }
     };
-    ViewPostComponent.prototype.viewOriginPost = function (postId) {
-        console.log(postId);
+    ViewPostComponent.prototype.viewOriginPost = function (post) {
+        this.service.originPost = post;
+        this.router.navigate(['originalpost']);
     };
     ViewPostComponent.prototype.sharePost = function (newPost) {
         var _this = this;
-        this.service.sharePost({
-            _id: this.service.user.id,
-            postContent: newPost
-        })
-            .subscribe(function (res) {
-            _this.share = 'Shared';
-        });
+        if (this.share !== 'Shared') {
+            this.service.sharePost({
+                _id: this.service.user.id,
+                postContent: newPost
+            })
+                .subscribe(function (res) {
+                _this.share = 'Shared';
+            });
+        }
     };
-    ViewPostComponent.prototype.ngOnInit = function () {
-        this.checkIfFollow(this.data.userId);
-    };
+    ViewPostComponent.prototype.ngOnInit = function () { };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Object)
@@ -1592,7 +1678,7 @@ var ViewPostComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/view-post/view-post.component.html"),
             styles: [__webpack_require__("../../../../../src/app/view-post/view-post.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], ViewPostComponent);
     return ViewPostComponent;
 }());

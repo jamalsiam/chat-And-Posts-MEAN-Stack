@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class MainComponent implements OnInit {
   randomSuggestPost: any = [];
-  gropFollowerpost: any = [];
+
   constructor(public servece: DataService) {}
 
 
@@ -33,11 +33,12 @@ export class MainComponent implements OnInit {
     }
     this.servece.getFollowingPosts({ id: this.servece.user.id })
       .subscribe(res => {
+        this.servece.followingPost = [];
         const data = res.data[0];
         for (let user = 0; user < data.userInfo.length; user++) {
           for (let post = 0; post < data.postInfo.length; post++) {
             if (data.userInfo[user]._id === data.postInfo[post].userId) {
-              this.gropFollowerpost.push({
+              this.servece.followingPost.push({
                 userId : data.userInfo[user]._id,
                 imageUser : data.userInfo[user].image,
                 username : data.userInfo[user].username,

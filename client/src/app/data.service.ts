@@ -10,15 +10,16 @@ export class DataService {
 
   user: any;
   followingPost: any;
+  originPost: any;
   constructor(private http: Http, public storage: LocalStorageService) {
-    this.user = { id: null, post: [], userInfo: {}, follow: {following: [], follower: []}};
+    this.user = { id: null, post: [], userInfo: {}, follow: { following: [], follower: [] } };
     if (this.storage.get('chatUserId') !== null || this.storage.get('chatUserId') !== undefined) {
       this.user['id'] = this.storage.get('chatUserId');
 
       this.getProfileInfo({ userId: '' + this.storage.get('chatUserId') }).subscribe(res => {
 
-        let post = res.post;
-        let userInfo = res.userInfo;
+        const post = res.post;
+        const userInfo = res.userInfo;
 
         for (let i = 0; i < post.length; i++) {
           post[i]['imageUser'] = userInfo.image;
@@ -139,5 +140,4 @@ export class DataService {
     return this.http.post('/api/user/changeuserinterests', record, { headers: headers }).map(res => res.json());
 
   }
-
 }

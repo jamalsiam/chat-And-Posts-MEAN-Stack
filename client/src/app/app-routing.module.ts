@@ -5,27 +5,41 @@ import { SigninComponent } from './signin/signin.component';
 import { MainComponent } from './main/main.component';
 import { SignoutComponent } from './signout/signout.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { UserComponent } from './user/user.component';
+import { OriginalPostComponent } from './original-post/original-post.component';
 const routes: Routes = [
   {
-    path: '' , 
-    component:MainComponent 
+    path: '',
+    component: MainComponent
   },
   {
-    path: 'signup' , 
+    path: 'signup',
     component: SignupComponent
   },
   {
-    path: 'signin' , 
-    component: SigninComponent 
+    path: 'signin',
+    component: SigninComponent
   },
   {
-    path:'signout',
-    component:SignoutComponent
+    path: 'signout',
+    component: SignoutComponent
   },
   {
-    path:'profile',
-    component:ProfileComponent
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'user/:id',
+    component: UserComponent
+  },
+  {
+    path: 'originalpost',
+    component: OriginalPostComponent
+  },
+  
+  {
+    path: '**',
+    component: MainComponent
   }
 
 ];

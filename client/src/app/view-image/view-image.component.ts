@@ -23,7 +23,6 @@ export class ViewImageComponent implements OnInit {
   }
 
   checkIfFollow(id) {
-    console.log({ followerId: id, followingId: this.service.user.id + '++ME' });
     this.service.checkIfFollow({ followerId: id, followingId: this.service.user.id })
       .subscribe(res => {
         this.btnFollowText = res.data;

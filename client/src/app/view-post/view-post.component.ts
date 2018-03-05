@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector:  'viewPost',
+  selector: 'viewPost',
   templateUrl: './view-post.component.html',
   styleUrls: ['./view-post.component.css']
 })
@@ -12,7 +12,7 @@ export class ViewPostComponent implements OnInit {
   btnFollowText = '';
   deleteCss: string;
   share: String = 'Share';
-  constructor(public service: DataService, private router: Router) {}
+  constructor(public service: DataService, private router: Router) { }
   deletePost(userId, postId) {
 
     this.service.deletePost({ userId: userId, postId: postId }).subscribe(res => {
@@ -22,38 +22,28 @@ export class ViewPostComponent implements OnInit {
     });
   }
 
-  checkIfFollow(id) {
-    console.log({ followerId: id, followingId: this.service.user.id + '++ME' });
-    this.service.checkIfFollow({ followerId: id, followingId: this.service.user.id })
-      .subscribe(res => {
-        this.btnFollowText = res.data;
-      });
-  }
-
-  follow(id) {
-    this.service.follow({ followerId: id, followingId: this.service.user.id }).subscribe(res => {
-      this.btnFollowText = res.data;
-    });
-  }
-
-
   viewProfile(userId: string) {
-    console.log(userId);
+    if (userId !== this.service.user.id) {
+      this.router.navigate(['user/id:' + userId]);
+    } else {
+      this.router.navigate(['profile']);
+    }
   }
-  viewOriginPost(postId: string) {
-    console.log(postId);
+  viewOriginPost(post: any) {
+    this.service.originPost = post;
+    this.router.navigate(['originalpost']);
   }
   sharePost(newPost) {
-    this.service.sharePost({
-      _id: this.service.user.id,
-      postContent: newPost
-    })
-      .subscribe(res => {
-        this.share = 'Shared';
-      });
+    if (this.share !== 'Shared') {
+      this.service.sharePost({
+        _id: this.service.user.id,
+        postContent: newPost
+      })
+        .subscribe(res => {
+          this.share = 'Shared';
+        });
+    }
   }
-  ngOnInit() {
-    this.checkIfFollow(this.data.userId);
-  }
+  ngOnInit() { }
 
 }

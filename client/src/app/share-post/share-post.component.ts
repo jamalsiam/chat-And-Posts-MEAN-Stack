@@ -22,19 +22,21 @@ export class SharePostComponent implements OnInit {
       }
     })
       .subscribe(res => {
+        const oldfollowingPost = this.service.followingPost;
+        const oldPosts = this.service.user['post'];
+        const newPost = [{
 
-        let oldPosts = this.service.user['post'];
-        let newPost = [{
           userId: this.service.user.id,
           postContent: { text: this.textPost, image: this.photoPost },
           id_: '',
           date: 'Just Now',
           like: 0,
           comment: 0,
-          imageUser: this.service.user.userInfo.photo,
+          imageUser: this.service.user.userInfo.image,
           username: this.service.user.userInfo.username
         }];
 
+        this.service.followingPost = newPost.concat(oldfollowingPost);
         this.service.user.post = newPost.concat(oldPosts);
         this.textPost = '';
         this.photoPost = '';
