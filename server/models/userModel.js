@@ -38,8 +38,7 @@ var UserSchema = new mongoose.Schema({
   work:{
     type:String,
     default:""
-  }
-  ,
+  },
   location:{
     type:String,
     default:""

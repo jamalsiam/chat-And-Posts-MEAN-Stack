@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/about/about.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"aboutContainer {{changeDateVal}}\">\r\n  <div class=\"settings\" (click)=\"changeData()\">\r\n    <span class=\"glyphicon glyphicon-cog\"></span>\r\n    <p>Change</p>\r\n  </div>\r\n  <div class=\"shortUserInfo\">\r\n    <p class=\"headerData\">general information:</p>\r\n  \r\n    <div class=\"tableContainer\">\r\n        <hr>\r\n\r\n      <table>\r\n        <tr>\r\n          <td>\r\n            <span>Name:</span>\r\n          </td>\r\n          <td>\r\n            <span class=\"data\">{{service.user.userInfo.username}}</span>\r\n            <span class=\"changeData\">\r\n              <input type=\"text\" class=\"form-control\" [ngClass]=\"{'error-border': !name}\"\r\n              value=\"{{service.user.userInfo.username}}\" [(ngModel)]='name'>\r\n            </span>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <span>E-mail:</span>\r\n\r\n          </td>\r\n          <td>\r\n            <span class=\"data\">{{service.user.userInfo.email}}</span>\r\n            <span class=\"changeData\">\r\n              <input type=\"text\" class=\"form-control\" value=\"{{service.user.userInfo.email}}\" disabled>\r\n            </span>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n              <span>Work at:</span>\r\n            </td>\r\n            <td>\r\n              <span class=\"data\">{{service.user.userInfo.work || 'unset'}}</span>\r\n              <span class=\"changeData\">\r\n                <input type=\"text\" class=\"form-control\" value=\"{{service.user.userInfo.work || 'unset' }}\"  [(ngModel)]='work'>\r\n              </span>\r\n            </td>\r\n          </tr>\r\n          <tr>\r\n              <td>\r\n                <span>Lives in:</span>\r\n              </td>\r\n              <td>\r\n                <span class=\"data\">{{service.user.userInfo.location || 'unset'}}</span>\r\n                <span class=\"changeData\">\r\n                  <input type=\"text\" class=\"form-control\" value=\"{{service.user.userInfo.location}}\" [(ngModel)]='location'>\r\n                </span>\r\n              </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <td>\r\n                  <span>Gender:</span>\r\n                </td>\r\n                <td>\r\n                  <span class=\"data\">{{service.user.userInfo.gender || 'unset'}}</span>\r\n                  <span class=\"changeData\">\r\n                  \r\n                      <select class=\"form-control\" [(ngModel)]='gender' >\r\n                          <option value=\"unset\">unset</option>\r\n                          <option value=\"male\">Male</option>\r\n                          <option value=\"female\">Female</option>\r\n                        </select>\r\n                  </span>\r\n\r\n                  \r\n                </td>\r\n              </tr>\r\n\r\n              <tr>\r\n                  <td>\r\n                    <span>Relationship:</span>\r\n                  </td>\r\n                  <td>\r\n                    <span class=\"data\">{{service.user.userInfo.relationship || 'unset'}}</span>\r\n                    <span class=\"changeData\">\r\n                        <select class=\"form-control\"  [(ngModel)]='relationship'>\r\n                            <option value=\"unset\">unset</option>\r\n                            <option value=\"single\">Single</option>\r\n                            <option value=\"inrelationship\" >In Relationship</option>\r\n                            <option value=\"engaged\" >Engaged</option>\r\n                            <option value=\"marriage\" >Marriage</option>\r\n                          </select>\r\n                    </span>\r\n  \r\n                    \r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                    <td>\r\n                      <span> Birth Date:</span>\r\n                    </td>\r\n                    <td>\r\n                      <span class=\"data\">{{service.user.userInfo.birth || 'unset'}}</span>\r\n                      <span class=\"changeData\">\r\n                          <input type=\"date\" class=\"form-control\" value=\"{{service.user.userInfo.birth}}\"  [(ngModel)]='birth' >\r\n                      </span>\r\n    \r\n                      \r\n                    </td>\r\n                  </tr>\r\n\r\n\r\n      </table>\r\n    </div>\r\n    <span class=\"interests-container\">\r\n    <p class=\"headerData\">Interests Of:</p>\r\n    <div class=\"tableContainer\">\r\n        <hr>\r\n\r\n        <span class=\"interest\"   *ngFor=\"let interest  of service.user.userInfo.interests ;let indx = index\"    >{{interest}} <span class=\"deleteInterest\" (click)=\"deleteInterest(indx) \">x </span></span>\r\n\r\n        <span class=\"interest\"> <input type=\"text\" class=\" {{changeWidthInterestInputVal}}\" placeholder=\"ADD\" (click)=\"changeWidthInterestInput()\" [(ngModel)]=\"newInterest\"> <span class=\"addInterest glyphicon glyphicon-plus \" (click)=\"addInterest() \">  </span></span>\r\n    </div>\r\n  </span>\r\n    <button class=\"saveChange\" (click)=\"saveChange()\">dd </button>\r\n  </div>\r\n\r\n\r\n"
+module.exports = "<div class=\"aboutContainer {{changeDateVal}}\">\r\n  <div class=\"settings\" (click)=\"changeData()\">\r\n    <span class=\"glyphicon glyphicon-cog\"></span>\r\n    <p>Change</p>\r\n  </div>\r\n  <div class=\"shortUserInfo\">\r\n    <p class=\"headerData\">general information:</p>\r\n  \r\n    <div class=\"tableContainer\">\r\n        <hr>\r\n\r\n      <table>\r\n        <tr>\r\n          <td>\r\n            <span>Name:</span>\r\n          </td>\r\n          <td>\r\n            <span class=\"data\">{{service.user.userInfo.username}}</span>\r\n            <span class=\"changeData\">\r\n              <input type=\"text\" class=\"form-control\" [ngClass]=\"{'error-border': !name}\"\r\n              value=\"{{service.user.userInfo.username}}\" [(ngModel)]='name'>\r\n            </span>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <span>E-mail:</span>\r\n\r\n          </td>\r\n          <td>\r\n            <span class=\"data\">{{service.user.userInfo.email}}</span>\r\n            <span class=\"changeData\">\r\n              <input type=\"text\" class=\"form-control\" value=\"{{service.user.userInfo.email}}\" disabled>\r\n            </span>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n              <span>Work at:</span>\r\n            </td>\r\n            <td>\r\n              <span class=\"data\">{{service.user.userInfo.work || 'unset'}}</span>\r\n              <span class=\"changeData\">\r\n                <input type=\"text\" class=\"form-control\" value=\"{{service.user.userInfo.work || 'unset' }}\"  [(ngModel)]='work'>\r\n              </span>\r\n            </td>\r\n          </tr>\r\n          <tr>\r\n              <td>\r\n                <span>Lives in:</span>\r\n              </td>\r\n              <td>\r\n                <span class=\"data\">{{service.user.userInfo.location || 'unset'}}</span>\r\n                <span class=\"changeData\">\r\n                  <input type=\"text\" class=\"form-control\" value=\"{{service.user.userInfo.location}}\" [(ngModel)]='location'>\r\n                </span>\r\n              </td>\r\n            </tr>\r\n\r\n            <tr>\r\n                <td>\r\n                  <span>Gender:</span>\r\n                </td>\r\n                <td>\r\n                  <span class=\"data\">{{service.user.userInfo.gender || 'unset'}}</span>\r\n                  <span class=\"changeData\">\r\n                  \r\n                      <select class=\"form-control\" [(ngModel)]='gender' >\r\n                          <option value=\"unset\">unset</option>\r\n                          <option value=\"male\">Male</option>\r\n                          <option value=\"female\">Female</option>\r\n                        </select>\r\n                  </span>\r\n\r\n                  \r\n                </td>\r\n              </tr>\r\n\r\n              <tr>\r\n                  <td>\r\n                    <span>Relationship:</span>\r\n                  </td>\r\n                  <td>\r\n                    <span class=\"data\">{{service.user.userInfo.relationship || 'unset'}}</span>\r\n                    <span class=\"changeData\">\r\n                        <select class=\"form-control\"  [(ngModel)]='relationship'>\r\n                            <option value=\"unset\">unset</option>\r\n                            <option value=\"single\">Single</option>\r\n                            <option value=\"inrelationship\" >In Relationship</option>\r\n                            <option value=\"engaged\" >Engaged</option>\r\n                            <option value=\"marriage\" >Marriage</option>\r\n                          </select>\r\n                    </span>\r\n  \r\n                    \r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                    <td>\r\n                      <span> Birth Date:</span>\r\n                    </td>\r\n                    <td>\r\n                      <span class=\"data\">{{service.user.userInfo.birth || 'unset'}}</span>\r\n                      <span class=\"changeData\">\r\n                          <input type=\"date\" class=\"form-control\" value=\"{{service.user.userInfo.birth}}\"  [(ngModel)]='birth' >\r\n                      </span>\r\n    \r\n                      \r\n                    </td>\r\n                  </tr>\r\n\r\n\r\n      </table>\r\n    </div>\r\n    <span class=\"interests-container\">\r\n    <p class=\"headerData\">Interests Of:</p>\r\n    <div class=\"tableContainer\">\r\n        <hr>\r\n\r\n        <span class=\"interest\"   *ngFor=\"let interest  of service.user.userInfo.interests ;let indx = index\"    >{{interest}} <span class=\"deleteInterest\" (click)=\"deleteInterest(indx) \">x </span></span>\r\n\r\n        <span class=\"interest\"> <input type=\"text\" class=\" {{changeWidthInterestInputVal}}\" placeholder=\"ADD\" (click)=\"changeWidthInterestInput()\" [(ngModel)]=\"newInterest\"> <span class=\"addInterest glyphicon glyphicon-plus \" (click)=\"addInterest() \">  </span></span>\r\n    </div>\r\n  </span>\r\n    <button class=\"saveChange\" (click)=\"saveChange()\">Save Change </button>\r\n  </div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -601,6 +601,13 @@ var DataService = /** @class */ (function () {
         this.createAuthorizationHeader(headers);
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/user/changeuserinterests', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    DataService.prototype.getUserProfile = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/user/getuserprofile', record, { headers: headers }).map(function (res) { return res.json(); });
     };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
@@ -1410,7 +1417,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".cover{\r\n    background-size: cover!important;\r\n    min-height: 300px;\r\n    background-color: #001527;\r\n    position: relative\r\n}\r\n\r\n\r\n \r\n.image-profile-container{\r\n    margin: auto;\r\n    width: -webkit-fit-content;\r\n    width: -moz-fit-content;\r\n    width: fit-content;\r\n}\r\n\r\n\r\n \r\n.image-profile-container{\r\n    z-index: 33;\r\n    position: relative;\r\n}\r\n\r\n\r\n \r\n.image-profile-container img{\r\n    height: 167px;\r\n    margin: auto;\r\n    width: 167px;\r\n    margin-top: -133px;\r\n    display: block;\r\n    -webkit-box-shadow: 0 0 16px 0 #000;\r\n    box-shadow: 0 0 16px 0 #000;\r\n    /* border: 5px solid #fff; */\r\n    border-radius: 6px;\r\n}\r\n\r\n\r\n \r\n.change-image-profile-container{\r\n    height: 167px;\r\n    margin: auto;\r\n    width: 167px;\r\n    position: relative;\r\n    margin-top: -167px;\r\n    z-index: 11;\r\n    border: 5px solid #fff;\r\n    border-radius: 6px;\r\n    opacity: 0;\r\n    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff00), to(#001527fc));\r\n    background: linear-gradient(#ffffff00, #001527fc);\r\n    -webkit-transition: all .4s ease;\r\n    transition: all .4s ease;\r\n}\r\n\r\n\r\n \r\n.change-image-profile-container label {\r\n    bottom: 0px;\r\n    right: 6px;\r\n    position: absolute;\r\n    background: #00509654;\r\n    color: white;\r\n    border: 1px solid #6f6f6f70;\r\n    width: auto;\r\n    zoom: 0.8;\r\n}\r\n\r\n\r\n \r\n.follow{\r\n    width: 95px;\r\n    height: 95px;\r\n    text-align: center;\r\n    border: 5px solid #e8e8d2;\r\n    border-radius: 50%;\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    margin: 8px 26px;\r\n}\r\n\r\n\r\n \r\n.follow p{\r\n    margin: auto;\r\n    font-weight: bold;\r\n    font-family: sans-serif;\r\n}\r\n\r\n\r\n \r\n.short_info{\r\n    text-align: center;\r\n    margin: 8px\r\n}\r\n\r\n\r\n \r\n.short_info span{\r\n    font-family: Helvetica, Arial, sans-serif;\r\n    font-size: 24px;\r\n    -moz-osx-font-smoothing: grayscale;\r\n    font-weight: 500;\r\n    line-height: 30px;\r\n    max-width: 275px;\r\n}\r\n\r\n\r\n \r\n.hdn{\r\n    display: none;\r\n}", ""]);
 
 // exports
 
@@ -1423,7 +1430,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user/user.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  user works!\r\n</p>\r\n"
+module.exports = "<div>\r\n    <div class=\"cover\" *ngIf=\"!userObject.userDate.cover\"></div>\r\n    <div class=\"cover\" *ngIf=\"userObject.userDate.cover\" [ngStyle]=\"{background: 'url(data:image/jpeg;base64,' + userObject.userDate.cover + ')  no-repeat  center'}\"></div>\r\n\r\n</div>\r\n\r\n\r\n\r\n<div class=\"image-profile-container\">\r\n    <img *ngIf=\"userObject.userDate.image\" src='data:image/jpeg;base64,{{userObject.userDate.image}}'>\r\n    <img *ngIf=\"!userObject.userDate.image\" src=\"assets/profile.png\">\r\n</div>\r\n\r\n<div class=\"short_info\">\r\n    <span>{{userObject.userDate.username}}</span>\r\n    <br>\r\n    <div class=\"follow\">\r\n        <p>{{ followerLength(userObject.followData) }}\r\n            <br> Follower</p>\r\n    </div>\r\n\r\n    <div class=\"follow\">\r\n        <p>{{followingLength(userObject.followData) }}\r\n            <br> Following</p>\r\n    </div>\r\n\r\n</div>\r\n\r\n\r\n<ul class=\"nav nav-tabs\">\r\n    <li (click)=\"routeTabs('Posts')\" [class.active]=\"tapRouteVal === 'Posts'\">\r\n        <a>Posts</a>\r\n    </li>\r\n    <li (click)=\"routeTabs('Photos')\" [class.active]=\"tapRouteVal === 'Photos'\">\r\n        <a>Photos</a>\r\n    </li>\r\n    <li (click)=\"routeTabs('About')\" [class.active]=\"tapRouteVal === 'About'\">\r\n        <a>About</a>\r\n    </li>\r\n\r\n</ul>\r\n\r\n\r\n<div *ngIf=\"tapRouteVal=='Posts'\">\r\n\r\n    <viewPost *ngFor=\"let post  of fetchPost(userObject.postData,userObject.userDate)\" [data]='post'></viewPost>\r\n</div>\r\n\r\n<div *ngIf=\"tapRouteVal==='Photos'\">\r\n    <div *ngFor=\"let post  of fetchPost(userObject.postData,userObject.userDate)\">\r\n        <viewImage [data]='post'></viewImage>\r\n    </div>\r\n</div>\r\n<!--development part-->\r\n\r\n<div *ngIf=\"tapRouteVal==='About'\">\r\n    <div class=\"aboutContainer \">\r\n        <div class=\"shortUserInfo\">\r\n            <p class=\"headerData\">general information:</p>\r\n\r\n            <div class=\"tableContainer\">\r\n                <hr>\r\n\r\n                <table>\r\n                    <tr>\r\n                        <td>\r\n                            <span>Name:</span>\r\n                        </td>\r\n                        <td>\r\n                            <span class=\"data\">{{userObject.userDate.username}}</span>\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            <span>E-mail:</span>\r\n                        </td>\r\n                        <td>\r\n                            <span class=\"data\">{{userObject.userDate.email}}</span>\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            <span>Work at:</span>\r\n                        </td>\r\n                        <td>\r\n                            <span class=\"data\">{{userObject.userDate.work || 'Unset'}}</span>\r\n\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            <span>Lives in:</span>\r\n                        </td>\r\n                        <td>\r\n                            <span class=\"data\">{{userObject.userDate.location || 'Unset'}}</span>\r\n                        </td>\r\n                    </tr>\r\n\r\n                    <tr>\r\n                        <td>\r\n                            <span>Gender:</span>\r\n                        </td>\r\n                        <td>\r\n                            <span class=\"data\">{{userObject.userDate.gender || 'Unset'}}</span>\r\n                        </td>\r\n                    </tr>\r\n\r\n                    <tr>\r\n                        <td>\r\n                            <span>Relationship:</span>\r\n                        </td>\r\n                        <td>\r\n                            <span class=\"data\">{{userObject.userDate.relationship || 'Unset'}}</span>\r\n                        </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td>\r\n                            <span> Birth Date:</span>\r\n                        </td>\r\n                        <td>\r\n                            <span class=\"data\">{{userObject.userDate.birth || 'Unset'}}</span>\r\n                        </td>\r\n                    </tr>\r\n                </table>\r\n            </div>\r\n            <span class=\"interests-container\">\r\n                <p class=\"headerData\">Interests Of:</p>\r\n                <div class=\"tableContainer\">\r\n                    <hr>\r\n\r\n                    <span class=\"interest\" *ngFor=\"let interest  of userObject.userDate.interests\">{{interest}}\r\n                    </span>\r\n\r\n                    <span class=\"interest\" *ngIf=\"userObject.userDate.interests.length ===0\">there is no interests\r\n                    </span>\r\n\r\n                </div>\r\n            </span>\r\n\r\n        </div>\r\n\r\n\r\n\r\n    </div>\r\n    <!--END development part-->"
 
 /***/ }),
 
@@ -1451,17 +1458,67 @@ var UserComponent = /** @class */ (function () {
     function UserComponent(service, route) {
         this.service = service;
         this.route = route;
+        this.userObject = { userDate: { interests: [] }, postData: '' };
+        this.tapRouteVal = 'Posts';
     }
+    UserComponent.prototype.followerLength = function (followData) {
+        var followerCuont = 0;
+        if (!followData) {
+            return 0;
+        }
+        for (var i = 0; i < followData.length; i++) {
+            if (followData[i].followerId === this.userObject.userDate._id) {
+                followerCuont++;
+            }
+        }
+        return followerCuont;
+    };
+    UserComponent.prototype.followingLength = function (followData) {
+        var followigCuont = 0;
+        if (!followData) {
+            return 0;
+        }
+        for (var i = 0; i < followData.length; i++) {
+            if (followData[i].followingId === this.userObject.userDate._id) {
+                followigCuont++;
+            }
+        }
+        return followigCuont;
+    };
+    UserComponent.prototype.fetchPost = function (postData, userDate) {
+        var userPosts = [];
+        for (var i = 0; i < postData.length; i++) {
+            userPosts.push({
+                userId: userDate._id || '',
+                imageUser: userDate.image,
+                username: userDate.username,
+                date: postData[i].date,
+                postContent: postData[i].postContent,
+                postId: postData[i]._id
+            });
+        }
+        return userPosts;
+    };
+    UserComponent.prototype.routeTabs = function (a) {
+        this.tapRouteVal = a;
+    };
     UserComponent.prototype.ngOnInit = function () {
-        this.route.params.subscribe(function (res) {
-            console.log(res.id);
+        var _this = this;
+        this.route.params.subscribe(function (query) {
+            _this.service.getUserProfile({ query: query, profile: _this.service.user.id }).subscribe(function (res) {
+                if (res.status === 'fail') {
+                }
+                else {
+                    _this.userObject = res;
+                }
+            });
         });
     };
     UserComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user',
             template: __webpack_require__("../../../../../src/app/user/user.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/user/user.component.css")]
+            styles: [__webpack_require__("../../../../../src/app/user/user.component.css"), __webpack_require__("../../../../../src/app/about/about.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], UserComponent);

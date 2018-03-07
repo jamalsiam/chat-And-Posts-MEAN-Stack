@@ -1,3 +1,117 @@
-<p>
-  user works!
-</p>
+<div>
+    <div class="cover" *ngIf="!userObject.userDate.cover"></div>
+    <div class="cover" *ngIf="userObject.userDate.cover" [ngStyle]="{background: 'url(data:image/jpeg;base64,' + userObject.userDate.cover + ')  no-repeat  center'}"></div>
+
+</div>
+<div class="image-profile-container">
+    <img *ngIf="userObject.userDate.image" src='data:image/jpeg;base64,{{userObject.userDate.image}}'>
+    <img *ngIf="!userObject.userDate.image" src="assets/profile.png">
+</div>
+<div class="short_info">
+    <span>{{userObject.userDate.username}}</span>
+    <br>
+    <div class="follow">
+        <p>{{ followerLength(userObject.followData) }}
+            <br> Follower</p>
+    </div>
+    <div class="follow">
+        <p>{{followingLength(userObject.followData) }}
+            <br> Following</p>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+    <li (click)="routeTabs('Posts')" [class.active]="tapRouteVal === 'Posts'">
+        <a>Posts</a>
+    </li>
+    <li (click)="routeTabs('Photos')" [class.active]="tapRouteVal === 'Photos'">
+        <a>Photos</a>
+    </li>
+    <li (click)="routeTabs('About')" [class.active]="tapRouteVal === 'About'">
+        <a>About</a>
+    </li>
+</ul>
+<div *ngIf="tapRouteVal=='Posts'">
+    <viewPost *ngFor="let post  of fetchPost(userObject.postData,userObject.userDate)" [data]='post'></viewPost>
+</div>
+<div *ngIf="tapRouteVal==='Photos'">
+    <div *ngFor="let post  of fetchPost(userObject.postData,userObject.userDate)">
+        <viewImage [data]='post'></viewImage>
+    </div>
+</div>
+<div *ngIf="tapRouteVal==='About'">
+    <div class="aboutContainer ">
+        <div class="shortUserInfo">
+            <p class="headerData">general information:</p>
+            <div class="tableContainer">
+                <hr>
+                <table>
+                    <tr>
+                        <td>
+                            <span>Name:</span>
+                        </td>
+                        <td>
+                            <span class="data">{{userObject.userDate.username}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>E-mail:</span>
+                        </td>
+                        <td>
+                            <span class="data">{{userObject.userDate.email}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Work at:</span>
+                        </td>
+                        <td>
+                            <span class="data">{{userObject.userDate.work || 'Unset'}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Lives in:</span>
+                        </td>
+                        <td>
+                            <span class="data">{{userObject.userDate.location || 'Unset'}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Gender:</span>
+                        </td>
+                        <td>
+                            <span class="data">{{userObject.userDate.gender || 'Unset'}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Relationship:</span>
+                        </td>
+                        <td>
+                            <span class="data">{{userObject.userDate.relationship || 'Unset'}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span> Birth Date:</span>
+                        </td>
+                        <td>
+                            <span class="data">{{userObject.userDate.birth || 'Unset'}}</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <span class="interests-container">
+                <p class="headerData">Interests Of:</p>
+                <div class="tableContainer">
+                    <hr>
+                    <span class="interest" *ngFor="let interest  of userObject.userDate.interests">{{interest}}
+                    </span>
+                    <span class="interest" *ngIf="userObject.userDate.interests.length === 0">there is no interests
+                    </span>
+                </div>
+            </span>
+        </div>
+    </div>

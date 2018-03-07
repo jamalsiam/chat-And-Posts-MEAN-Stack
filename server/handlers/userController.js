@@ -127,5 +127,31 @@ module.exports = {
         }, function (err, affected, resp) {
             res.json({ status: 'succses' })
         })
+    },
+    getUserProfile: (req, res) => {
+        let id = req.body.query.id.slice(3, req.body.query.id.length);
+        model.User.findOne({ _id: id }) // GET USER INFO
+            .select('username phone address email image cover work location relationship gender birth interests')
+            .then((userDate) => { 
+                if (!userDate || !req.body.profile) { // Check if correct id 
+                    res.json({ status: 'fail' })
+                }
+
+                model.Post.find({ userId: userDate._id }) //GET USER POST
+                    .then((postData) => {
+                        model.Follow.find({ $or: [{ followerId: userDate._id }, { followingId: userDate._id }] }) //GET FOLLOW LIST
+                            .then((followData) => {
+                                let followingFromMe = () => {
+                                    for (let i = 0; i < followData.length; i++) {
+                                        if (followData[i].followingId == req.body.profile) {
+                                            return true;
+                                        }
+                                    }
+                                    return false;
+                                }
+                                res.json({ userDate, postData, followData, followingFromMe: followingFromMe() })
+                            });
+                    });
+            });
     }
 }

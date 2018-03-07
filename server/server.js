@@ -11,6 +11,7 @@ app.post('/api/user/changeprofileimage',handlers.handelUser.changeProfileImage);
 app.post('/api/user/changeprofilecover',handlers.handelUser.changeProfileCover);
 app.post('/api/user/changeprofileinfo',handlers.handelUser.changeProfileInfo);
 app.post('/api/user/changeuserinterests',handlers.handelUser.changeUserInterests);
+app.post('/api/user/getuserprofile',handlers.handelUser.getUserProfile);
 
 
 
