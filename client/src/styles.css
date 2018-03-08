@@ -104,3 +104,14 @@ label {
   background-color: #e8e8d2;
   cursor: pointer;
 }
+
+.flaotLeft{
+  float: left;
+}
+
+.flaotRight{
+  float: right;
+}
+.clearFex{
+clear: both;
+}

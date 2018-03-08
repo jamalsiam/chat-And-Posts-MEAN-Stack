@@ -7,7 +7,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./user.component.css', '../about/about.component.css']
 })
 export class UserComponent implements OnInit {
-  userObject: any = { userDate: {interests: []}, postData : '' };
+  userObject: any = { userDate: { interests: [] }, postData: '' };
   tapRouteVal: String = 'Posts';
   constructor(public service: DataService, private route: ActivatedRoute) { }
 
@@ -50,7 +50,27 @@ export class UserComponent implements OnInit {
     }
     return userPosts;
   }
-
+  follow(followerId, followingId) {
+    this.service.follow({ followerId, followingId })
+      .subscribe(res => {
+        console.log(res);
+        console.log(this.userObject.followData);
+        if (res.data) {
+          this.userObject.followData = [res.newFollow].concat(this.userObject.followData);
+        } else {
+          const record = [];
+          for (let i = 0; i < this.userObject.followData.length; i++) {
+            if (this.userObject.followData[i].followerId === followerId && this.userObject.followData[i].followingId === followingId) {
+              continue;
+            } else {
+              record.push(this.userObject.followData[i]);
+            }
+          }
+          this.userObject.followData = record;
+        }
+        this.userObject.followingFromMe = res.data;
+      });
+  }
 
 
   routeTabs(a: string) {

@@ -89,3 +89,24 @@
 .hdn{
     display: none;
 }
+
+.followAndMessage{
+    width: 220px;
+    margin: 0 auto -20px auto;
+}
+.followAndMessage > span{
+    font-size: 13px;
+    border: 1px solid #888888;
+    padding: 0 7px;
+    cursor: pointer;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.followAndMessage > span span{
+    font-size: 17px;
+}
+
+
+
+

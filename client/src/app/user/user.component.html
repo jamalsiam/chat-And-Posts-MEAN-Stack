@@ -10,6 +10,23 @@
 <div class="short_info">
     <span>{{userObject.userDate.username}}</span>
     <br>
+    <div class="followAndMessage"> 
+        <span class="flaotLeft" *ngIf="userObject.followingFromMe" (click)="follow(userObject.userDate._id,service.user.id)">
+            following
+            <span class="glyphicon glyphicon-remove"></span>
+        </span>
+
+        <span  class="flaotLeft" *ngIf="!userObject.followingFromMe" (click)="follow(userObject.userDate._id,service.user.id)">
+            Follow
+            <span class="glyphicon glyphicon-plus"></span>
+        </span>
+        <span class="flaotRight">
+            Send
+            <span class="glyphicon glyphicon-envelope"></span>
+        </span>
+        <div class="clearFex"></div>
+    </div>
+    <br>
     <div class="follow">
         <p>{{ followerLength(userObject.followData) }}
             <br> Follower</p>
