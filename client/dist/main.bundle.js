@@ -616,6 +616,13 @@ var DataService = /** @class */ (function () {
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/post/likeandcommentlength', record, { headers: headers }).map(function (res) { return res.json(); });
     };
+    DataService.prototype.putOrRemoveLike = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/post/putorremovelike', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3_angular_2_local_storage__["LocalStorageService"]])
@@ -1679,7 +1686,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".post{\r\n    background: white;\r\n    margin:10px auto;\r\n    width: 70%;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n    padding: 15px;\r\n    border-radius: 4px;\r\n}\r\n.post-tool{\r\n    font-size: 10px;\r\n    float: right;\r\n    color: #888888;\r\n    cursor: pointer;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n    padding: 3px;\r\n    border-radius: 4px;\r\n}\r\n.post-tool:hover{\r\n    color: #2e2d2d;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #2e2d2d;\r\n            box-shadow: 0px 0px 1px 0px #2e2d2d;\r\n}\r\n.userImage{\r\n    border-radius: 50%;\r\n    width: 40px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n    box-shadow: 0px 0px 1px 0px #888888;\r\n    margin: 0px 8px 0px 0px;\r\n}\r\n.userpart{\r\n\r\n}\r\n.userpart >* {\r\n    float: left;\r\n}\r\n.clearfix{\r\n    clear: both\r\n}\r\n.userName-date{\r\n    position: absolute;\r\n    margin-left: 50px;\r\n}\r\n.userName{\r\n    font-weight: bold;\r\n    color: #4176b1;\r\n    cursor: pointer;\r\n    font-family: inherit;\r\n    font-size: 14px;\r\n    line-height: 1.38;\r\n}\r\n.userName:hover{\r\n    text-decoration: underline;\r\n}\r\n.posttext{\r\n    margin: 15px 0px 25px 5px;\r\n}\r\n.date{\r\n    color: #90949c;\r\n    font-size: 12px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n    font-weight: normal;\r\n    margin-top: -9px;\r\n    display: block;\r\n}\r\n.tool > *{\r\n    float: left;\r\n    width: 33%;\r\n    text-align: center;\r\n    font-size: 13px;\r\n    color: #616770;\r\n    font-weight: bold;\r\n    position: relative;\r\n    top: 15px;\r\n    cursor: pointer;\r\n}\r\n.tool > *:hover{\r\n    color: #4176b1;\r\n    background: #eeeeef4a;\r\n}\r\nhr{\r\n    margin-top: 10px;\r\n    margin-bottom: -5px;\r\n}\r\n.postImageWithText{\r\n    width: 60%;\r\n    margin: auto;\r\n    display: block;\r\n}\r\n.postImageWithoutText{\r\n    width: 100%;\r\n}\r\n.displaynone{\r\n    display: none;\r\n}\r\n.cursor-pointer{\r\n    cursor: pointer;\r\n}\r\n.delete{\r\n  opacity: 0;\r\n  \r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  height: 0px!important;\r\n  -webkit-transition: all 1s ease;\r\n  transition: all 1s ease;\r\n}\r\n.delete >*{\r\n    opacity: 0;\r\n    display: none;\r\n    -webkit-transition: all .5s ease;\r\n    transition: all .5s ease;\r\n}", ""]);
+exports.push([module.i, ".post{\r\n    background: white;\r\n    margin:10px auto;\r\n    width: 70%;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n    padding: 15px;\r\n    border-radius: 4px;\r\n}\r\n.post-tool{\r\n    font-size: 10px;\r\n    float: right;\r\n    color: #888888;\r\n    cursor: pointer;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n    padding: 3px;\r\n    border-radius: 4px;\r\n}\r\n.post-tool:hover{\r\n    color: #2e2d2d;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #2e2d2d;\r\n            box-shadow: 0px 0px 1px 0px #2e2d2d;\r\n}\r\n.userImage{\r\n    border-radius: 50%;\r\n    width: 40px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n    box-shadow: 0px 0px 1px 0px #888888;\r\n    margin: 0px 8px 0px 0px;\r\n}\r\n.userpart{\r\n\r\n}\r\n.userpart >* {\r\n    float: left;\r\n}\r\n.clearfix{\r\n    clear: both\r\n}\r\n.userName-date{\r\n    position: absolute;\r\n    margin-left: 50px;\r\n}\r\n.userName{\r\n    font-weight: bold;\r\n    color: #4176b1;\r\n    cursor: pointer;\r\n    font-family: inherit;\r\n    font-size: 14px;\r\n    line-height: 1.38;\r\n}\r\n.userName:hover{\r\n    text-decoration: underline;\r\n}\r\n.posttext{\r\n    margin: 15px 0px 25px 5px;\r\n}\r\n.date{\r\n    color: #90949c;\r\n    font-size: 12px;\r\n    font-family: inherit;\r\n    cursor: pointer;\r\n    font-weight: normal;\r\n    margin-top: -9px;\r\n    display: block;\r\n}\r\n.tool > *{\r\n    float: left;\r\n    width: 33%;\r\n    text-align: center;\r\n    font-size: 13px;\r\n    color: #616770;\r\n    font-weight: bold;\r\n    position: relative;\r\n    top: 15px;\r\n    cursor: pointer;\r\n}\r\n.tool > *:hover{\r\n    color: #4176b1;\r\n}\r\nhr{\r\n    margin-top: 10px;\r\n    margin-bottom: -5px;\r\n}\r\n.postImageWithText{\r\n    width: 60%;\r\n    margin: auto;\r\n    display: block;\r\n}\r\n.postImageWithoutText{\r\n    width: 100%;\r\n}\r\n.displaynone{\r\n    display: none;\r\n}\r\n.cursor-pointer{\r\n    cursor: pointer;\r\n}\r\n.delete{\r\n  opacity: 0;\r\n  \r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  height: 0px!important;\r\n  -webkit-transition: all 1s ease;\r\n  transition: all 1s ease;\r\n}\r\n.delete >*{\r\n    opacity: 0;\r\n    display: none;\r\n    -webkit-transition: all .5s ease;\r\n    transition: all .5s ease;\r\n}\r\n.blue-color{\r\n    color: #4176b1!important;\r\n}", ""]);
 
 // exports
 
@@ -1692,7 +1699,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/view-post/view-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"post {{deleteCss}}\">\r\n\r\n  <p class=\"post-tool\" *ngIf=\"service.user.id===data.userId \" (click)=\"deletePost(data.userId,data._id)\">\r\n    <span class=\"glyphicon glyphicon-remove\"></span>\r\n  </p>\r\n\r\n  <div class=\"userpart\" (click)=\"viewProfile(data.userId)\">\r\n    <img class=\"userImage\" *ngIf=\"data.imageUser\" src=\"data:image/jpeg;base64,{{data.imageUser ||''}}\" class=\"userImage\" alt=\"\">\r\n    <img class=\"userImage\" *ngIf=\"!data.imageUser\" src=\"assets/profile.png\">\r\n\r\n    <div class=\"userName-date\">\r\n      <p class=\"userName\">{{data.username}} </p>\r\n      <a class=\"date\">{{data.date}}</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n  <span (click)=\"viewOriginPost(data)\" class=\"cursor-pointer\">\r\n    <p class=\"posttext\">\r\n      {{data.postContent.text}}\r\n    </p>\r\n\r\n    <div [class.displaynone]=\"data.postContent.image == '' ||  data.postContent.image == undefined\">\r\n      <img src=\"data:image/jpeg;base64,{{data.postContent.image ||''}}\" [class.postImageWithText]=\"data.postContent.text !== '' ||  data.postContent.text !== undefined\"\r\n        [class.postImageWithoutText]=\"data.postContent.text === '' || data.postContent.text === undefined\">\r\n    </div>\r\n  </span>\r\n  <hr>\r\n  <div class=\"tool\">\r\n    <p *ngIf=\"checkUserLiked\" >\r\n      <i class=\"fa fa-thumbs-o-up\"></i> Like{{ likesLingth }}\r\n    </p>\r\n\r\n    <p *ngIf=\"!checkUserLiked\" >\r\n      <i class=\"fa fa-thumbs-o-up\"></i> Like{{ likesLingth }}\r\n    </p>\r\n\r\n    \r\n    <p>\r\n      <i class=\"fa fa-comment-o\" aria-hidden=\"true\"></i>\r\n      Comment{{ commentsLength }}</p>\r\n    <p (click)=\"sharePost(data.postContent)\">\r\n      <i class=\"fa fa-share\" aria-hidden=\"true\"></i>\r\n      {{share}}</p>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n"
+module.exports = "<div class=\"post {{deleteCss}}\">\r\n\r\n  <p class=\"post-tool\" *ngIf=\"service.user.id===data.userId \" (click)=\"deletePost(data.userId,data._id)\">\r\n    <span class=\"glyphicon glyphicon-remove\"></span>\r\n  </p>\r\n\r\n  <div class=\"userpart\" (click)=\"viewProfile(data.userId)\">\r\n    <img class=\"userImage\" *ngIf=\"data.imageUser\" src=\"data:image/jpeg;base64,{{data.imageUser ||''}}\" class=\"userImage\" alt=\"\">\r\n    <img class=\"userImage\" *ngIf=\"!data.imageUser\" src=\"assets/profile.png\">\r\n\r\n    <div class=\"userName-date\">\r\n      <p class=\"userName\">{{data.username}} </p>\r\n      <a class=\"date\">{{data.date}}</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n  <span (click)=\"viewOriginPost(data)\" class=\"cursor-pointer\">\r\n    <p class=\"posttext\">\r\n      {{data.postContent.text}}\r\n    </p>\r\n\r\n    <div [class.displaynone]=\"data.postContent.image == '' ||  data.postContent.image == undefined\">\r\n      <img src=\"data:image/jpeg;base64,{{data.postContent.image ||''}}\" [class.postImageWithText]=\"data.postContent.text !== '' ||  data.postContent.text !== undefined\"\r\n        [class.postImageWithoutText]=\"data.postContent.text === '' || data.postContent.text === undefined\">\r\n    </div>\r\n  </span>\r\n  <hr>\r\n  <div class=\"tool\">\r\n    <p class=\"blue-color\" *ngIf=\"checkUserLiked\" (click)=\"putOrRemoveLike(data.postId,service.user.id)\">\r\n      <i class=\"fa fa-thumbs-o-up \"></i> Liked{{ likesLingth }}\r\n    </p>\r\n\r\n    <p *ngIf=\"!checkUserLiked\" (click)=\"putOrRemoveLike(data.postId,service.user.id)\" >\r\n      <i class=\"fa fa-thumbs-o-up\"></i> Like{{ likesLingth }}\r\n    </p>\r\n\r\n\r\n    <p>\r\n      <i class=\"fa fa-comment-o\" aria-hidden=\"true\"></i>\r\n      Comment{{ commentsLength }}</p>\r\n    <p (click)=\"sharePost(data.postContent)\">\r\n      <i class=\"fa fa-share\" aria-hidden=\"true\"></i>\r\n      {{share}}</p>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n</div>\r\n<div class=\"clearfix\"></div>"
 
 /***/ }),
 
@@ -1755,16 +1762,34 @@ var ViewPostComponent = /** @class */ (function () {
             });
         }
     };
-    ViewPostComponent.prototype.ngOnInit = function () {
+    ViewPostComponent.prototype.putOrRemoveLike = function (postId, userId) {
         var _this = this;
-        this.likesLingth = 0;
-        this.commentsLength = 0;
-        this.checkUserLiked = false;
+        if (this.checkUserLiked) {
+            this.checkUserLiked = false;
+            this.likesLingth--;
+        }
+        else {
+            this.checkUserLiked = true;
+            this.likesLingth++;
+        }
+        console.log(userId, postId);
+        this.service.putOrRemoveLike({ postId: postId, userId: userId }).subscribe(function (res) {
+            _this.getLikeAndCommentLength();
+        });
+    };
+    ViewPostComponent.prototype.getLikeAndCommentLength = function () {
+        var _this = this;
         this.service.likeAndCommentLength({ postId: this.data.postId, profileId: this.service.user.id }).subscribe(function (res) {
             _this.commentsLength = res.commentsLength;
             _this.likesLingth = res.likesLength;
             _this.checkUserLiked = res.checkUserLiked;
         });
+    };
+    ViewPostComponent.prototype.ngOnInit = function () {
+        this.likesLingth = 0;
+        this.commentsLength = 0;
+        this.checkUserLiked = false;
+        this.getLikeAndCommentLength();
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),

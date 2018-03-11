@@ -154,6 +154,13 @@ export class DataService {
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/post/likeandcommentlength', record, { headers: headers }).map(res => res.json());
+  }
+  putOrRemoveLike(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/post/putorremovelike', record, { headers: headers }).map(res => res.json());
 
   }
 }

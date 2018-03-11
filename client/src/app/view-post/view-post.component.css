@@ -80,7 +80,6 @@
 
 .tool > *:hover{
     color: #4176b1;
-    background: #eeeeef4a;
 }
 hr{
     margin-top: 10px;
@@ -115,4 +114,7 @@ hr{
     opacity: 0;
     display: none;
     transition: all .5s ease;
+}
+.blue-color{
+    color: #4176b1!important;
 }

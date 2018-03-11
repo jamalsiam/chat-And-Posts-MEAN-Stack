@@ -47,16 +47,31 @@ export class ViewPostComponent implements OnInit {
         });
     }
   }
-
-  ngOnInit() {
-    this.likesLingth = 0;
-    this.commentsLength = 0;
-    this.checkUserLiked = false;
+  putOrRemoveLike(postId, userId) {
+    if (this.checkUserLiked) {
+      this.checkUserLiked = false;
+      this.likesLingth--;
+    } else {
+      this.checkUserLiked = true;
+      this.likesLingth++;
+    }
+    console.log( userId, postId );
+    this.service.putOrRemoveLike({postId, userId}).subscribe(res => {
+      this.getLikeAndCommentLength();
+    });
+  }
+  getLikeAndCommentLength() {
     this.service.likeAndCommentLength({ postId: this.data.postId, profileId: this.service.user.id }).subscribe(res => {
       this.commentsLength = res.commentsLength;
       this.likesLingth = res.likesLength;
       this.checkUserLiked = res.checkUserLiked;
     });
+  }
+  ngOnInit() {
+    this.likesLingth = 0;
+    this.commentsLength = 0;
+    this.checkUserLiked = false;
+    this.getLikeAndCommentLength();
   }
 
 }

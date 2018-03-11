@@ -26,15 +26,15 @@
   </span>
   <hr>
   <div class="tool">
-    <p *ngIf="checkUserLiked" >
+    <p class="blue-color" *ngIf="checkUserLiked" (click)="putOrRemoveLike(data.postId,service.user.id)">
+      <i class="fa fa-thumbs-o-up "></i> Liked{{ likesLingth }}
+    </p>
+
+    <p *ngIf="!checkUserLiked" (click)="putOrRemoveLike(data.postId,service.user.id)" >
       <i class="fa fa-thumbs-o-up"></i> Like{{ likesLingth }}
     </p>
 
-    <p *ngIf="!checkUserLiked" >
-      <i class="fa fa-thumbs-o-up"></i> Like{{ likesLingth }}
-    </p>
 
-    
     <p>
       <i class="fa fa-comment-o" aria-hidden="true"></i>
       Comment{{ commentsLength }}</p>

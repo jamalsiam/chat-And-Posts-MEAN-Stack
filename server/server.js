@@ -32,7 +32,7 @@ app.post('/api/comment/deletecomment',handlers.handelComment.deleteComment);
 app.post('/api/comment/getcommentpost',handlers.handelComment.getCommentPost);
 
 //comment APIs
-app.post('/api/like/putlike',handlers.handelLike.putLike);
+app.post('/api/post/putorremovelike',handlers.handelLike.putOrRemoveLike);
 
 //message APIs
 app.post('/api/message/message',handlers.handelMessage.sendMessage);
