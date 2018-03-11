@@ -163,4 +163,12 @@ export class DataService {
     return this.http.post('/api/post/putorremovelike', record, { headers: headers }).map(res => res.json());
 
   }
+  shareComment(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/comment/sharecomment', record, { headers: headers }).map(res => res.json());
+
+  }
 }

@@ -43,5 +43,13 @@
       {{share}}</p>
   </div>
   <div class="clearfix"></div>
+  <div class="x">
+    <hr>
+    <form action="post">
+        <input type="text" placeholder="write a comment..." name="commentText" [(ngModel)]="commentText">
+        <button type="submit" (click)="shareComment(data.postId,service.user.id)" >ss</button>
+    </form>
+    
+  </div>
 </div>
 <div class="clearfix"></div>

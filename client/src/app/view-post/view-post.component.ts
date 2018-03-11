@@ -15,6 +15,7 @@ export class ViewPostComponent implements OnInit {
   likesLingth: number;
   commentsLength: number;
   checkUserLiked: boolean;
+  commentText: string;
   constructor(public service: DataService, private router: Router) { }
   deletePost(userId, postId) {
 
@@ -55,8 +56,8 @@ export class ViewPostComponent implements OnInit {
       this.checkUserLiked = true;
       this.likesLingth++;
     }
-    console.log( userId, postId );
-    this.service.putOrRemoveLike({postId, userId}).subscribe(res => {
+    console.log(userId, postId);
+    this.service.putOrRemoveLike({ postId, userId }).subscribe(res => {
       this.getLikeAndCommentLength();
     });
   }
@@ -67,10 +68,20 @@ export class ViewPostComponent implements OnInit {
       this.checkUserLiked = res.checkUserLiked;
     });
   }
+  shareComment(postId, userId) {
+    if (this.commentText) {
+      this.service.shareComment({ postId, userId, commentContent: { text: this.commentText } }).subscribe(res => {
+        this.commentText = '';
+        console.log(res)
+      });
+    }
+
+  }
   ngOnInit() {
     this.likesLingth = 0;
     this.commentsLength = 0;
     this.checkUserLiked = false;
+    this.commentText = '';
     this.getLikeAndCommentLength();
   }
 
