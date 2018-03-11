@@ -29,7 +29,7 @@ app.post('/api/post/likeandcommentlength',handlers.handelPost.likeAndCommentLeng
 //comment APIs
 app.post('/api/comment/sharecomment',handlers.handelComment.putComment);
 app.post('/api/comment/deletecomment',handlers.handelComment.deleteComment);
-app.post('/api/comment/getcommentpost',handlers.handelComment.getCommentPost);
+app.post('/api/comment/viewcomments',handlers.handelComment.viewComments);
 
 //like APIs
 app.post('/api/post/putorremovelike',handlers.handelLike.putOrRemoveLike);

@@ -35,7 +35,7 @@
     </p>
 
 
-    <p>
+    <p (click)="getComments()">
       <i class="fa fa-comment-o" aria-hidden="true"></i>
       Comment{{ commentsLength }}</p>
     <p (click)="sharePost(data.postContent)">
@@ -43,8 +43,9 @@
       {{share}}</p>
   </div>
   <div class="clearfix"></div>
-  <div class="x">
+  <div class="x" *ngIf="viewComments">
     <hr>
+    <comment *ngFor="let comment of commentSet" [data]="comment"> </comment>
     <form action="post">
         <input type="text" placeholder="write a comment..." name="commentText" [(ngModel)]="commentText">
         <button type="submit" (click)="shareComment(data.postId,service.user.id)" >ss</button>

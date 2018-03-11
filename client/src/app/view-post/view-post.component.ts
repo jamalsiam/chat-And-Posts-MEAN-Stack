@@ -16,6 +16,8 @@ export class ViewPostComponent implements OnInit {
   commentsLength: number;
   checkUserLiked: boolean;
   commentText: string;
+  viewComments: boolean;
+  commentSet: any;
   constructor(public service: DataService, private router: Router) { }
   deletePost(userId, postId) {
 
@@ -72,9 +74,16 @@ export class ViewPostComponent implements OnInit {
     if (this.commentText) {
       this.service.shareComment({ postId, userId, commentContent: { text: this.commentText } }).subscribe(res => {
         this.commentText = '';
-        console.log(res)
       });
     }
+
+  }
+  getComments() {
+    this.service.viewComments({ postId: this.data.postId }).subscribe(res => {
+      this.commentSet = res.data;
+
+      this.viewComments = true;
+    });
 
   }
   ngOnInit() {
