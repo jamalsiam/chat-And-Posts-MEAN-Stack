@@ -609,6 +609,13 @@ var DataService = /** @class */ (function () {
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/user/getuserprofile', record, { headers: headers }).map(function (res) { return res.json(); });
     };
+    DataService.prototype.likeAndCommentLength = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/post/likeandcommentlength', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3_angular_2_local_storage__["LocalStorageService"]])
@@ -1685,7 +1692,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/view-post/view-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"post {{deleteCss}}\">\r\n\r\n  <p class=\"post-tool\" *ngIf=\"service.user.id===data.userId \" (click)=\"deletePost(data.userId,data._id)\">\r\n    <span class=\"glyphicon glyphicon-remove\"></span>\r\n  </p>\r\n\r\n  <div class=\"userpart\" (click)=\"viewProfile(data.userId)\">\r\n    <img class=\"userImage\" *ngIf=\"data.imageUser\" src=\"data:image/jpeg;base64,{{data.imageUser ||''}}\" class=\"userImage\" alt=\"\">\r\n    <img class=\"userImage\" *ngIf=\"!data.imageUser\" src=\"assets/profile.png\">\r\n\r\n    <div class=\"userName-date\">\r\n      <p class=\"userName\">{{data.username}} </p>\r\n      <a class=\"date\">{{data.date}}</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n  <span (click)=\"viewOriginPost(data)\" class=\"cursor-pointer\">\r\n    <p class=\"posttext\">\r\n      {{data.postContent.text}}\r\n    </p>\r\n\r\n    <div [class.displaynone]=\"data.postContent.image == '' ||  data.postContent.image == undefined\">\r\n      <img src=\"data:image/jpeg;base64,{{data.postContent.image ||''}}\" [class.postImageWithText]=\"data.postContent.text !== '' ||  data.postContent.text !== undefined\"\r\n        [class.postImageWithoutText]=\"data.postContent.text === '' || data.postContent.text === undefined\">\r\n    </div>\r\n  </span>\r\n  <hr>\r\n  <div class=\"tool\">\r\n    <p>\r\n      <i class=\"fa fa-thumbs-o-up\"></i> Like {{data.like || 0}}</p>\r\n    <p>\r\n      <i class=\"fa fa-comment-o\" aria-hidden=\"true\"></i>\r\n      Comment {{data.comment || 0}}</p>\r\n    <p (click)=\"sharePost(data.postContent)\">\r\n      <i class=\"fa fa-share\" aria-hidden=\"true\"></i>\r\n      {{share}}</p>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n"
+module.exports = "<div class=\"post {{deleteCss}}\">\r\n\r\n  <p class=\"post-tool\" *ngIf=\"service.user.id===data.userId \" (click)=\"deletePost(data.userId,data._id)\">\r\n    <span class=\"glyphicon glyphicon-remove\"></span>\r\n  </p>\r\n\r\n  <div class=\"userpart\" (click)=\"viewProfile(data.userId)\">\r\n    <img class=\"userImage\" *ngIf=\"data.imageUser\" src=\"data:image/jpeg;base64,{{data.imageUser ||''}}\" class=\"userImage\" alt=\"\">\r\n    <img class=\"userImage\" *ngIf=\"!data.imageUser\" src=\"assets/profile.png\">\r\n\r\n    <div class=\"userName-date\">\r\n      <p class=\"userName\">{{data.username}} </p>\r\n      <a class=\"date\">{{data.date}}</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n  <span (click)=\"viewOriginPost(data)\" class=\"cursor-pointer\">\r\n    <p class=\"posttext\">\r\n      {{data.postContent.text}}\r\n    </p>\r\n\r\n    <div [class.displaynone]=\"data.postContent.image == '' ||  data.postContent.image == undefined\">\r\n      <img src=\"data:image/jpeg;base64,{{data.postContent.image ||''}}\" [class.postImageWithText]=\"data.postContent.text !== '' ||  data.postContent.text !== undefined\"\r\n        [class.postImageWithoutText]=\"data.postContent.text === '' || data.postContent.text === undefined\">\r\n    </div>\r\n  </span>\r\n  <hr>\r\n  <div class=\"tool\">\r\n    <p *ngIf=\"checkUserLiked\" >\r\n      <i class=\"fa fa-thumbs-o-up\"></i> Like{{ likesLingth }}\r\n    </p>\r\n\r\n    <p *ngIf=\"!checkUserLiked\" >\r\n      <i class=\"fa fa-thumbs-o-up\"></i> Like{{ likesLingth }}\r\n    </p>\r\n\r\n    \r\n    <p>\r\n      <i class=\"fa fa-comment-o\" aria-hidden=\"true\"></i>\r\n      Comment{{ commentsLength }}</p>\r\n    <p (click)=\"sharePost(data.postContent)\">\r\n      <i class=\"fa fa-share\" aria-hidden=\"true\"></i>\r\n      {{share}}</p>\r\n  </div>\r\n  <div class=\"clearfix\"></div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n"
 
 /***/ }),
 
@@ -1748,7 +1755,17 @@ var ViewPostComponent = /** @class */ (function () {
             });
         }
     };
-    ViewPostComponent.prototype.ngOnInit = function () { };
+    ViewPostComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.likesLingth = 0;
+        this.commentsLength = 0;
+        this.checkUserLiked = false;
+        this.service.likeAndCommentLength({ postId: this.data.postId, profileId: this.service.user.id }).subscribe(function (res) {
+            _this.commentsLength = res.commentsLength;
+            _this.likesLingth = res.likesLength;
+            _this.checkUserLiked = res.checkUserLiked;
+        });
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Object)

@@ -148,4 +148,12 @@ export class DataService {
     return this.http.post('/api/user/getuserprofile', record, { headers: headers }).map(res => res.json());
 
   }
+  likeAndCommentLength(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/post/likeandcommentlength', record, { headers: headers }).map(res => res.json());
+
+  }
 }

@@ -12,6 +12,9 @@ export class ViewPostComponent implements OnInit {
   btnFollowText = '';
   deleteCss: string;
   share: String = 'Share';
+  likesLingth: number;
+  commentsLength: number;
+  checkUserLiked: boolean;
   constructor(public service: DataService, private router: Router) { }
   deletePost(userId, postId) {
 
@@ -44,6 +47,16 @@ export class ViewPostComponent implements OnInit {
         });
     }
   }
-  ngOnInit() { }
+
+  ngOnInit() {
+    this.likesLingth = 0;
+    this.commentsLength = 0;
+    this.checkUserLiked = false;
+    this.service.likeAndCommentLength({ postId: this.data.postId, profileId: this.service.user.id }).subscribe(res => {
+      this.commentsLength = res.commentsLength;
+      this.likesLingth = res.likesLength;
+      this.checkUserLiked = res.checkUserLiked;
+    });
+  }
 
 }

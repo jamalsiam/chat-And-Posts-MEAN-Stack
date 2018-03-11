@@ -76,6 +76,21 @@ module.exports = {
             if (err) return handleError(err);
             res.json({ data: "Deleted" })
         });
+    },
+    likeAndCommentLength: (req, res) => {
+        let { postId, profileId } = req.body;
+        model.Comment.find({ postId }).then(comments => {
+            model.Like.find({ postId }).then(likes => {
+                model.Like.findOne({ postId, userId: profileId }).then(userLiked => {
+                    console.log(userLiked)
+                    if (userLiked) {
+                        res.json({ commentsLength: comments.length, likesLength: likes.length, checkUserLiked: true });
+                    } else {
+                        res.json({ commentsLength: comments.length, likesLength: likes.length, checkUserLiked: false });
+                    }
+                })
+            })
+        })
     }
 };
 

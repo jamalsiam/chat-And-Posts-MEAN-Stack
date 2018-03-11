@@ -23,6 +23,7 @@ app.post('/api/post/getonepost',handlers.handelPost.getOnePost);
 app.post('/api/post/getFollowingPosts',handlers.handelPost.getFollowingPosts);
 app.get('/api/post/randomSuggest',handlers.handelPost.randomSuggest);
 app.post('/api/post/deletepost',handlers.handelPost.deletePost);
+app.post('/api/post/likeandcommentlength',handlers.handelPost.likeAndCommentLength);
 
 
 //comment APIs

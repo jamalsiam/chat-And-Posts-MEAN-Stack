@@ -26,11 +26,18 @@
   </span>
   <hr>
   <div class="tool">
-    <p>
-      <i class="fa fa-thumbs-o-up"></i> Like {{data.like || 0}}</p>
+    <p *ngIf="checkUserLiked" >
+      <i class="fa fa-thumbs-o-up"></i> Like{{ likesLingth }}
+    </p>
+
+    <p *ngIf="!checkUserLiked" >
+      <i class="fa fa-thumbs-o-up"></i> Like{{ likesLingth }}
+    </p>
+
+    
     <p>
       <i class="fa fa-comment-o" aria-hidden="true"></i>
-      Comment {{data.comment || 0}}</p>
+      Comment{{ commentsLength }}</p>
     <p (click)="sharePost(data.postContent)">
       <i class="fa fa-share" aria-hidden="true"></i>
       {{share}}</p>
