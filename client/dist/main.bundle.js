@@ -300,25 +300,26 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular_2_local_storage__ = __webpack_require__("../../../../angular-2-local-storage/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular_2_local_storage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular_2_local_storage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__signin_signin_component__ = __webpack_require__("../../../../../src/app/signin/signin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__main_main_component__ = __webpack_require__("../../../../../src/app/main/main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__aside_bar_aside_bar_component__ = __webpack_require__("../../../../../src/app/aside-bar/aside-bar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__signout_signout_component__ = __webpack_require__("../../../../../src/app/signout/signout.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__share_post_share_post_component__ = __webpack_require__("../../../../../src/app/share-post/share-post.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__view_post_view_post_component__ = __webpack_require__("../../../../../src/app/view-post/view-post.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__about_about_component__ = __webpack_require__("../../../../../src/app/about/about.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__original_post_original_post_component__ = __webpack_require__("../../../../../src/app/original-post/original-post.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__view_image_view_image_component__ = __webpack_require__("../../../../../src/app/view-image/view-image.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__user_info_user_info_component__ = __webpack_require__("../../../../../src/app/user-info/user-info.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__comment_comment_component__ = __webpack_require__("../../../../../src/app/comment/comment.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__message_service__ = __webpack_require__("../../../../../src/app/message.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular_2_local_storage__ = __webpack_require__("../../../../angular-2-local-storage/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular_2_local_storage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_angular_2_local_storage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__ = __webpack_require__("../../../../../src/app/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__signin_signin_component__ = __webpack_require__("../../../../../src/app/signin/signin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__main_main_component__ = __webpack_require__("../../../../../src/app/main/main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__aside_bar_aside_bar_component__ = __webpack_require__("../../../../../src/app/aside-bar/aside-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__signout_signout_component__ = __webpack_require__("../../../../../src/app/signout/signout.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__share_post_share_post_component__ = __webpack_require__("../../../../../src/app/share-post/share-post.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__view_post_view_post_component__ = __webpack_require__("../../../../../src/app/view-post/view-post.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__about_about_component__ = __webpack_require__("../../../../../src/app/about/about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__original_post_original_post_component__ = __webpack_require__("../../../../../src/app/original-post/original-post.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__view_image_view_image_component__ = __webpack_require__("../../../../../src/app/view-image/view-image.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__user_info_user_info_component__ = __webpack_require__("../../../../../src/app/user-info/user-info.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__comment_comment_component__ = __webpack_require__("../../../../../src/app/comment/comment.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -348,41 +349,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__signup_signup_component__["a" /* SignupComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__signin_signin_component__["a" /* SigninComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__main_main_component__["a" /* MainComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__aside_bar_aside_bar_component__["a" /* AsideBarComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__header_header_component__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__signout_signout_component__["a" /* SignoutComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__profile_profile_component__["a" /* ProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__share_post_share_post_component__["a" /* SharePostComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__view_post_view_post_component__["a" /* ViewPostComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__about_about_component__["a" /* AboutComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__original_post_original_post_component__["a" /* OriginalPostComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__view_image_view_image_component__["a" /* ViewImageComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__user_info_user_info_component__["a" /* UserInfoComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__user_user_component__["a" /* UserComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__comment_comment_component__["a" /* CommentComponent */]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__signin_signin_component__["a" /* SigninComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__main_main_component__["a" /* MainComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__aside_bar_aside_bar_component__["a" /* AsideBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__signout_signout_component__["a" /* SignoutComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__profile_profile_component__["a" /* ProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__share_post_share_post_component__["a" /* SharePostComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__view_post_view_post_component__["a" /* ViewPostComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__about_about_component__["a" /* AboutComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__original_post_original_post_component__["a" /* OriginalPostComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__view_image_view_image_component__["a" /* ViewImageComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__user_info_user_info_component__["a" /* UserInfoComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__user_user_component__["a" /* UserComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__comment_comment_component__["a" /* CommentComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_7_angular_2_local_storage__["LocalStorageModule"].withConfig({
+                __WEBPACK_IMPORTED_MODULE_7__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_8_angular_2_local_storage__["LocalStorageModule"].withConfig({
                     prefix: 'my-app',
                     storageType: 'localStorage'
                 })
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_4__data_service__["a" /* DataService */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_4__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_5__message_service__["a" /* MessageService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -423,6 +425,7 @@ module.exports = "<aside class=\"Index0 {{changeSideBarStateVal}}\">\n  <div cla
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AsideBarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_service__ = __webpack_require__("../../../../../src/app/message.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -433,9 +436,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AsideBarComponent = /** @class */ (function () {
-    function AsideBarComponent() {
+    function AsideBarComponent(messageService) {
+        this.messageService = messageService;
         this.changeSideBarStateVal = 'closed';
+        this.messageService.m({ aa: 'aa' }).subscribe(function (res) {
+            console.log(res);
+        });
     }
     AsideBarComponent.prototype.sideBarStateChanger = function () {
         if (this.changeSideBarStateVal === 'closed') {
@@ -453,7 +461,7 @@ var AsideBarComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/aside-bar/aside-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/aside-bar/aside-bar.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__message_service__["a" /* MessageService */]])
     ], AsideBarComponent);
     return AsideBarComponent;
 }());
@@ -891,6 +899,60 @@ var MainComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
     ], MainComponent);
     return MainComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/message.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_2_local_storage__ = __webpack_require__("../../../../angular-2-local-storage/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_2_local_storage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular_2_local_storage__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var MessageService = /** @class */ (function () {
+    function MessageService(http, storage) {
+        this.http = http;
+        this.storage = storage;
+        alert('a');
+        this.m({}).subscribe(function (res) {
+            console.log('s');
+        });
+    }
+    MessageService.prototype.createAuthorizationHeader = function (headers) {
+        headers.append('Authorization', 'Basic ' +
+            btoa('a20e6aca-ee83-44bc-8033-b41f3078c2b6:c199f9c8-0548-4be79655-7ef7d7bf9d20'));
+    };
+    MessageService.prototype.m = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/message/getmessage', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    MessageService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3_angular_2_local_storage__["LocalStorageService"]])
+    ], MessageService);
+    return MessageService;
 }());
 
 

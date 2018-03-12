@@ -1,11 +1,10 @@
-let Message=require('../models').Message;
+let Message = require('../models').Message;
 module.exports = {
 
-    sendMessage:(req, res) => {
-        let {senderId,receiverId,messageContent}=req.body;
-        Message.create({senderId,receiverId,messageContent},(result)=>{
-            res.json({status:"success",data:"sent"});
-        })
+    getMessage: (req, res) => {
+        console.log(req.body);
+        res.json({a:'a'})
+
     }
 };
 

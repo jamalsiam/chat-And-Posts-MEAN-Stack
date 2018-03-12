@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { DataService } from './data.service'
+import { DataService } from './data.service';
+import { MessageService } from './message.service';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
@@ -51,7 +52,7 @@ import { CommentComponent } from './comment/comment.component';
       storageType: 'localStorage'
     })
   ],
-  providers: [DataService],
+  providers: [DataService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
