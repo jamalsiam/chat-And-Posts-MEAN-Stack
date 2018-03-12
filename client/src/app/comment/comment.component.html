@@ -1,15 +1,16 @@
-<div>
+<div class="comment">
+    <span class="pointer" routerLink="user/{{data.comment.userId}}" >
   <div class="userImageComment">
     <img *ngIf="data.image" src='data:image/jpeg;base64,{{data.image}}'>
     <img *ngIf="!data.image" src="assets/profile.png">
   </div>
-  <div>
+
+  <div class="userNameComment">
     <p>{{data.username}}</p>
+    <p class="date">{{data.comment.date}}</p>
   </div>
-
-  {{data.comment.commentContent.text}} 
-  {{data.comment.date}} 
-  {{data.comment.postId}} 
-  {{data.comment.userId}}
-
+</span>
+  <div class="clearfix"></div>
+  
+  <p class="commentText">{{data.comment.commentContent.text}}</p> 
 </div>

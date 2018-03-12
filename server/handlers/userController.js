@@ -129,7 +129,7 @@ module.exports = {
         })
     },
     getUserProfile: (req, res) => {
-        let id = req.body.query.id.slice(3, req.body.query.id.length);
+        let id = req.body.query.id;
         model.User.findOne({ _id: id }) // GET USER INFO
             .select('username phone address email image cover work location relationship gender birth interests')
             .then((userDate) => { 

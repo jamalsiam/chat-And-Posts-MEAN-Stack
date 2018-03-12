@@ -6,10 +6,11 @@ import { DataService } from '../data.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css', '../about/about.component.css']
 })
+
 export class UserComponent implements OnInit {
   userObject: any = { userDate: { interests: [] }, postData: '' };
   tapRouteVal: String = 'Posts';
-  constructor(public service: DataService, private route: ActivatedRoute) { }
+  constructor(public service: DataService, private route: ActivatedRoute, private router: Router) { }
 
   followerLength(followData) {
     let followerCuont = 0;
@@ -78,6 +79,9 @@ export class UserComponent implements OnInit {
   }
   ngOnInit() {
     this.route.params.subscribe(query => {
+      if (this.service.user.id === query.id) {
+        this.router.navigate(['profile']);
+      }
       this.service.getUserProfile({ query, profile: this.service.user.id }).subscribe(res => {
         if (res.status === 'fail') {
 

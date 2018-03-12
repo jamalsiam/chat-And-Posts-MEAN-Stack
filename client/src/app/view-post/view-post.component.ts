@@ -30,7 +30,7 @@ export class ViewPostComponent implements OnInit {
 
   viewProfile(userId: string) {
     if (userId !== this.service.user.id) {
-      this.router.navigate(['user/id:' + userId]);
+      this.router.navigate(['user/' + userId]);
     } else {
       this.router.navigate(['profile']);
     }
@@ -73,6 +73,16 @@ export class ViewPostComponent implements OnInit {
   shareComment(postId, userId) {
     if (this.commentText) {
       this.service.shareComment({ postId, userId, commentContent: { text: this.commentText } }).subscribe(res => {
+        this.commentSet.push({
+          comment: {
+            commentContent: { text: this.commentText },
+            date: 'Now',
+            postId: postId,
+            userId: userId,
+          },
+          image: this.service.user.userInfo.image,
+          username: this.service.user.userInfo.username
+        });
         this.commentText = '';
       });
     }
