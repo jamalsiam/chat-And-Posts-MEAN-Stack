@@ -73,6 +73,7 @@ export class ViewPostComponent implements OnInit {
   shareComment(postId, userId) {
     if (this.commentText) {
       this.service.shareComment({ postId, userId, commentContent: { text: this.commentText } }).subscribe(res => {
+        this.commentsLength++;
         this.commentSet.push({
           comment: {
             commentContent: { text: this.commentText },

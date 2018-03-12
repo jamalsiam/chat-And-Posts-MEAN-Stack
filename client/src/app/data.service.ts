@@ -25,6 +25,7 @@ export class DataService {
           post[i]['imageUser'] = userInfo.image;
           post[i]['username'] = userInfo.username;
           post[i]['userId'] = userInfo._id;
+          post[i]['postId'] = post[i]._id;
         }
 
         this.user = res;
