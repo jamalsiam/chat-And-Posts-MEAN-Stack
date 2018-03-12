@@ -10,6 +10,7 @@ import { DataService } from '../data.service';
 export class UserComponent implements OnInit {
   userObject: any = { userDate: { interests: [] }, postData: '' };
   tapRouteVal: String = 'Posts';
+  posts: any;
   constructor(public service: DataService, private route: ActivatedRoute, private router: Router) { }
 
   followerLength(followData) {
@@ -87,6 +88,8 @@ export class UserComponent implements OnInit {
 
         } else {
           this.userObject = res;
+          this.posts = this.fetchPost(this.userObject.postData, this.userObject.userDate);
+
         }
       });
     });

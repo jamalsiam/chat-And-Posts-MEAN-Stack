@@ -48,10 +48,10 @@
     </li>
 </ul>
 <div *ngIf="tapRouteVal=='Posts'">
-    <viewPost *ngFor="let post  of fetchPost(userObject.postData,userObject.userDate)" [data]='post'></viewPost>
+    <viewPost *ngFor="let post  of posts" [data]='post'></viewPost>
 </div>
 <div *ngIf="tapRouteVal==='Photos'">
-    <div *ngFor="let post  of fetchPost(userObject.postData,userObject.userDate)">
+    <div *ngFor="let post  of posts">
         <viewImage [data]='post'></viewImage>
     </div>
 </div>
