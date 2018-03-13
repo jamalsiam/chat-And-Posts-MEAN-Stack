@@ -29,12 +29,33 @@ body {
 
 @media (max-width: 1000px) {
   aside {
-    width: 100px !important;
+    width: 75px !important;
   }
   .haveId .content {
-    margin-left: 100px;
+    margin-left: 75px;
     margin-right: 0px;
   }
+  .userChatContainer{
+    text-align: center;
+  }
+  .nameUserChat{
+    display: block;
+  }
+  .userChatContainer{
+    height: 80px!important;
+}
+.userChatContainer hr{
+  bottom: -19px!important;
+  border-top-color: #e5e4e4!important;
+}
+.headerMessenger{
+  width: 100%;
+  height: 200px;
+  background: cadetblue;
+}
+.textMessage{
+  width: 100%!important;
+}
 }
 
 @media (max-width: 768px) {
@@ -61,8 +82,8 @@ body {
 
 @media (max-width: 400px) {
   aside {
-    width: 50px !important;
-    left: -50px;
+    width: 75px !important;
+    left: -75px;
   }
   .haveId .content {
     margin-left: 0px;
@@ -77,6 +98,7 @@ body {
   .tableContainer {
     width: 98%!important;
   }
+ 
 }
 
 @media(min-width: 401px) {
@@ -85,6 +107,7 @@ body {
     left: unset !important;
     transition: unset !important;
   }
+
 }
 
 input[type=file] {

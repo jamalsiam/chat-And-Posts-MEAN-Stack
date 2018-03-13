@@ -22,6 +22,8 @@ import { ViewImageComponent } from './view-image/view-image.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserComponent } from './user/user.component';
 import { CommentComponent } from './comment/comment.component';
+import { UserChatLabelComponent } from './user-chat-label/user-chat-label.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CommentComponent } from './comment/comment.component';
     ViewImageComponent,
     UserInfoComponent,
     UserComponent,
-    CommentComponent
+    CommentComponent,
+    UserChatLabelComponent,
+    ChatRoomComponent
   ],
   imports: [
     BrowserModule,

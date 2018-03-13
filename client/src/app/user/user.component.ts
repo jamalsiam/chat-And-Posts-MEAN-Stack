@@ -73,7 +73,9 @@ export class UserComponent implements OnInit {
         this.userObject.followingFromMe = res.data;
       });
   }
-
+  sendMessage(id) {
+    this.router.navigate(['messages/' + id]);
+  }
 
   routeTabs(a: string) {
     this.tapRouteVal = a;

@@ -7,6 +7,7 @@ import { SignoutComponent } from './signout/signout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserComponent } from './user/user.component';
 import { OriginalPostComponent } from './original-post/original-post.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 const routes: Routes = [
   {
     path: '',
@@ -33,10 +34,13 @@ const routes: Routes = [
     component: UserComponent
   },
   {
+    path: 'messages/:id',
+    component: ChatRoomComponent
+  },
+  {
     path: 'originalpost',
     component: OriginalPostComponent
   },
-  
   {
     path: '**',
     component: MainComponent

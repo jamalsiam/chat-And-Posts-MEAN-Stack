@@ -19,7 +19,12 @@ var messageSchema = new mongoose.Schema({
     image:{
       type:String
     }
+  },
+  date:{
+    type:Number,
+    default: Date.parse( new Date())
   }
+ 
 });
 
 
