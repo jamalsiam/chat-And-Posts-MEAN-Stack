@@ -12,12 +12,16 @@ export class ChatRoomComponent implements OnInit {
   photoMessage: string;
   textMessage: string;
   receiverId: string;
+  oldMessages: any;
   constructor(public service: DataService, public messageService: MessageService, private route: ActivatedRoute, private router: Router) {
     this.photoMessage = '';
     this.textMessage = '';
     this.route.params.subscribe(query => {
       if (query.id) {
         this.receiverId = query.id;
+        this.messageService.gitMessages({profileId: this.service.user.id, userId: this.receiverId}).subscribe(res => {
+
+        });
       } else {
         this.router.navigate(['/']);
       }

@@ -36,6 +36,8 @@ app.post('/api/post/putorremovelike',handlers.handelLike.putOrRemoveLike);
 
 //message APIs
 app.post('/api/message/sendmessage',handlers.handelMessage.sendMessage);
+app.post('/api/message/getmessages',handlers.handelMessage.getMessages);
+
 
 //follow APIs
 app.post('/api/follow/checkiffollow',handlers.handelFollow.checkIfFollow);

@@ -541,6 +541,8 @@ var ChatRoomComponent = /** @class */ (function () {
         this.route.params.subscribe(function (query) {
             if (query.id) {
                 _this.receiverId = query.id;
+                _this.messageService.gitMessages({ profileId: _this.service.user.id, userId: _this.receiverId }).subscribe(function (res) {
+                });
             }
             else {
                 _this.router.navigate(['/']);
@@ -559,7 +561,9 @@ var ChatRoomComponent = /** @class */ (function () {
         };
         if (this.textMessage || this.photoMessage) {
             this.messageService.sendMessage(record).subscribe(function (res) {
-                console.log(res);
+                /*
+                 push message to old message array
+               */
                 _this.textMessage = '';
                 _this.photoMessage = '';
             });
@@ -1068,6 +1072,13 @@ var MessageService = /** @class */ (function () {
         this.createAuthorizationHeader(headers);
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/message/sendmessage', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    MessageService.prototype.gitMessages = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/message/getmessages', record, { headers: headers }).map(function (res) { return res.json(); });
     };
     MessageService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),

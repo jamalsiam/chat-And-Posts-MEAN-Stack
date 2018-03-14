@@ -23,5 +23,12 @@ export class MessageService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/message/sendmessage', record, { headers: headers }).map(res => res.json());
   }
+  gitMessages(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/message/getmessages', record, { headers: headers }).map(res => res.json());
+  }
 
 }
