@@ -503,7 +503,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/chat-room/chat-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"headerMessenger\">\r\n  <div class=\"imageUserMessenger\">\r\n    <img src=\"assets/profile.png\">\r\n  </div>\r\n  <div class=\"info\">\r\n    <p class=\"bold\">Jamals </p>\r\n    <p>example@example.com</p>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"textMessage\">\r\n  <div *ngIf=\"photoPost\" class=\"photoMessageContainer\">\r\n    <img src='data:image/jpeg;base64,{{photoPost}}'>\r\n  </div>\r\n  <form class=\"form\" action=\"post\">\r\n    <label id=\"pic1\">\r\n      <span class=\"glyphicon glyphicon-picture\"> </span>\r\n      <input type=\"file\" id=\"filePicker\" (change)=\"handleFileSelect($event)\">\r\n    </label>\r\n    <input class=\"input\" type=\"text\">\r\n    <button class=\"button\">dd</button>\r\n  </form>\r\n</div>\r\n<div class=\"messagesContainer\">\r\n  <div class=\"me\">\r\n    <img src=\"assets/profile.png\">\r\n    <div class=\"messageContent\">\r\n      <p> . </p>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"you\">\r\n    <img src=\"assets/profile.png\">\r\n    <div class=\"messageContent\">\r\n      <p> .</p>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"headerMessenger\">\r\n  <div class=\"imageUserMessenger\">\r\n    <img src=\"assets/profile.png\">\r\n  </div>\r\n  <div class=\"info\">\r\n    <p class=\"bold\">Jamals </p>\r\n    <p>example@example.com</p>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"textMessage\">\r\n  <div *ngIf=\"photoMessage\" class=\"photoMessageContainer\">\r\n    <img src='data:image/jpeg;base64,{{photoMessage}}'>\r\n  </div>\r\n  <form class=\"form\" action=\"post\">\r\n    <label id=\"pic1\">\r\n      <span class=\"glyphicon glyphicon-picture\"> </span>\r\n      <input type=\"file\" id=\"filePicker\" (change)=\"handleFileSelect($event)\">\r\n    </label>\r\n    <input class=\"input\" type=\"text\"  [(ngModel)]=\"textMessage\" name=\"textMessage\" placeholder=\"Write a message...\">\r\n    <button class=\"button\" (click)=\"sendMessage()\">Send</button>\r\n  </form>\r\n</div>\r\n<div class=\"messagesContainer\">\r\n  <div class=\"me\">\r\n    <img src=\"assets/profile.png\">\r\n    <div class=\"messageContent\">\r\n      <p> . </p>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"you\">\r\n    <img src=\"assets/profile.png\">\r\n    <div class=\"messageContent\">\r\n      <p> .</p>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -513,6 +513,9 @@ module.exports = "<div class=\"headerMessenger\">\r\n  <div class=\"imageUserMes
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatRoomComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__message_service__ = __webpack_require__("../../../../../src/app/message.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -523,9 +526,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var ChatRoomComponent = /** @class */ (function () {
-    function ChatRoomComponent() {
+    function ChatRoomComponent(service, messageService, route, router) {
+        var _this = this;
+        this.service = service;
+        this.messageService = messageService;
+        this.route = route;
+        this.router = router;
+        this.photoMessage = '';
+        this.textMessage = '';
+        this.route.params.subscribe(function (query) {
+            if (query.id) {
+                _this.receiverId = query.id;
+            }
+            else {
+                _this.router.navigate(['/']);
+            }
+        });
     }
+    ChatRoomComponent.prototype.sendMessage = function () {
+        var _this = this;
+        var record = {
+            senderId: this.service.user.id,
+            receiverId: this.receiverId,
+            messageContent: {
+                text: this.textMessage,
+                image: this.photoMessage
+            }
+        };
+        if (this.textMessage || this.photoMessage) {
+            this.messageService.sendMessage(record).subscribe(function (res) {
+                console.log(res);
+                _this.textMessage = '';
+                _this.photoMessage = '';
+            });
+        }
+    };
     ChatRoomComponent.prototype.handleFileSelect = function (evt) {
         var files = evt.target.files;
         var file = files[0];
@@ -537,7 +576,7 @@ var ChatRoomComponent = /** @class */ (function () {
     };
     ChatRoomComponent.prototype._handleReaderLoaded = function (readerEvt) {
         var binaryString = readerEvt.target.result;
-        this.photoPost = btoa(binaryString);
+        this.photoMessage = btoa(binaryString);
     };
     ChatRoomComponent.prototype.ngOnInit = function () {
     };
@@ -547,7 +586,7 @@ var ChatRoomComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/chat-room/chat-room.component.html"),
             styles: [__webpack_require__("../../../../../src/app/chat-room/chat-room.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__message_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], ChatRoomComponent);
     return ChatRoomComponent;
 }());
@@ -1023,12 +1062,12 @@ var MessageService = /** @class */ (function () {
         headers.append('Authorization', 'Basic ' +
             btoa('a20e6aca-ee83-44bc-8033-b41f3078c2b6:c199f9c8-0548-4be79655-7ef7d7bf9d20'));
     };
-    MessageService.prototype.getMessage = function (record) {
+    MessageService.prototype.sendMessage = function (record) {
         var headers;
         headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         this.createAuthorizationHeader(headers);
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/message/getmessage', record, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('/api/message/sendmessage', record, { headers: headers }).map(function (res) { return res.json(); });
     };
     MessageService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),

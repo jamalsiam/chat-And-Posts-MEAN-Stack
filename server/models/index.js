@@ -4,5 +4,6 @@ module.exports={
     Like: require('./likeModel'),
     Message: require('./messageModel'),
     Post: require('./postModel'),
-    User: require('./userModel')
+    User: require('./userModel'),
+    Queue: require('./QueueModel')
 }

@@ -16,12 +16,12 @@ export class MessageService {
   }
 
 
-  getMessage(record) {
+  sendMessage(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/message/getmessage', record, { headers: headers }).map(res => res.json());
+    return this.http.post('/api/message/sendmessage', record, { headers: headers }).map(res => res.json());
   }
 
 }

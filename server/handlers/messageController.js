@@ -1,9 +1,18 @@
-let Message = require('../models').Message;
+const Message = require('../models').Message;
+const Queue = require('../models').Queue;
 module.exports = {
 
-    getMessage: (req, res) => {
-        console.log(req.body);
-        res.json({a:'a'})
+    sendMessage: (req, res) => {
+        const record = req.body;
+        if ((record.senderId && record.senderId ) && (record.messageContent.text || record.messageContent.image)) {
+            Message.create(record).then(message => {
+                Queue.create(record).then(queue => {
+                    res.json({ status: 'success' });
+                });
+            });
+        }
+
+
 
     }
 };
