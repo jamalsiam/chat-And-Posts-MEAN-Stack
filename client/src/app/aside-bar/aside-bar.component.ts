@@ -10,27 +10,7 @@ export class AsideBarComponent implements OnInit {
   xs: any;
   constructor(public messageService: MessageService) {
 this.xs = [
-  {notfy: 23, name: 'jamal siam'},
-  {notfy: 23022, name: 'wef wefWEFG'},
-  {notfy: 253, name: 'ewarg ergearg'},
-  {notfy: 0, name: 'wefwef wegf h '},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 12, name: 'aregaergareg'},
-  {notfy: 14, name: 'aergaerg aergaerg'},
-  {notfy: 66, name: 'rrrrrrrrrrrrrr ragarg'}
+  {notfy: 23, name: 'jamal siam'}
 ];
   }
   sideBarStateChanger() {

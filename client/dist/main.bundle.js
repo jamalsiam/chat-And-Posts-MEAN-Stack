@@ -454,27 +454,7 @@ var AsideBarComponent = /** @class */ (function () {
         this.messageService = messageService;
         this.changeSideBarStateVal = 'closed';
         this.xs = [
-            { notfy: 23, name: 'jamal siam' },
-            { notfy: 23022, name: 'wef wefWEFG' },
-            { notfy: 253, name: 'ewarg ergearg' },
-            { notfy: 0, name: 'wefwef wegf h ' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 12, name: 'aregaergareg' },
-            { notfy: 14, name: 'aergaerg aergaerg' },
-            { notfy: 66, name: 'rrrrrrrrrrrrrr ragarg' }
+            { notfy: 23, name: 'jamal siam' }
         ];
     }
     AsideBarComponent.prototype.sideBarStateChanger = function () {
@@ -510,7 +490,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@media (min-width: 1001px) {\r\n    .headerMessenger{\r\n        width: 200px;\r\n        height: calc(100% - 50px);\r\n        background: cadetblue;\r\n        position: fixed;\r\n        right: 0px;\r\n    }\r\n}\r\n\r\n.textMessage{\r\n    width: calc(100% - 400px);\r\n    height: 50px;\r\n    background:  burlywood;\r\n    position: fixed;\r\n    bottom: 0px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, "@media (min-width: 1001px) {\r\n    .headerMessenger{\r\n        width: 200px;\r\n        height: calc(100% - 50px);\r\n        position: fixed;\r\n        right: 0px;\r\n        text-align: center;\r\n    }\r\n    .headerMessenger .imageUserMessenger img{\r\n        width: 165px;\r\n        height: 165px;\r\n        margin: 20px auto;\r\n        display: block;\r\n        border-radius: 50%;\r\n        border: 5px solid #0079ff;\r\n    }\r\n}\r\n.headerMessenger{\r\n    background: #e5e7e8;\r\n}\r\n.bold{\r\n    font-weight: bold;\r\n}\r\n.textMessage{\r\n    width: calc(100% - 400px);\r\n    min-height: 50px;\r\n    background: white;\r\n    position: fixed;\r\n    bottom: 0px;\r\n    border-top: 1px solid #dfdbdb;\r\n\r\n}\r\n.photoMessageContainer{\r\n    text-align: center;\r\n    margin-top: 5px;\r\n}\r\n.photoMessageContainer img{\r\n    width: 220px;\r\n    border-radius: 9px;\r\n}\r\n.form {\r\n    width: 80%;\r\n    margin: 11px auto;\r\n    position: relative;\r\n}\r\n.form .input{\r\n    width: calc(100% - 68px);\r\n    border-bottom-left-radius: 9px;\r\n    border-top-left-radius: 9px;\r\n    border: none;\r\n    height: 25px;\r\n    padding: 10px;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n}\r\n.form .button{\r\n    position: absolute;\r\n    right: 0;\r\n    top: 0;\r\n    width: 40px;\r\n    border-top-right-radius: 9px;\r\n    border-bottom-right-radius: 9px;\r\n    border: none;\r\n    height: 26px;\r\n    -webkit-box-shadow: 0px 0px 0px 1px #bcbcbc;\r\n            box-shadow: 0px 0px 0px 1px #bcbcbc;\r\n}\r\n.form label{\r\n    display: inline-block;\r\n}\r\n.messagesContainer .you{\r\n     \r\n    min-height: 20px;\r\n    margin: 10px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: auto;\r\n}\r\n.messagesContainer .you > img{\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    float: left;\r\n}\r\n.messagesContainer .you .messageContent{\r\n    float: left;\r\n    margin-left: 7px;\r\n    background: #ededed;\r\n    padding: 5px;\r\n    border-radius: 7px;\r\n    max-width: calc(19% + 112px);\r\n    min-width: 24px;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #839bc0;\r\n            box-shadow: 0px 0px 1px 0px #839bc0;\r\n}\r\n.messagesContainer .you .messageContent p{\r\n    position: relative;\r\n    text-align: left;\r\n}\r\n.messagesContainer .you .messageContent::before{\r\n    content: \"\";\r\n    width: 20px;\r\n    height: 20px;\r\n    background: #ededed;\r\n    display: block;\r\n    position: absolute;\r\n    left: -2px;\r\n    -webkit-transform: rotate(44deg);\r\n            transform: rotate(44deg);\r\n    z-index: 0;\r\n}\r\n.messagesContainer .me{\r\n   \r\n    min-height: 20px;\r\n    margin: 10px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: auto;\r\n}\r\n.messagesContainer .me > img{\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    float: right;\r\n}\r\n.messagesContainer .me .messageContent{\r\n    float: right;\r\n    margin-right: 7px;\r\n    background: #afe8ff;\r\n    padding: 5px;\r\n    border-radius: 7px;\r\n    max-width: calc(19% + 112px);\r\n    min-width: 24px;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n}\r\n.messagesContainer .me .messageContent p{\r\n    position: relative;\r\n    text-align: right;\r\n}\r\n.messagesContainer .me .messageContent::before{\r\n    content: \"\";\r\n    width: 20px;\r\n    height: 20px;\r\n    background: #afe8ff;\r\n    display: block;\r\n    position: absolute;\r\n    right: -2px;\r\n    -webkit-transform: rotate(44deg);\r\n            transform: rotate(44deg);\r\n    z-index: 0;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -523,7 +503,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/chat-room/chat-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"headerMessenger\"></div>\r\n<div class=\"textMessage\">s</div>\r\n<p>1</p>\r\n<p>2</p>\r\n<p>3</p>\r\n<p>4</p>\r\n<p>5</p>\r\n<p>6</p>\r\n<p>7</p>\r\n<p>8</p>\r\n<p>9</p>\r\n<p>10</p>\r\n<p>11</p>\r\n<p>12</p>\r\n<p>13</p>\r\n<p>14</p>\r\n<p>15</p>\r\n<p>16</p>\r\n<p>16</p>\r\n<p>17</p>\r\n<p>18</p>\r\n<p>19</p>\r\n<p>20</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>\r\n<p>d</p>"
+module.exports = "<div class=\"headerMessenger\">\r\n  <div class=\"imageUserMessenger\">\r\n    <img src=\"assets/profile.png\">\r\n  </div>\r\n  <div class=\"info\">\r\n    <p class=\"bold\">Jamals </p>\r\n    <p>example@example.com</p>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"textMessage\">\r\n  <div *ngIf=\"photoPost\" class=\"photoMessageContainer\">\r\n    <img src='data:image/jpeg;base64,{{photoPost}}'>\r\n  </div>\r\n  <form class=\"form\" action=\"post\">\r\n    <label id=\"pic1\">\r\n      <span class=\"glyphicon glyphicon-picture\"> </span>\r\n      <input type=\"file\" id=\"filePicker\" (change)=\"handleFileSelect($event)\">\r\n    </label>\r\n    <input class=\"input\" type=\"text\">\r\n    <button class=\"button\">dd</button>\r\n  </form>\r\n</div>\r\n<div class=\"messagesContainer\">\r\n  <div class=\"me\">\r\n    <img src=\"assets/profile.png\">\r\n    <div class=\"messageContent\">\r\n      <p> . </p>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"you\">\r\n    <img src=\"assets/profile.png\">\r\n    <div class=\"messageContent\">\r\n      <p> .</p>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -546,6 +526,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ChatRoomComponent = /** @class */ (function () {
     function ChatRoomComponent() {
     }
+    ChatRoomComponent.prototype.handleFileSelect = function (evt) {
+        var files = evt.target.files;
+        var file = files[0];
+        if (files && file) {
+            var reader = new FileReader();
+            reader.onload = this._handleReaderLoaded.bind(this);
+            reader.readAsBinaryString(file);
+        }
+    };
+    ChatRoomComponent.prototype._handleReaderLoaded = function (readerEvt) {
+        var binaryString = readerEvt.target.result;
+        this.photoPost = btoa(binaryString);
+    };
     ChatRoomComponent.prototype.ngOnInit = function () {
     };
     ChatRoomComponent = __decorate([

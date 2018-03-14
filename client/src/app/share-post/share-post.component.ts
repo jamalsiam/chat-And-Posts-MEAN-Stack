@@ -11,9 +11,6 @@ export class SharePostComponent implements OnInit {
   photoPost: string;
   constructor(public service: DataService) { }
   sharePost() {
-
-
-
     this.service.sharePost({
       _id: this.service.user.id,
       postContent: {
