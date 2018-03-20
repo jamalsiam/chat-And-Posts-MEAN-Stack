@@ -438,6 +438,7 @@ module.exports = "<aside class=\"Index0 {{changeSideBarStateVal}}\">\r\n  <div c
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AsideBarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_service__ = __webpack_require__("../../../../../src/app/message.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -449,13 +450,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AsideBarComponent = /** @class */ (function () {
-    function AsideBarComponent(messageService) {
+    function AsideBarComponent(messageService, service) {
         this.messageService = messageService;
+        this.service = service;
         this.changeSideBarStateVal = 'closed';
-        this.xs = [
-            { notfy: 23, name: 'jamal siam' }
-        ];
+        this.xs = [];
     }
     AsideBarComponent.prototype.sideBarStateChanger = function () {
         if (this.changeSideBarStateVal === 'closed') {
@@ -466,6 +467,10 @@ var AsideBarComponent = /** @class */ (function () {
         }
     };
     AsideBarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.messageService.getSortUser({ profile: this.service.user.id }).subscribe(function (res) {
+            _this.xs = res.arrayUser;
+        });
     };
     AsideBarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -473,7 +478,7 @@ var AsideBarComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/aside-bar/aside-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/aside-bar/aside-bar.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__message_service__["a" /* MessageService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__message_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */]])
     ], AsideBarComponent);
     return AsideBarComponent;
 }());
@@ -490,7 +495,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "@media (min-width: 1001px) {\r\n    .headerMessenger{\r\n        width: 200px;\r\n        height: calc(100% - 50px);\r\n        position: fixed;\r\n        right: 0px;\r\n        text-align: center;\r\n    }\r\n    .headerMessenger .imageUserMessenger img{\r\n        width: 165px;\r\n        height: 165px;\r\n        margin: 20px auto;\r\n        display: block;\r\n        border-radius: 50%;\r\n        border: 5px solid #0079ff;\r\n    }\r\n}\r\n.headerMessenger{\r\n    background: #e5e7e8;\r\n}\r\n.bold{\r\n    font-weight: bold;\r\n}\r\n.textMessage{\r\n    width: calc(100% - 400px);\r\n    min-height: 50px;\r\n    background: white;\r\n    position: fixed;\r\n    bottom: 0px;\r\n    border-top: 1px solid #dfdbdb;\r\n\r\n}\r\n.photoMessageContainer{\r\n    text-align: center;\r\n    margin-top: 5px;\r\n}\r\n.photoMessageContainer img{\r\n    width: 220px;\r\n    border-radius: 9px;\r\n}\r\n.form {\r\n    width: 80%;\r\n    margin: 11px auto;\r\n    position: relative;\r\n}\r\n.form .input{\r\n    width: calc(100% - 68px);\r\n    border-bottom-left-radius: 9px;\r\n    border-top-left-radius: 9px;\r\n    border: none;\r\n    height: 25px;\r\n    padding: 10px;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n}\r\n.form .button{\r\n    position: absolute;\r\n    right: 0;\r\n    top: 0;\r\n    width: 40px;\r\n    border-top-right-radius: 9px;\r\n    border-bottom-right-radius: 9px;\r\n    border: none;\r\n    height: 26px;\r\n    -webkit-box-shadow: 0px 0px 0px 1px #bcbcbc;\r\n            box-shadow: 0px 0px 0px 1px #bcbcbc;\r\n}\r\n.form label{\r\n    display: inline-block;\r\n}\r\n.messagesContainer .you{\r\n     \r\n    min-height: 20px;\r\n    margin: 10px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: auto;\r\n}\r\n.messagesContainer .you > img{\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    float: left;\r\n}\r\n.messagesContainer .you .messageContent{\r\n    float: left;\r\n    margin-left: 7px;\r\n    background: #ededed;\r\n    padding: 5px;\r\n    border-radius: 7px;\r\n    max-width: calc(19% + 112px);\r\n    min-width: 24px;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #839bc0;\r\n            box-shadow: 0px 0px 1px 0px #839bc0;\r\n}\r\n.messagesContainer .you .messageContent p{\r\n    position: relative;\r\n    text-align: left;\r\n}\r\n.messagesContainer .you .messageContent::before{\r\n    content: \"\";\r\n    width: 20px;\r\n    height: 20px;\r\n    background: #ededed;\r\n    display: block;\r\n    position: absolute;\r\n    left: -2px;\r\n    -webkit-transform: rotate(44deg);\r\n            transform: rotate(44deg);\r\n    z-index: 0;\r\n}\r\n.messagesContainer .me{\r\n   \r\n    min-height: 20px;\r\n    margin: 10px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: auto;\r\n}\r\n.messagesContainer .me > img{\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    float: right;\r\n}\r\n.messagesContainer .me .messageContent{\r\n    float: right;\r\n    margin-right: 7px;\r\n    background: #afe8ff;\r\n    padding: 5px;\r\n    border-radius: 7px;\r\n    max-width: calc(19% + 112px);\r\n    min-width: 24px;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n}\r\n.messagesContainer .me .messageContent p{\r\n    position: relative;\r\n    text-align: right;\r\n}\r\n.messagesContainer .me .messageContent::before{\r\n    content: \"\";\r\n    width: 20px;\r\n    height: 20px;\r\n    background: #afe8ff;\r\n    display: block;\r\n    position: absolute;\r\n    right: -2px;\r\n    -webkit-transform: rotate(44deg);\r\n            transform: rotate(44deg);\r\n    z-index: 0;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, "@media (min-width: 1001px) {\r\n    .headerMessenger{\r\n        width: 200px;\r\n        height: calc(100% - 50px);\r\n        position: fixed;\r\n        right: 0px;\r\n        text-align: center;\r\n        top: 50px;\r\n        \r\n    }\r\n    .headerMessenger .imageUserMessenger img{\r\n        width: 165px;\r\n        height: 165px;\r\n        margin: 20px auto;\r\n        display: block;\r\n        border-radius: 50%;\r\n        border: 5px solid #0079ff;\r\n    }\r\n    .messagesContainer{\r\n        margin-bottom: 60px;\r\n    }\r\n   \r\n}\r\n.headerMessenger{\r\n    background: #e5e7e8;\r\n    z-index: 1;\r\n}\r\n.bold{\r\n    font-weight: bold;\r\n}\r\n.textMessage{\r\n    width: calc(100% - 400px);\r\n    min-height: 50px;\r\n    background: white;\r\n    position: fixed;\r\n    bottom: 0px;\r\n    border-top: 1px solid #dfdbdb;\r\n    z-index: 1;\r\n\r\n}\r\n.textMessage .sendMessageImage{\r\n    width: 84%;\r\n    height: 130%;\r\n    margin-top: -4px;\r\n}\r\n.photoMessageContainer{\r\n    text-align: center;\r\n    margin-top: 5px;\r\n}\r\n.photoMessageContainer img{\r\n    width: 220px;\r\n    border-radius: 9px;\r\n}\r\n.form {\r\n    width: 80%;\r\n    margin: 11px auto;\r\n    position: relative;\r\n}\r\n.form .input{\r\n    width: calc(100% - 68px);\r\n    border-bottom-left-radius: 9px;\r\n    border-top-left-radius: 9px;\r\n    border: none;\r\n    height: 25px;\r\n    padding: 10px;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n}\r\n.form .button{\r\n    position: absolute;\r\n    right: 0;\r\n    top: 0;\r\n    width: 40px;\r\n    border-top-right-radius: 9px;\r\n    border-bottom-right-radius: 9px;\r\n    border: none;\r\n    height: 26px;\r\n    -webkit-box-shadow: 0px 0px 0px 1px #bcbcbc;\r\n            box-shadow: 0px 0px 0px 1px #bcbcbc;\r\n}\r\n.form label{\r\n    display: inline-block;\r\n}\r\n.messagesContainer .messageContent > img{\r\n    width: 100%;\r\n    margin: 15px 0px 0px 0px;\r\n}\r\n.messagesContainer .you{\r\n     \r\n    min-height: 20px;\r\n    margin: 10px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: auto;\r\n}\r\n.messagesContainer .you > img{\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    float: left;\r\n}\r\n.messagesContainer .you .messageContent{\r\n    float: left;\r\n    margin-left: 7px;\r\n    background: #ededed;\r\n    padding: 5px;\r\n    border-radius: 7px;\r\n    max-width: calc(19% + 112px);\r\n    min-width: 24px;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #839bc0;\r\n            box-shadow: 0px 0px 1px 0px #839bc0;\r\n}\r\n.messagesContainer .you .messageContent p{\r\n    position: relative;\r\n    text-align: left;\r\n}\r\n.messagesContainer .you .messageContent::before{\r\n    content: \"\";\r\n    width: 20px;\r\n    height: 20px;\r\n    background: #ededed;\r\n    display: block;\r\n    position: absolute;\r\n    left: -2px;\r\n    -webkit-transform: rotate(44deg);\r\n            transform: rotate(44deg);\r\n    z-index: 0;\r\n}\r\n.messagesContainer .me{\r\n    min-height: 20px;\r\n    margin: 10px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: auto;\r\n}\r\n.messagesContainer .me > img{\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    float: right;\r\n}\r\n.messagesContainer .me .messageContent{\r\n    float: right;\r\n    margin-right: 7px;\r\n    background: #afe8ff;\r\n    padding: 5px;\r\n    border-radius: 7px;\r\n    max-width: calc(19% + 112px);\r\n    min-width: 24px;\r\n    position: relative;\r\n    -webkit-box-shadow: 0px 0px 1px 0px #888888;\r\n            box-shadow: 0px 0px 1px 0px #888888;\r\n}\r\n.messagesContainer .me .messageContent p{\r\n    position: relative;\r\n    text-align: right;\r\n}\r\n.messagesContainer .me .messageContent::before{\r\n    content: \"\";\r\n    width: 20px;\r\n    height: 20px;\r\n    background: #afe8ff;\r\n    display: block;\r\n    position: absolute;\r\n    right: -2px;\r\n    -webkit-transform: rotate(44deg);\r\n            transform: rotate(44deg);\r\n    z-index: 0;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -503,7 +508,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/chat-room/chat-room.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"headerMessenger\">\r\n  <div class=\"imageUserMessenger\">\r\n    <img src=\"assets/profile.png\">\r\n  </div>\r\n  <div class=\"info\">\r\n    <p class=\"bold\">Jamals </p>\r\n    <p>example@example.com</p>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"textMessage\">\r\n  <div *ngIf=\"photoMessage\" class=\"photoMessageContainer\">\r\n    <img src='data:image/jpeg;base64,{{photoMessage}}'>\r\n  </div>\r\n  <form class=\"form\" action=\"post\">\r\n    <label id=\"pic1\">\r\n      <span class=\"glyphicon glyphicon-picture\"> </span>\r\n      <input type=\"file\" id=\"filePicker\" (change)=\"handleFileSelect($event)\">\r\n    </label>\r\n    <input class=\"input\" type=\"text\"  [(ngModel)]=\"textMessage\" name=\"textMessage\" placeholder=\"Write a message...\">\r\n    <button class=\"button\" (click)=\"sendMessage()\">Send</button>\r\n  </form>\r\n</div>\r\n<div class=\"messagesContainer\">\r\n  <div class=\"me\">\r\n    <img src=\"assets/profile.png\">\r\n    <div class=\"messageContent\">\r\n      <p> . </p>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"you\">\r\n    <img src=\"assets/profile.png\">\r\n    <div class=\"messageContent\">\r\n      <p> .</p>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"headerMessenger\">\r\n  <div class=\"imageUserMessenger\">\r\n    <img src=\"{{getImage(userInfo.image)}}\" >\r\n  </div>\r\n  <div class=\"info\">\r\n    <p class=\"bold\">{{userInfo.username}} </p>\r\n    <p>{{userInfo.email}}</p>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<div class=\"textMessage\">\r\n  <div *ngIf=\"photoMessage\" class=\"photoMessageContainer\">\r\n    <img src='data:image/jpeg;base64,{{photoMessage}}'>\r\n  </div>\r\n  <form class=\"form\" action=\"post\">\r\n    <label id=\"pic1\">\r\n      <span class=\"glyphicon glyphicon-picture\"> </span>\r\n      <input type=\"file\" id=\"filePicker\" (change)=\"handleFileSelect($event)\">\r\n    </label>\r\n    <input class=\"input\" type=\"text\"  [(ngModel)]=\"textMessage\" name=\"textMessage\" placeholder=\"Write a message...\">\r\n    <button class=\"button\" (click)=\"sendMessage()\"> <img class=\"sendMessageImage\" src=\"assets/send.png\" ></button>\r\n  </form>\r\n</div>\r\n\r\n<div class=\"messagesContainer\" >\r\n  <span  *ngFor=\"let msg of oldMessages\">\r\n  <div class=\"me\" *ngIf=\"msg.senderId === service.user.id || msg.receiverId !==service.user.id \">\r\n    <img src=\"{{getImage(service.user.image)}}\">\r\n    <div class=\"messageContent\">\r\n      <p> {{msg.messageContent.text}} </p>\r\n      <img *ngIf=\"msg.messageContent.image\" src=\"{{getImage(msg.messageContent.image)}}\">\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"you\" *ngIf=\"msg.senderId !== service.user.id || msg.receiverId === service.user.id \">\r\n    <img src=\"{{getImage(userInfo.image)}}\">\r\n    <div class=\"messageContent\">\r\n      <p> {{msg.messageContent.text}} </p>\r\n      <img *ngIf=\"msg.messageContent.image\" src=\"{{getImage(msg.messageContent.image)}}\">\r\n    </div>\r\n    \r\n  </div>\r\n</span>\r\n</div>"
 
 /***/ }),
 
@@ -516,6 +521,7 @@ module.exports = "<div class=\"headerMessenger\">\r\n  <div class=\"imageUserMes
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__message_service__ = __webpack_require__("../../../../../src/app/message.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_observable_interval__ = __webpack_require__("../../../../rxjs/_esm5/observable/interval.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -529,6 +535,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ChatRoomComponent = /** @class */ (function () {
     function ChatRoomComponent(service, messageService, route, router) {
         var _this = this;
@@ -536,12 +543,21 @@ var ChatRoomComponent = /** @class */ (function () {
         this.messageService = messageService;
         this.route = route;
         this.router = router;
+        this.userInfo = { image: '' };
         this.photoMessage = '';
         this.textMessage = '';
         this.route.params.subscribe(function (query) {
-            if (query.id) {
+            if (query.id !== 'undefined') {
                 _this.receiverId = query.id;
                 _this.messageService.gitMessages({ profileId: _this.service.user.id, userId: _this.receiverId }).subscribe(function (res) {
+                    console.log(res);
+                    if (res.data !== 'fail') {
+                        _this.oldMessages = res.message;
+                        _this.userInfo = res.user;
+                    }
+                    else {
+                        _this.router.navigate(['/']);
+                    }
                 });
             }
             else {
@@ -561,9 +577,7 @@ var ChatRoomComponent = /** @class */ (function () {
         };
         if (this.textMessage || this.photoMessage) {
             this.messageService.sendMessage(record).subscribe(function (res) {
-                /*
-                 push message to old message array
-               */
+                _this.oldMessages.push(record);
                 _this.textMessage = '';
                 _this.photoMessage = '';
             });
@@ -582,7 +596,30 @@ var ChatRoomComponent = /** @class */ (function () {
         var binaryString = readerEvt.target.result;
         this.photoMessage = btoa(binaryString);
     };
+    ChatRoomComponent.prototype.getImage = function (image) {
+        if (image) {
+            return 'data:image/jpeg;base64,' + image;
+        }
+        else {
+            return 'assets/profile.png';
+        }
+    };
+    ChatRoomComponent.prototype.getMessageFromQueue = function () {
+        var _this = this;
+        if (this.userInfo._id && this.service.user.id) {
+            this.messageService.getMessageFromQueue({ userId: this.userInfo._id, profileId: this.service.user.id }).subscribe(function (res) {
+                if (res.messageInQueue.length !== 0) {
+                    console.log(res.messageInQueue);
+                    _this.oldMessages = _this.oldMessages.concat(res.messageInQueue);
+                }
+            });
+        }
+    };
     ChatRoomComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_observable_interval__["a" /* interval */])(1000).subscribe(function (x) {
+            _this.getMessageFromQueue();
+        });
     };
     ChatRoomComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -1079,6 +1116,27 @@ var MessageService = /** @class */ (function () {
         this.createAuthorizationHeader(headers);
         headers.append('Content-Type', 'application/json');
         return this.http.post('/api/message/getmessages', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    MessageService.prototype.getMessageFromQueue = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/message/getmessagefromqueue', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    MessageService.prototype.getSortUser = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/message/getsortuser', record, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    MessageService.prototype.getUserTitle = function (record) {
+        var headers;
+        headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        this.createAuthorizationHeader(headers);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/message/getusertitle', record, { headers: headers }).map(function (res) { return res.json(); });
     };
     MessageService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
@@ -1650,7 +1708,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".userChatContainer{\r\n    height: 65px    ;\r\n    overflow: hidden;\r\n    position: relative;\r\n}\r\n.image{\r\n    width: 42px;\r\n    border-radius: 50%;\r\n    -webkit-box-shadow: 0px 0px 1px 1px #b3b3b3;\r\n            box-shadow: 0px 0px 1px 1px #b3b3b3;\r\n    margin: 10px 0px 2px 0px;\r\n}\r\n.nameUserChat{\r\n    display: inline-block;\r\n}\r\n.nameUserChat::first-letter { \r\n    font-size: 130%;\r\n    color: #0079ff;\r\n    text-transform: capitalize;\r\n    font-family: cursive;\r\n    font-weight: bold;\r\n}\r\n.imageUserContainer{\r\n    width: 50px;\r\n    position: relative;\r\n    display: inline-block;\r\n}\r\n.notfyChat{\r\n    position: absolute;\r\n    display: block;\r\n    background: #f34949;\r\n    min-width: 20px;\r\n    min-height: 20px;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    color: white;\r\n    right: 2px;\r\n    top: 6px;\r\n}\r\n.userChatContainer hr{\r\n    position: absolute;\r\n    width: 100%;\r\n    border-top-width: 1px;\r\n    bottom: -6px;\r\n    border-top-color: #e5e4e445;\r\n}", ""]);
+exports.push([module.i, ".userChatContainer{\r\n    height: 65px    ;\r\n    overflow: hidden;\r\n    position: relative;\r\n    cursor: pointer;\r\n}\r\n.image{\r\n    width: 42px;\r\n    height: 42px;\r\n    border-radius: 50%;\r\n    -webkit-box-shadow: 0px 0px 1px 1px #b3b3b3;\r\n            box-shadow: 0px 0px 1px 1px #b3b3b3;\r\n    margin: 10px 0px 2px 0px;\r\n}\r\n.nameUserChat{\r\n    display: inline-block;\r\n}\r\n.nameUserChat::first-letter { \r\n    font-size: 130%;\r\n    color: #0079ff;\r\n    text-transform: capitalize;\r\n    font-family: cursive;\r\n    font-weight: bold;\r\n}\r\n.imageUserContainer{\r\n    width: 50px;\r\n    position: relative;\r\n    display: inline-block;\r\n}\r\n.notfyChat{\r\n    position: absolute;\r\n    display: block;\r\n    background: #f34949;\r\n    min-width: 20px;\r\n    min-height: 20px;\r\n    border-radius: 50%;\r\n    text-align: center;\r\n    color: white;\r\n    right: 2px;\r\n    top: 6px;\r\n}\r\n.userChatContainer hr{\r\n    position: absolute;\r\n    width: 100%;\r\n    border-top-width: 1px;\r\n    bottom: -6px;\r\n    border-top-color: #e5e4e445;\r\n}", ""]);
 
 // exports
 
@@ -1663,7 +1721,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-chat-label/user-chat-label.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"userChatContainer\">\r\n <div class=\"imageUserContainer\">\r\n  <img class=\"image\" src=\"assets/profile.png\">\r\n  <span class=\"notfyChat\" *ngIf=\"data.notfy !== 0\">{{data.notfy}}</span>\r\n </div> \r\n  <p class=\"nameUserChat\">{{data.name}}</p>\r\n  <hr>\r\n</div>"
+module.exports = "<div class=\"userChatContainer\" (click)=\"routeTo(record.userInfo._id)\">\r\n <div class=\"imageUserContainer\">\r\n  <img class=\"image\" src=\"{{getImage(record.userInfo.image)}}\">\r\n  <span class=\"notfyChat\" *ngIf=\"record.notfy !== 0\">{{record.notfy}}</span>\r\n </div> \r\n  <p class=\"nameUserChat\">{{record.userInfo.username}}</p>\r\n  <hr>\r\n</div>"
 
 /***/ }),
 
@@ -1673,6 +1731,10 @@ module.exports = "<div class=\"userChatContainer\">\r\n <div class=\"imageUserCo
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserChatLabelComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message_service__ = __webpack_require__("../../../../../src/app/message.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_observable_interval__ = __webpack_require__("../../../../rxjs/_esm5/observable/interval.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1683,10 +1745,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var UserChatLabelComponent = /** @class */ (function () {
-    function UserChatLabelComponent() {
+    function UserChatLabelComponent(messageService, service, route) {
+        this.messageService = messageService;
+        this.service = service;
+        this.route = route;
+        this.record = { userInfo: { image: null, username: 'User' }, notfy: 0 };
     }
+    UserChatLabelComponent.prototype.getImage = function (image) {
+        if (image) {
+            return 'data:image/jpeg;base64,' + image;
+        }
+        else {
+            return 'assets/profile.png';
+        }
+    };
+    UserChatLabelComponent.prototype.routeTo = function (id) {
+        this.route.navigate(['messages/' + id]);
+    };
     UserChatLabelComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_observable_interval__["a" /* interval */])(2000).subscribe(function (x) {
+            _this.messageService.getUserTitle({ user1: _this.data, user2: _this.service.user.id }).subscribe(function (res) {
+                _this.record = res;
+            });
+        });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
@@ -1698,7 +1785,7 @@ var UserChatLabelComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/user-chat-label/user-chat-label.component.html"),
             styles: [__webpack_require__("../../../../../src/app/user-chat-label/user-chat-label.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__message_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]])
     ], UserChatLabelComponent);
     return UserChatLabelComponent;
 }());

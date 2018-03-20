@@ -2,6 +2,7 @@
 
 body * {
   outline: none;
+  word-break: break-word;
 }
 
 body {

@@ -1,8 +1,8 @@
-<div class="userChatContainer">
+<div class="userChatContainer" (click)="routeTo(record.userInfo._id)">
  <div class="imageUserContainer">
-  <img class="image" src="assets/profile.png">
-  <span class="notfyChat" *ngIf="data.notfy !== 0">{{data.notfy}}</span>
+  <img class="image" src="{{getImage(record.userInfo.image)}}">
+  <span class="notfyChat" *ngIf="record.notfy !== 0">{{record.notfy}}</span>
  </div> 
-  <p class="nameUserChat">{{data.name}}</p>
+  <p class="nameUserChat">{{record.userInfo.username}}</p>
   <hr>
 </div>

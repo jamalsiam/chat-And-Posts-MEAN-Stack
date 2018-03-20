@@ -4,8 +4,6 @@ module.exports = {
         let { userId, postId } = req.body;  
         model.Like.findOne({ userId, postId }).then(isfound => {
             if (!isfound) {
-                
-                
                 model.Like.create({  userId, postId  })
                 .then((newFollow) => {
                     res.json({ status: "success", data: true, newFollow })
@@ -20,5 +18,3 @@ module.exports = {
         });
     }
 };
-
- 

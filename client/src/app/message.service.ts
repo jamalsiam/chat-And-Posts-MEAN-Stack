@@ -30,5 +30,28 @@ export class MessageService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/message/getmessages', record, { headers: headers }).map(res => res.json());
   }
+  getMessageFromQueue(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/message/getmessagefromqueue', record, { headers: headers }).map(res => res.json());
 
+  }
+  getSortUser(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/message/getsortuser', record, { headers: headers }).map(res => res.json());
+
+  }
+  getUserTitle(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/message/getusertitle', record, { headers: headers }).map(res => res.json());
+
+  }
 }

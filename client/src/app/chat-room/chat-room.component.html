@@ -1,10 +1,10 @@
 <div class="headerMessenger">
   <div class="imageUserMessenger">
-    <img src="assets/profile.png">
+    <img src="{{getImage(userInfo.image)}}" >
   </div>
   <div class="info">
-    <p class="bold">Jamals </p>
-    <p>example@example.com</p>
+    <p class="bold">{{userInfo.username}} </p>
+    <p>{{userInfo.email}}</p>
 
   </div>
 </div>
@@ -20,22 +20,28 @@
       <input type="file" id="filePicker" (change)="handleFileSelect($event)">
     </label>
     <input class="input" type="text"  [(ngModel)]="textMessage" name="textMessage" placeholder="Write a message...">
-    <button class="button" (click)="sendMessage()">Send</button>
+    <button class="button" (click)="sendMessage()"> <img class="sendMessageImage" src="assets/send.png" ></button>
   </form>
 </div>
-<div class="messagesContainer">
-  <div class="me">
-    <img src="assets/profile.png">
+
+<div class="messagesContainer" >
+  <span  *ngFor="let msg of oldMessages">
+  <div class="me" *ngIf="msg.senderId === service.user.id || msg.receiverId !==service.user.id ">
+    <img src="{{getImage(service.user.image)}}">
     <div class="messageContent">
-      <p> . </p>
+      <p> {{msg.messageContent.text}} </p>
+      <img *ngIf="msg.messageContent.image" src="{{getImage(msg.messageContent.image)}}">
     </div>
 
   </div>
 
-  <div class="you">
-    <img src="assets/profile.png">
+  <div class="you" *ngIf="msg.senderId !== service.user.id || msg.receiverId === service.user.id ">
+    <img src="{{getImage(userInfo.image)}}">
     <div class="messageContent">
-      <p> .</p>
+      <p> {{msg.messageContent.text}} </p>
+      <img *ngIf="msg.messageContent.image" src="{{getImage(msg.messageContent.image)}}">
     </div>
+    
   </div>
+</span>
 </div>
