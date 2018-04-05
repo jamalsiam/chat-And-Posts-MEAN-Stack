@@ -1,8 +1,10 @@
 <aside class="Index0 {{changeSideBarStateVal}}">
-  <div class="side-btn " (click)="sideBarStateChanger()"><span class="glyphicon glyphicon-envelope"></span></div>
+  <div class="side-btn " (click)="sideBarStateChanger()"><span class="glyphicon glyphicon-envelope"></span> 
+    <div class="total-notfy" *ngIf="NumbertotalNotfy(messageService.totalNotfy) !== 0" > {{NumbertotalNotfy(messageService.totalNotfy)}}</div> 
+  </div>
   <div class="chatUserGruop">
     <chat style="order: 1;" *ngFor="let x of xs" [data]="x" > </chat>
 
   </div>
- 
+
 </aside>

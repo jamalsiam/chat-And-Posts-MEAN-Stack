@@ -8,7 +8,10 @@ import { LocalStorageService } from 'angular-2-local-storage';
 @Injectable()
 
 export class MessageService {
-  constructor(private http: Http, public storage: LocalStorageService) { }
+  totalNotfy: any;
+  constructor(private http: Http, public storage: LocalStorageService) {
+    this.totalNotfy = [];
+  }
 
   createAuthorizationHeader(headers: Headers) {
     headers.append('Authorization', 'Basic ' +

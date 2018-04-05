@@ -30,9 +30,13 @@ export class UserChatLabelComponent implements OnInit {
     this.route.navigate(['messages/' + id]);
   }
   ngOnInit() {
+
     interval(2000).subscribe(x => {
       this.messageService.getUserTitle({ user1: this.data, user2: this.service.user.id }).subscribe(res => {
         this.record = res;
+        if (res.notfy) {
+          this.messageService.totalNotfy['' + res.userInfo.email ] = res.notfy;
+        }
       });
     });
   }

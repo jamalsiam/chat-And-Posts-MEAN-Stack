@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { LocalStorageService } from 'angular-2-local-storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +11,7 @@ import { DataService } from '../data.service';
 export class MainComponent implements OnInit {
   randomSuggestPost: any = [];
 
-  constructor(public servece: DataService) {}
+  constructor(public servece: DataService, private storage: LocalStorageService, private router: Router) {}
 
 
 
@@ -28,6 +30,9 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.storage.get('chatUserId')) {
+      this.router.navigate(['signin']);
+    }
     for (let i = 1; i <= 3; i++) {
       this.randomSuggest();
     }

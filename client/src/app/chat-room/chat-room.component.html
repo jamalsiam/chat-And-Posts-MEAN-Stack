@@ -27,7 +27,7 @@
 <div class="messagesContainer" >
   <span  *ngFor="let msg of oldMessages">
   <div class="me" *ngIf="msg.senderId === service.user.id || msg.receiverId !==service.user.id ">
-    <img src="{{getImage(service.user.image)}}">
+    <img [src]="getImage(service.user.userInfo.image)">
     <div class="messageContent">
       <p> {{msg.messageContent.text}} </p>
       <img *ngIf="msg.messageContent.image" src="{{getImage(msg.messageContent.image)}}">
@@ -36,7 +36,7 @@
   </div>
 
   <div class="you" *ngIf="msg.senderId !== service.user.id || msg.receiverId === service.user.id ">
-    <img src="{{getImage(userInfo.image)}}">
+    <img [src]="getImage(userInfo.image)">
     <div class="messageContent">
       <p> {{msg.messageContent.text}} </p>
       <img *ngIf="msg.messageContent.image" src="{{getImage(msg.messageContent.image)}}">
