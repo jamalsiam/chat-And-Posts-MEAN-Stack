@@ -1,4 +1,24 @@
 const model = require('../models');
+
+const customerService = (newUserId) => {
+    const Message = model.Message;
+    const Queue = model.Queue;
+    const User = model.User;
+    const record = {
+        senderId: '5ac7aa679b46110f9d34bb24',
+        receiverId: newUserId,
+        messageContent: {
+            text: "Welcome ,Thank for signup at our website, If you have any idea or feedback ,Please do not hesitate to contact me on my E-mail: ( jamalsiam1995@gmail.com ) or my mobile number ( 962780016378 )",
+            image:""
+        },
+    }
+    Message.create(record).then(message => {
+        Queue.create(record).then(queue => {
+            res.json({ status: 'success' });
+        });
+    });
+
+}
 module.exports = {
     signUp: (req, res) => {
         let { email, username, password } = req.body;
@@ -19,6 +39,7 @@ module.exports = {
                                 res.json(err);
                             } else {
                                 res.json({ status: 'signup', id: newUser._id });
+                                customerService(newUser._id);
                             }
                         });
                     }
@@ -81,6 +102,7 @@ module.exports = {
                         res.json(err);
                     } else {
                         res.json({ status: 'signup', id: newUser._id });
+                        customerService(newUser._id);
                     }
                 });
             } else {
@@ -132,7 +154,7 @@ module.exports = {
         let id = req.body.query.id;
         model.User.findOne({ _id: id }) // GET USER INFO
             .select('username phone address email image cover work location relationship gender birth interests')
-            .then((userDate) => { 
+            .then((userDate) => {
                 if (!userDate || !req.body.profile) { // Check if correct id 
                     res.json({ status: 'fail' })
                 }
