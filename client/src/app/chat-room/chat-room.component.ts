@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { MessageService } from '../message.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs/rx';
 import { interval } from 'rxjs/observable/interval';
 
 @Component({
