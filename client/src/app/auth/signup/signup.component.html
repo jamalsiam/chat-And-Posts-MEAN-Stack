@@ -1,20 +1,52 @@
 <div class="body">
   <div class="x">
-  <div class="sigin">
-    <p class="h3">chat and post <span>SignUp</span></p>
-    <input type="text" placeholder="username" [(ngModel)]='formData.username'  >
-    <input type="email" placeholder="example@example.com"     [(ngModel)]='formData.email' >    
-    <input type="password" placeholder="Password"   [(ngModel)]='formData.password'  >
-    <input type="password" placeholder="Confirm Password"   [(ngModel)]='formData.confirmPassword' >
-    <div>
-      <small class="{{msg.type}}" >{{msg.data}}</small>   
-    </div> 
-    
-    <button (click)="signup()">
-      <span class="glyphicon glyphicon-arrow-right {{btnSignupDegree}}"></span>
-    </button>
+    <div class="sigin">
+      <p class="h3">chat and post
+        <span>SignUp</span>
+      </p>
+      <form (ngSubmit)="signup(frm)" #frm="ngForm">
+
+        <div class="field-form-area">
+          <input type="text" placeholder="username" ngModel #username="ngModel" name='username' required>
+          <span *ngIf="username.touched  && !username.valid " class="message-area">
+            Invalid Username
+          </span>
+        </div>
+
+        <div class="field-form-area">
+          <input type="email" placeholder="example@example.com" ngModel #email='ngModel' name="email" email required>
+          <span *ngIf="email.touched  && !email.valid " class="message-area">
+            Invalid E-mail
+          </span>
+        </div>
+
+
+        <div class="field-form-area">
+          <input type="password" placeholder="Password" ngModel #password='ngModel' name='password' required>
+          <span *ngIf="password.touched  && !password.valid" class="message-area">
+            Invalid Password
+          </span>
+        </div>
+
+
+        <div class="field-form-area">
+          <input type="password" placeholder="Confirm Password" ngModel #Confirm='ngModel' name='confirmPassword' required>
+          <span *ngIf="Confirm.touched  && !Confirm.valid " class="message-area">
+            Invalid Confirm Password
+          </span>
+        </div>
+
+
+        <div>
+          <small class="{{msg.type}}">{{msg.data}}</small>
+        </div>
+
+        <button>
+          <span class="glyphicon glyphicon-arrow-right {{btnSignupDegree}}"></span>
+        </button>
+      </form>
       <h6 class="or">OR</h6>
-    <small class="guest" (click)="signupGuest()">Signup As Guest</small>
+      <small class="guest" (click)="signupGuest()">Signup As Guest</small>
+    </div>
   </div>
-</div>
 </div>

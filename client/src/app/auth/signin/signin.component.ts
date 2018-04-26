@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Router } from '@angular/router';
 
@@ -19,7 +19,6 @@ export class SigninComponent implements OnInit {
   constructor(private service: DataService, private storage: LocalStorageService, private router: Router) { }
 
   signin(form: NgForm) {
-    console.log(form.value);
     this.msg = { type: 'hdn', data: '|' };
     this.btnSignupDegree = 'deg0';
 
@@ -41,8 +40,8 @@ export class SigninComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.msg = { type: 'hdn', data: '|' };
 
+    this.msg = { type: 'hdn', data: '|' };
     if (this.storage.get('chatUserId')) {
       this.router.navigate(['']);
     }
