@@ -1,17 +1,33 @@
 <div class="body">
   <div class="x">
-  <div class="sigin">
-    <p class="h3">chat and post <span>SignIn</span></p>
-    <input type="email" placeholder="example@example.com"     [(ngModel)]='formData.email' >    
-    <input type="password" placeholder="Password"   [(ngModel)]='formData.password'  >
-    <div>
-      <small class="{{msg.type}}" >{{msg.data}}</small>   
-    </div> 
-    
-    <button (click)="signin()">
-      <span class="glyphicon glyphicon-arrow-right {{btnSignupDegree}}"></span>
-    </button> 
-    <a (click)="onSignUp()" class="signup-btn">I Haven't Account,SignUp?</a>  
+    <div class="sigin">
+      <p class="h3">chat and post
+        <span>SignIn</span>
+      </p>
+      <form (ngSubmit)="signin(frm)" #frm="ngForm">
+
+        <div class="field-form-area">
+          <input type="email" placeholder="example@example.com" ngModel #email='ngModel' name="email" email required>
+          <span *ngIf="email.touched  && !email.valid " class="message-area">
+            E-mail Invalid 
+          </span>
+        </div>
+
+        <div class="field-form-area">
+          <input type="password" placeholder="Password" ngModel #pass="ngModel" name="password" required>
+          <span *ngIf="pass.touched  && !pass.valid" class="message-area">
+              password Invalid
+            </span>
+        </div>
+        <div>
+          <small class="{{msg.type}}">{{msg.data}}</small>
+        </div>
+
+        <button>
+          <span class="glyphicon glyphicon-arrow-right {{btnSignupDegree}}"></span>
+        </button>
+      </form>
+      <a routerLink="/signup" class="signup-btn">I Haven't Account,SignUp?</a>
+    </div>
   </div>
-</div>
 </div>
