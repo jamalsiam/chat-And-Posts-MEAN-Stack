@@ -28,6 +28,8 @@ export class SignupComponent implements OnInit {
           this.msg = { type: 'err', data: '' + res.status };
         }
       });
+    } else {
+      //this.msg = { type: 'err', data: '' + 'Invalid Form' };
     }
   }
 

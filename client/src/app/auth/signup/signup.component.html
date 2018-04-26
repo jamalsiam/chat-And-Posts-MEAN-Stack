@@ -7,14 +7,14 @@
       <form (ngSubmit)="signup(frm)" #frm="ngForm">
 
         <div class="field-form-area">
-          <input type="text" placeholder="username" ngModel #username="ngModel" name='username' required>
+          <input type="text" placeholder="username" ngModel #username="ngModel" name='username' required autofocus>
           <span *ngIf="username.touched  && !username.valid " class="message-area">
             Invalid Username
           </span>
         </div>
 
         <div class="field-form-area">
-          <input type="email" placeholder="example@example.com" ngModel #email='ngModel' name="email" email required>
+          <input type="email" placeholder="example@example.com" ngModel #email='ngModel' name="email" email required autofocus>
           <span *ngIf="email.touched  && !email.valid " class="message-area">
             Invalid E-mail
           </span>
