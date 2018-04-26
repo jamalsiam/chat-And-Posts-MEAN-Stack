@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
-import { SigninComponent } from './signin/signin.component';
-import { MainComponent } from './main/main.component';
-import { SignoutComponent } from './signout/signout.component';
-import { ProfileComponent } from './profile/profile.component';
-import { UserComponent } from './user/user.component';
-import { OriginalPostComponent } from './original-post/original-post.component';
-import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { MainComponent } from './user/main/main.component';
+import { SignoutComponent } from './auth/signout/signout.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { UserComponent } from './user/user/user.component';
+import { OriginalPostComponent } from './post/original-post/original-post.component';
+import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
 const routes: Routes = [
   {
     path: '',

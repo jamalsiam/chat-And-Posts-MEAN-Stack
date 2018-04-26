@@ -24,21 +24,21 @@ export class MessageService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/message/sendmessage', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/message/sendmessage', record, { headers: headers }).map(res => res.json());
   }
   gitMessages(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/message/getmessages', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/message/getmessages', record, { headers: headers }).map(res => res.json());
   }
   getMessageFromQueue(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/message/getmessagefromqueue', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/message/getmessagefromqueue', record, { headers: headers }).map(res => res.json());
 
   }
   getSortUser(record) {
@@ -46,7 +46,7 @@ export class MessageService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/message/getsortuser', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/message/getsortuser', record, { headers: headers }).map(res => res.json());
 
   }
   getUserTitle(record) {
@@ -54,7 +54,7 @@ export class MessageService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/message/getusertitle', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/message/getusertitle', record, { headers: headers }).map(res => res.json());
 
   }
 }

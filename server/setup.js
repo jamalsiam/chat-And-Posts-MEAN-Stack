@@ -4,11 +4,13 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const url = require('url');
 const mongoose = require('mongoose');
-let handlers = require('./handlers');
+const handlers = require('./handlers');
+const cors= require('cors');
 
 
 //middleware
 //app.use(express.static(__dirname + '/../client/dist'));
+app.use(cors());
 app.use('/', express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json({ limit: '2mb' }));
 app.use(bodyParser.urlencoded({ limit: '2mb', extended: true }));

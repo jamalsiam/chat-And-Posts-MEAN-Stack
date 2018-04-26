@@ -46,24 +46,24 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/user/signup', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/user/signup', record, { headers: headers }).map(res => res.json());
   }
   signUpAsGuest() {
-    return this.http.get('/api/user/signupasguest').map(res => res.json());
+    return this.http.get('http://localhost:8000/api/user/signupasguest').map(res => res.json());
   }
   signIn(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/user/signin', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/user/signin', record, { headers: headers }).map(res => res.json());
   }
   getProfileInfo(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/user/getuserinfo', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/user/getuserinfo', record, { headers: headers }).map(res => res.json());
   }
   signOut() {
     this.storage.remove('chatUserId');
@@ -75,24 +75,24 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/post/sharepost', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/post/sharepost', record, { headers: headers }).map(res => res.json());
   }
   getFollowingPosts(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/post/getFollowingPosts', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/post/getFollowingPosts', record, { headers: headers }).map(res => res.json());
   }
   deletePost(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/post/deletepost', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/post/deletepost', record, { headers: headers }).map(res => res.json());
   }
   randomSuggest() {
-    return this.http.get('/api/post/randomSuggest').map(res => res.json());
+    return this.http.get('http://localhost:8000/api/post/randomSuggest').map(res => res.json());
 
   }
   checkIfFollow(record) {
@@ -100,7 +100,7 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/follow/checkiffollow', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/follow/checkiffollow', record, { headers: headers }).map(res => res.json());
   }
 
   follow(record) {
@@ -108,7 +108,7 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/follow/addorremovefollow', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/follow/addorremovefollow', record, { headers: headers }).map(res => res.json());
   }
 
   changeProfileImage(record) {
@@ -116,21 +116,21 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/user/changeprofileimage', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/user/changeprofileimage', record, { headers: headers }).map(res => res.json());
   }
   changeProfileCover(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/user/changeprofilecover', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/user/changeprofilecover', record, { headers: headers }).map(res => res.json());
   }
   changeInfoUser(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/user/changeprofileinfo', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/user/changeprofileinfo', record, { headers: headers }).map(res => res.json());
 
   }
   changeUserInterests(record) {
@@ -138,7 +138,7 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/user/changeuserinterests', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/user/changeuserinterests', record, { headers: headers }).map(res => res.json());
 
   }
   getUserProfile(record) {
@@ -146,7 +146,7 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/user/getuserprofile', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/user/getuserprofile', record, { headers: headers }).map(res => res.json());
 
   }
   likeAndCommentLength(record) {
@@ -154,14 +154,14 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/post/likeandcommentlength', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/post/likeandcommentlength', record, { headers: headers }).map(res => res.json());
   }
   putOrRemoveLike(record) {
     let headers: Headers;
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/post/putorremovelike', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/post/putorremovelike', record, { headers: headers }).map(res => res.json());
 
   }
   shareComment(record) {
@@ -169,7 +169,7 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/comment/sharecomment', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/comment/sharecomment', record, { headers: headers }).map(res => res.json());
 
   }
   viewComments(record) {
@@ -177,7 +177,7 @@ export class DataService {
     headers = new Headers();
     this.createAuthorizationHeader(headers);
     headers.append('Content-Type', 'application/json');
-    return this.http.post('/api/comment/viewcomments', record, { headers: headers }).map(res => res.json());
+    return this.http.post('http://localhost:8000/api/comment/viewcomments', record, { headers: headers }).map(res => res.json());
 
   }
 }
