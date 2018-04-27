@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DataService } from './data.service';
@@ -24,6 +27,7 @@ import { UserComponent } from './user/user/user.component';
 import { CommentComponent } from './post/comment/comment.component';
 import { UserChatLabelComponent } from './chat/aside-bar/user-chat-label/user-chat-label.component';
 import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
+import { AuthService } from './auth/auth-service/auth.service';
 
 @NgModule({
   declarations: [
@@ -51,12 +55,13 @@ import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
     AppRoutingModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     LocalStorageModule.withConfig({
       prefix: 'my-app',
       storageType: 'localStorage'
     })
   ],
-  providers: [DataService, MessageService],
+  providers: [DataService, MessageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

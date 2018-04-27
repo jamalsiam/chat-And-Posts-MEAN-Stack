@@ -11,7 +11,7 @@ export class DataService {
   user: any;
   followingPost: any;
   originPost: any;
-  constructor(private http: Http, public storage: LocalStorageService) {
+   constructor(private http: Http, public storage: LocalStorageService) {
     this.user = { id: null, post: [], userInfo: {}, follow: { following: [], follower: [] } };
     if (this.storage.get('chatUserId') !== null || this.storage.get('chatUserId') !== undefined) {
       this.user['id'] = this.storage.get('chatUserId');
@@ -41,23 +41,7 @@ export class DataService {
   }
 
 
-  signUp(record) {
-    let headers: Headers;
-    headers = new Headers();
-    this.createAuthorizationHeader(headers);
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/api/user/signup', record, { headers: headers }).map(res => res.json());
-  }
-  signUpAsGuest() {
-    return this.http.get('http://localhost:8000/api/user/signupasguest').map(res => res.json());
-  }
-  signIn(record) {
-    let headers: Headers;
-    headers = new Headers();
-    this.createAuthorizationHeader(headers);
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/api/user/signin', record, { headers: headers }).map(res => res.json());
-  }
+
   getProfileInfo(record) {
     let headers: Headers;
     headers = new Headers();
@@ -65,11 +49,7 @@ export class DataService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:8000/api/user/getuserinfo', record, { headers: headers }).map(res => res.json());
   }
-  signOut() {
-    this.storage.remove('chatUserId');
-    this.user = {};
-    this.followingPost = [];
-  }
+
   sharePost(record) {
     let headers: Headers;
     headers = new Headers();

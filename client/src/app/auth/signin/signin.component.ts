@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { DataService } from '../../data.service';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../auth-service/auth.service';
 
 
 
@@ -15,8 +16,7 @@ import { NgForm } from '@angular/forms';
 export class SigninComponent implements OnInit {
   btnSignupDegree = '';
   msg: any;
-
-  constructor(private service: DataService, private storage: LocalStorageService, private router: Router) { }
+  constructor(private authService: AuthService, private storage: LocalStorageService, private router: Router) { }
 
   signin(form: NgForm) {
     this.msg = { type: 'hdn', data: '|' };
@@ -25,14 +25,14 @@ export class SigninComponent implements OnInit {
     if (form.valid) {
 
       this.btnSignupDegree = 'deg360';
-      this.service.signIn(form.value).subscribe(res => {
+      this.authService.signIn(form.value).subscribe(res => {
         this.btnSignupDegree = 'deg0';
-        if (res.status === 'signin') {
-          this.storage.set('chatUserId', res.id);
+        if (res['status'] === 'signin') {
+          this.storage.set('chatUserId', res['id']);
           this.router.navigate(['']);
           location.reload();
         } else {
-          this.msg = { type: 'err', data: '' + res.status };
+          this.msg = { type: 'err', data: '' + res['status'] };
         }
       });
     }
