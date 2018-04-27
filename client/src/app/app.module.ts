@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DataService } from './data.service';
-import { MessageService } from './message.service';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
@@ -28,6 +27,7 @@ import { CommentComponent } from './post/comment/comment.component';
 import { UserChatLabelComponent } from './chat/aside-bar/user-chat-label/user-chat-label.component';
 import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
 import { AuthService } from './auth/auth-service/auth.service';
+import { ChatService } from './chat/service/chat.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,7 @@ import { AuthService } from './auth/auth-service/auth.service';
       storageType: 'localStorage'
     })
   ],
-  providers: [DataService, MessageService, AuthService],
+  providers: [DataService, ChatService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../../message.service';
 import { DataService } from '../../data.service';
 import { interval } from 'rxjs/observable/interval';
+import { ChatService } from '../service/chat.service';
 @Component({
   selector: 'app-aside-bar',
   templateUrl: './aside-bar.component.html',
@@ -10,7 +10,7 @@ import { interval } from 'rxjs/observable/interval';
 export class AsideBarComponent implements OnInit {
   changeSideBarStateVal: String = 'closed';
   xs: any;
-  constructor(public messageService: MessageService, private service: DataService) {
+  constructor(public messageService: ChatService, private service: DataService) {
     this.xs = [];
 
   }
@@ -23,10 +23,10 @@ export class AsideBarComponent implements OnInit {
     }
   }
   getSortUser() {
-    interval(2000).subscribe(x => {
+
       this.messageService.getSortUser({ profile: this.service.user.id }).subscribe(res => {
-        this.xs = res.arrayUser;
-      });
+        this.xs = res['arrayUser'];
+        this.getSortUser();
     });
   }
   NumbertotalNotfy(record) {

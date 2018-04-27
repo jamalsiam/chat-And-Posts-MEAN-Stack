@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
-import { MessageService } from '../../message.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { interval } from 'rxjs/observable/interval';
+import { ChatService } from '../service/chat.service';
 
 @Component({
   selector: 'app-chat-room',
@@ -15,7 +15,7 @@ export class ChatRoomComponent implements OnInit {
   receiverId: string;
   oldMessages: any;
   userInfo: any = { image: '' };
-  constructor(public service: DataService, public messageService: MessageService, private route: ActivatedRoute, private router: Router) {
+  constructor(public service: DataService, public messageService: ChatService, private route: ActivatedRoute, private router: Router) {
     this.photoMessage = '';
     this.textMessage = '';
     this.route.params.subscribe(query => {
@@ -23,9 +23,9 @@ export class ChatRoomComponent implements OnInit {
         this.receiverId = query.id;
         this.messageService.gitMessages({ profileId: this.service.user.id, userId: this.receiverId }).subscribe(res => {
           console.log(res);
-          if (res.data !== 'fail') {
-            this.oldMessages = res.message;
-            this.userInfo = res.user;
+          if (res['data'] !== 'fail') {
+            this.oldMessages = res['message'];
+            this.userInfo = res['user'];
           } else {
             this.router.navigate(['/']);
           }
@@ -81,9 +81,8 @@ export class ChatRoomComponent implements OnInit {
   getMessageFromQueue() {
     if (this.userInfo._id && this.service.user.id) {
       this.messageService.getMessageFromQueue({ userId: this.userInfo._id, profileId: this.service.user.id }).subscribe(res => {
-        if (res.messageInQueue.length !== 0) {
-          console.log(res.messageInQueue);
-          this.oldMessages = this.oldMessages.concat(   res.messageInQueue);
+        if (res['messageInQueue'].length !== 0) {
+          this.oldMessages = this.oldMessages.concat(   res['messageInQueue']);
         }
       });
 
