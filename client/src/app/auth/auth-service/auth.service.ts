@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   signUpAsGuest() {
-    return this._httpClient.get('http://localhost:8000/api/user/signup', {
+    return this._httpClient.get('http://localhost:8000/api/user/signupasguest', {
       observe: 'body',
       responseType: 'json',
     });
