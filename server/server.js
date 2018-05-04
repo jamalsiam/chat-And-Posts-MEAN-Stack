@@ -1,5 +1,14 @@
-let app = require('./setup');
-let handlers=app.handlers;
+const app = require('./setup');
+const handlers=app.handlers;
+const io=app.io;
+
+
+io.on('connection',(socket)=>{
+    console.log('connection');
+})
+
+
+
 
 //user APIs
 app.post('/api/user/signup', handlers.handelUser.signUp);
