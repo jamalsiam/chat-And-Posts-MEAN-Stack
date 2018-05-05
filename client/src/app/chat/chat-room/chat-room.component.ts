@@ -48,9 +48,10 @@ export class ChatRoomComponent implements OnInit {
     if (this.textMessage || this.photoMessage) {
       this.messageService.sendMessage(record).subscribe(res => {
         this.oldMessages.push(record);
-        this.textMessage = '';
-        this.photoMessage = '';
+        this.messageService.sendNotifyMessage(this.service.user.id, this.receiverId, this.service.user.userInfo.email );
       });
+      this.textMessage = '';
+      this.photoMessage = '';
     }
 
   }
@@ -82,7 +83,7 @@ export class ChatRoomComponent implements OnInit {
     if (this.userInfo._id && this.service.user.id) {
       this.messageService.getMessageFromQueue({ userId: this.userInfo._id, profileId: this.service.user.id }).subscribe(res => {
         if (res['messageInQueue'].length !== 0) {
-          this.oldMessages = this.oldMessages.concat(   res['messageInQueue']);
+          this.oldMessages = this.oldMessages.concat(res['messageInQueue']);
         }
       });
 

@@ -47,12 +47,35 @@ export class ChatService {
     }
   }
   checkUserOnline(id) {
+    const observable = new Observable<{ id: string; status: boolean }>(
+      observer => {
+        this.socket.on(id, function(data) {
+          observer.next(data);
+        });
+      }
+    );
+    return observable;
+  }
+  checkUserNotifyNumberMessage(user1, user2) {
     const observable = new Observable(observer => {
-      this.socket.on(id, function(data) {
+      this.socket.on(user1 + "-" + user2 + "-NotifyNumber", function(data) {
         observer.next(data);
       });
     });
     return observable;
+  }
+  sendNotifyMessage(user1Id, user2Id, email) {
+    if (user2Id && user2Id) {
+      this.socket.emit("NotifyNumber", {
+        channelName: user1Id + "-" + user2Id + "-NotifyNumber",
+        info: {
+          email,
+          user1Id,
+          user2Id
+
+        }
+      });
+    }
   }
   sendMessage(record) {
     return this.http

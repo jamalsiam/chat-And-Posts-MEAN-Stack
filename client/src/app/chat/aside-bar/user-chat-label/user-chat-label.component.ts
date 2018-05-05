@@ -28,6 +28,7 @@ export class UserChatLabelComponent implements OnInit {
     }
   }
   routeTo(id) {
+    this.record.notfy = 0;
     this.route.navigate(["messages/" + id]);
   }
   getNotfy() {
@@ -45,7 +46,15 @@ export class UserChatLabelComponent implements OnInit {
   ngOnInit() {
     this.getNotfy();
     this.messageService.checkUserOnline(this.data).subscribe(res => {
-      this.online = res["status"];
+      this.online = res.status;
     });
+
+    this.messageService
+      .checkUserNotifyNumberMessage(this.data, this.service.user.id)
+      .subscribe(res => {
+        this.messageService.totalNotfy["" + res["emailSender"]] =
+          res["notifyLength"];
+        this.record.notfy = res["notifyLength"];
+      });
   }
 }

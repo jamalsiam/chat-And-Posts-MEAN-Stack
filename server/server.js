@@ -15,6 +15,14 @@ io.on("connection", socket => {
       ) {});
     }
   });
+
+  socket.on("NotifyNumber",  (data) => {
+ 
+      model.Queue.find({ senderId: data.info.user1Id, receiverId: data.info.user2Id })
+    .then(messageInQueue => { 
+      socket.broadcast.emit(data.channelName, {notifyLength: messageInQueue.length ,emailSender: data.info.email});
+    });
+  });
 });
 
 //user APIs
