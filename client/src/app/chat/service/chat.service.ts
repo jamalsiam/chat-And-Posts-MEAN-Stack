@@ -7,6 +7,7 @@ import { DataService } from "../../data.service";
 @Injectable()
 export class ChatService {
   totalNotfy: any;
+  listOfAllUserInMessage: any;
   socket: io;
   constructor(
     private http: Http,
@@ -14,6 +15,7 @@ export class ChatService {
     private userService: DataService
   ) {
     this.totalNotfy = [];
+    this.listOfAllUserInMessage = [];
     this.socket = io("http://localhost:8000");
     this.socket.on("connection", function() {});
     this.userOnline();
@@ -76,6 +78,14 @@ export class ChatService {
         }
       });
     }
+  }
+  addUserToListMessenger(user1) {
+    const observable = new Observable(observer => {
+      this.socket.on(user1 +"list", function(data) {
+        observer.next(data);
+      });
+    });
+    return observable;
   }
   sendMessage(record) {
     return this.http

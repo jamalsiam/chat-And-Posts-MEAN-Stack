@@ -21,6 +21,8 @@ io.on("connection", socket => {
       model.Queue.find({ senderId: data.info.user1Id, receiverId: data.info.user2Id })
     .then(messageInQueue => { 
       socket.broadcast.emit(data.channelName, {notifyLength: messageInQueue.length ,emailSender: data.info.email});
+      socket.broadcast.emit(data.info.user2Id+"list", {senderId:data.info.user1Id, receiverId: data.info.user2Id});
+      
     });
   });
 });

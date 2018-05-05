@@ -53,7 +53,9 @@ export class ChatRoomComponent implements OnInit {
       this.textMessage = '';
       this.photoMessage = '';
     }
-
+    if ( this.messageService.listOfAllUserInMessage.indexOf( this.receiverId) === -1) {
+      this.messageService.listOfAllUserInMessage.push( this.receiverId);
+    }
   }
   handleFileSelect(evt) {
     const files = evt.target.files;
@@ -90,10 +92,7 @@ export class ChatRoomComponent implements OnInit {
     }
   }
   ngOnInit() {
-    interval(1000).subscribe(x => {
       this.getMessageFromQueue();
-
-    });
   }
 
 

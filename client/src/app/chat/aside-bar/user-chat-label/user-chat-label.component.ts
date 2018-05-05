@@ -15,7 +15,8 @@ export class UserChatLabelComponent implements OnInit {
   constructor(
     public messageService: ChatService,
     private service: DataService,
-    private route: Router
+    private route: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.record = { userInfo: { image: null, username: "User" }, notfy: 0 };
   }
@@ -52,9 +53,16 @@ export class UserChatLabelComponent implements OnInit {
     this.messageService
       .checkUserNotifyNumberMessage(this.data, this.service.user.id)
       .subscribe(res => {
-        this.messageService.totalNotfy["" + res["emailSender"]] =
-          res["notifyLength"];
-        this.record.notfy = res["notifyLength"];
+        if (this.data !== this.route.url.split("/")[2]) {
+          this.messageService.totalNotfy["" + res["emailSender"]] =
+            res["notifyLength"];
+
+          this.record.notfy = res["notifyLength"];
+        } else {
+          this.messageService.totalNotfy["" + res["emailSender"]] = 0;
+
+          this.record.notfy = 0;
+        }
       });
   }
 }
