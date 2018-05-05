@@ -2,6 +2,7 @@
  <div class="imageUserContainer">
   <img class="image" src="{{getImage(record.userInfo.image)}}">
   <span class="notfyChat" *ngIf="record.notfy !== 0">{{record.notfy}}</span>
+  <span [class]="online? 'onlineUser':'offlineUser' "></span>
  </div> 
   <p class="nameUserChat">{{record.userInfo.username}}</p>
   <hr>
