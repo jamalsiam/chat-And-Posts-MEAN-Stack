@@ -38,7 +38,6 @@ io.on("connection", socket => {
 app.post("/api/user/signup", handlers.handelUser.signUp);
 app.post("/api/user/signin", handlers.handelUser.signIn);
 app.post("/api/user/getuserinfo", handlers.handelUser.getUserInfo);
-app.post("/api/user/postdata", handlers.handelUser.postData);
 app.get("/api/user/signupasguest", handlers.handelUser.signUpAsGuest);
 app.post(
   "/api/user/changeprofileimage",
@@ -54,6 +53,7 @@ app.post(
   handlers.handelUser.changeUserInterests
 );
 app.post("/api/user/getuserprofile", handlers.handelUser.getUserProfile);
+app.post("/api/user/checktoken", handlers.handelUser.checkToken);
 
 //post APIs
 app.post("/api/post/sharepost", handlers.handelPost.sharePost);
@@ -63,10 +63,7 @@ app.post("/api/post/getonepost", handlers.handelPost.getOnePost);
 app.post("/api/post/getFollowingPosts", handlers.handelPost.getFollowingPosts);
 app.get("/api/post/randomSuggest", handlers.handelPost.randomSuggest);
 app.post("/api/post/deletepost", handlers.handelPost.deletePost);
-app.post(
-  "/api/post/likeandcommentlength",
-  handlers.handelPost.likeAndCommentLength
-);
+app.post("/api/post/likeandcommentlength",handlers.handelPost.likeAndCommentLength);
 
 //comment APIs
 app.post("/api/comment/sharecomment", handlers.handelComment.putComment);
@@ -79,10 +76,7 @@ app.post("/api/post/putorremovelike", handlers.handelLike.putOrRemoveLike);
 //message APIs
 app.post("/api/message/sendmessage", handlers.handelMessage.sendMessage);
 app.post("/api/message/getmessages", handlers.handelMessage.getMessages);
-app.post(
-  "/api/message/deletemessagefromqueue",
-  handlers.handelMessage.deleteMessageFromQueue
-);
+app.post("/api/message/deletemessagefromqueue",handlers.handelMessage.deleteMessageFromQueue);
 app.post("/api/message/getsortuser", handlers.handelMessage.getSortUser);
 app.post("/api/message/getusertitle", handlers.handelMessage.getUserTitle);
 

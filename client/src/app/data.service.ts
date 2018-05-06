@@ -160,4 +160,11 @@ export class DataService {
     return this.http.post('http://localhost:8000/api/comment/viewcomments', record, { headers: headers }).map(res => res.json());
 
   }
+  checkToken(record) {
+    let headers: Headers;
+    headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:8000/api/user/checktoken', record, { headers: headers }).map(res => res.json());
+  }
 }

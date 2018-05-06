@@ -6,6 +6,7 @@ const url = require("url");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const socket = require("socket.io");
+const jwt =require('jsonwebtoken');
 
 const handlers = require("./handlers");
 const app = express();
@@ -25,6 +26,7 @@ app.all("*", function(req, res, next) {
   }
   next();
 });
+
 
 // Connect to Mongoose
 mongoose.connect(

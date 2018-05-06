@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 
 import { DataService } from '../../data.service';
@@ -8,7 +8,7 @@ import { DataService } from '../../data.service';
 @Injectable()
 export class AuthService {
 
-  constructor(private _httpClient: HttpClient, private x: DataService, private storage: LocalStorageService) { }
+  constructor(private _httpClient: HttpClient, private x: DataService, private storage: LocalStorageService) {}
 
   signIn(record) {
     return this._httpClient.post('http://localhost:8000/api/user/signin', record, {
@@ -33,6 +33,7 @@ export class AuthService {
 
   signOut() {
     this.storage.remove('chatUserId');
+    this.storage.remove('token');
     this.x.user = {};
     this.x.followingPost = [];
   }

@@ -1,7 +1,7 @@
-<div class="{{cssCtr}}" >
-        <app-header ></app-header>
-        <app-aside-bar></app-aside-bar>
-        <div class="content" >
+<div [class]="storage.get('chatUserId')? 'haveId' : '' " >
+        <app-header *ngIf="storage.get('chatUserId')" ></app-header>
+        <app-aside-bar *ngIf="storage.get('chatUserId')"></app-aside-bar>
+        <div class="content"  >
                 <router-outlet ></router-outlet>
         </div>
         

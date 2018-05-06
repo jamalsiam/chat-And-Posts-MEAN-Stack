@@ -12,7 +12,7 @@ import { AuthService } from '../auth-service/auth.service';
 export class SignupComponent implements OnInit {
   btnSignupDegree: String = '';
   msg: any;
-  constructor(private authService:AuthService,
+  constructor(private authService: AuthService,
      private service: DataService, private storage: LocalStorageService, private router: Router) { }
 
   signup(form: NgForm) {
@@ -24,6 +24,7 @@ export class SignupComponent implements OnInit {
         this.btnSignupDegree = 'deg0';
         if (res['status'] === 'signup') {
           this.storage.set('chatUserId', res['id']);
+          this.storage.set('token', res['token']);
           this.router.navigate(['']);
           location.reload();
         } else {
@@ -39,6 +40,7 @@ export class SignupComponent implements OnInit {
     this.btnSignupDegree = 'deg90';
     this.authService.signUpAsGuest().subscribe(res => {
       if (res['status'] === 'signup') {
+        this.storage.set('token', res['token']);
         this.storage.set('chatUserId', res['id']);
         this.router.navigate(['guest']);
         location.reload();

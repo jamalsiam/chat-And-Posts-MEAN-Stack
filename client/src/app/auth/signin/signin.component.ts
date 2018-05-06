@@ -28,7 +28,9 @@ export class SigninComponent implements OnInit {
       this.authService.signIn(form.value).subscribe(res => {
         this.btnSignupDegree = 'deg0';
         if (res['status'] === 'signin') {
+          console.log(res);
           this.storage.set('chatUserId', res['id']);
+          this.storage.set('token', res['token']);
           this.router.navigate(['']);
           location.reload();
         } else {

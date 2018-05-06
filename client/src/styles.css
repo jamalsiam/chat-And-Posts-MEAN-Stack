@@ -13,15 +13,8 @@ body {
   background: #fafafb;
 }
 
-.haveId app-header,
-.haveId app-aside-bar {
-  display: block;
-}
 
-.haventId app-header,
-.haventId app-aside-bar {
-  display: none;
-}
+
 
 .haveId .content {
   margin-left: 200px;
