@@ -33,8 +33,6 @@ export class AsideBarComponent implements OnInit {
         this.messageService
           .addUserToListMessenger(this.service.user.id)
           .subscribe(resAUTLM => {
-            console.log(resAUTLM);
-            
             if ( this.messageService.listOfAllUserInMessage.indexOf(resAUTLM['senderId']) === -1) {
               this.messageService.listOfAllUserInMessage.push(resAUTLM['senderId']);
             }

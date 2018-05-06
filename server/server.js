@@ -16,13 +16,20 @@ io.on("connection", socket => {
     }
   });
 
-  socket.on("NotifyNumber",  (data) => {
- 
-      model.Queue.find({ senderId: data.info.user1Id, receiverId: data.info.user2Id })
-    .then(messageInQueue => { 
-      socket.broadcast.emit(data.channelName, {notifyLength: messageInQueue.length ,emailSender: data.info.email});
-      socket.broadcast.emit(data.info.user2Id+"list", {senderId:data.info.user1Id, receiverId: data.info.user2Id});
-      
+  socket.on("NotifyNumber", data => {
+    model.Queue.find({
+      senderId: data.info.user1Id,
+      receiverId: data.info.user2Id
+    }).then(messageInQueue => {
+      socket.broadcast.emit(data.channelName, {
+        notifyLength: messageInQueue.length,
+        emailSender: data.info.email
+      });
+      socket.broadcast.emit(data.channelName + "content", data.info.message);
+      socket.broadcast.emit(data.info.user2Id + "list", {
+        senderId: data.info.user1Id,
+        receiverId: data.info.user2Id
+      });
     });
   });
 });
@@ -73,8 +80,8 @@ app.post("/api/post/putorremovelike", handlers.handelLike.putOrRemoveLike);
 app.post("/api/message/sendmessage", handlers.handelMessage.sendMessage);
 app.post("/api/message/getmessages", handlers.handelMessage.getMessages);
 app.post(
-  "/api/message/getmessagefromqueue",
-  handlers.handelMessage.getMessageFromQueue
+  "/api/message/deletemessagefromqueue",
+  handlers.handelMessage.deleteMessageFromQueue
 );
 app.post("/api/message/getsortuser", handlers.handelMessage.getSortUser);
 app.post("/api/message/getusertitle", handlers.handelMessage.getUserTitle);

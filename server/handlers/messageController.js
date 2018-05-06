@@ -31,18 +31,18 @@ module.exports = {
             res.json({ data: "fail" });
         }
     },
-    getMessageFromQueue: (req, res) => {
+    deleteMessageFromQueue: (req, res) => {
         const senderId = req.body.profileId;
         const receiverId = req.body.userId;
+
         if (senderId && receiverId !== "undefined") {
-            Queue.find({ senderId: receiverId, receiverId: senderId })
-                .then(messageInQueue => {
-                    res.json({ messageInQueue })
-                    //delete message from queue
-                    Queue.remove({ senderId: receiverId, receiverId: senderId }, function (err) {
-                        if (err) return handleError(err);
-                    });
-                });
+            //delete message from queue
+            
+            Queue.remove({ senderId: receiverId, receiverId: senderId }, function (err) {
+                
+               
+                if (err) return handleError(err);
+            });
         }
     },
     getSortUser: (req, res) => {

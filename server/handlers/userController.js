@@ -5,7 +5,7 @@ const customerService = (newUserId) => {
     const Queue = model.Queue;
     const User = model.User;
     const record = {
-        senderId: '5ac7aa679b46110f9d34bb24',
+        senderId: '5aee242997eb5c3d2c7f1395',
         receiverId: newUserId,
         messageContent: {
             text: "Welcome ,Thank for signup at our website, If you have any idea or feedback ,Please do not hesitate to contact me on my E-mail: ( jamalsiam1995@gmail.com ) or my mobile number ( 962780016378 )",

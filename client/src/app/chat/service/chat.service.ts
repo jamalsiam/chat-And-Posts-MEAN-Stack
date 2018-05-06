@@ -66,22 +66,34 @@ export class ChatService {
     });
     return observable;
   }
-  sendNotifyMessage(user1Id, user2Id, email) {
+  sendNotifyMessage(user1Id, user2Id, email, message) {
     if (user2Id && user2Id) {
       this.socket.emit("NotifyNumber", {
         channelName: user1Id + "-" + user2Id + "-NotifyNumber",
         info: {
           email,
           user1Id,
-          user2Id
-
+          user2Id,
+          message
         }
       });
     }
   }
+
+  receiveMessage(user1Id, user2Id) {
+    const observable = new Observable<any>(observer => {
+      this.socket.on(`${user1Id}-${user2Id}-NotifyNumbercontent`, function(
+        data
+      ) {
+        observer.next(data);
+      });
+    });
+    return observable;
+  }
+
   addUserToListMessenger(user1) {
     const observable = new Observable(observer => {
-      this.socket.on(user1 +"list", function(data) {
+      this.socket.on(user1 + "list", function(data) {
         observer.next(data);
       });
     });
@@ -97,9 +109,9 @@ export class ChatService {
       .post("http://localhost:8000/api/message/getmessages", record)
       .map(res => res.json());
   }
-  getMessageFromQueue(record) {
+  deleteMessageFromQueue(record) {
     return this.http
-      .post("http://localhost:8000/api/message/getmessagefromqueue", record)
+      .post("http://localhost:8000/api/message/deletemessagefromqueue", record)
       .map(res => res.json());
   }
   getSortUser(record) {
