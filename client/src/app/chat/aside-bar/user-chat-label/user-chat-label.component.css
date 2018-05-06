@@ -76,3 +76,7 @@
     z-index: 1;
     border: 2px solid #f8f8f8;
 }
+
+.opened{
+    background: #e4e4e4;
+}

@@ -1,0 +1,72 @@
+
+
+.n0{
+    bottom: -170px;
+    transition: all 0.75s;
+    -webkit-transition: all 0.75s; 
+
+}
+
+.n1{
+    bottom: 25px;
+    transition: all 0.75s;
+    -webkit-transition: all 0.75s; 
+}
+
+.n2{
+    bottom: -170px;
+    transition: all 0.75s;
+    -webkit-transition: all 0.75s; 
+}
+
+
+
+.notification{
+    position: fixed;
+    right: 15px;
+    background: #0000008c;
+    -webkit-background:#0000008c;
+    min-width: 230px;
+    min-height: 60px;
+    border-radius: 6px;
+    padding: 0px 0px 0px 7px;
+    color: white;
+}
+
+.notification span{
+    position: absolute;
+    right: 7px;
+    top: 5px;
+    display: block;
+    font-weight: bold;
+    font-size: 9px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #737373;
+    height: 14px;
+    width: 14px;
+    text-align: center;
+    padding-top: 2px;
+}
+.notification:hover{
+    background: #000000c2;
+}
+
+
+.notification img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 6px;
+}
+.notification time{
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    font-size: 10px;
+}
+.notification p{
+    width: 175px;
+    margin: 5px 0px 0px 35px;
+}

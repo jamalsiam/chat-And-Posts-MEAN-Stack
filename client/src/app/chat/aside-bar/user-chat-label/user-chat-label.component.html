@@ -1,4 +1,4 @@
-<div class="userChatContainer" (click)="routeTo(record.userInfo._id)">
+<div class="userChatContainer" [class]="currentUser? 'userChatContainer opened':'userChatContainer'" (click)="routeTo(record.userInfo._id)">
  <div class="imageUserContainer">
   <img class="image" src="{{getImage(record.userInfo.image)}}">
   <span class="notfyChat" *ngIf="record.notfy !== 0">{{record.notfy}}</span>

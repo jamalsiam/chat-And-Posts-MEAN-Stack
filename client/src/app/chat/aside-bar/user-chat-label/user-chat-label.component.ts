@@ -12,6 +12,7 @@ export class UserChatLabelComponent implements OnInit {
   @Input() data: any;
   record: any;
   online: boolean;
+  currentUser: boolean;
   constructor(
     public messageService: ChatService,
     private service: DataService,
@@ -60,7 +61,6 @@ export class UserChatLabelComponent implements OnInit {
           this.record.notfy = res["notifyLength"];
         } else {
           this.messageService.totalNotfy["" + res["emailSender"]] = 0;
-
           this.record.notfy = 0;
         }
       });

@@ -1,4 +1,3 @@
-
 <div class="{{cssCtr}}" >
         <app-header ></app-header>
         <app-aside-bar></app-aside-bar>
@@ -6,4 +5,10 @@
                 <router-outlet ></router-outlet>
         </div>
         
+</div>
+<div class="notification n{{eventNotnotificationNumer}}">
+        <span (click)="closeNotification()">X</span>
+        <img src="https://www.codyhub.com/wp-content/uploads/2017/07/i2.jpg" alt="">
+        <p>Chat WebSite: meet new friends here </p>
+        <time>Just Now</time>
 </div>
