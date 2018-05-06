@@ -2,7 +2,11 @@
   <div class="side-btn " (click)="sideBarStateChanger()"><span class="glyphicon glyphicon-envelope"></span> 
     <div class="total-notfy" *ngIf="NumbertotalNotfy(messageService.totalNotfy) !== 0" > {{NumbertotalNotfy(messageService.totalNotfy)}}</div> 
   </div>
-  <div class="chatUserGruop">
+  <div class="onlineOfflineBtns">
+    <button  [class]="active? 'active' : ''" (click)="isOnline(true)"> Online </button>
+    <button  [class]="!active? 'active2' : ''" (click)="isOnline(false)"> Offline </button>
+  </div>
+  <div [class]="active? 'chatUserGruop' : 'chatUserGruop anActiveChatUser'">
     <chat style="order: 1;" *ngFor="let x of messageService.listOfAllUserInMessage" [data]="x" > </chat>
 
   </div>

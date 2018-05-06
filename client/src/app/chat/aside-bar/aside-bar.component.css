@@ -60,9 +60,12 @@ aside {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    height: calc(100% - 50px);
+    height: calc(100% - 110px);
 }
 
+.chatUserGruop.anActiveChatUser{
+    opacity: 0.3;
+}
 ::-webkit-scrollbar {
     width: 1px;
 }
@@ -74,4 +77,31 @@ aside {
 ::-webkit-scrollbar-thumb {
     background-color: #0079ff;
     outline: 1px solid slategrey;
+}
+
+ 
+.onlineOfflineBtns{
+    padding: 4px 0px;
+    text-align: center;
+    border-top: 2px solid #8888884d;
+    position: absolute;
+    bottom: 50px;
+    /* background: rebeccapurple; */
+    width: 100%;
+}
+.onlineOfflineBtns button{
+    width: 52px;
+    font-size: 12px;
+    margin: 3px;
+    background: white;
+    border: 1px solid #8888889c;
+    border-radius: 5px;
+    color: gray;
+}
+.onlineOfflineBtns .active{
+    color: #007102;
+}
+
+.onlineOfflineBtns .active2{
+    color: #c50602;
 }
