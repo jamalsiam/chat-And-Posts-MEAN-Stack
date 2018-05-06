@@ -3,6 +3,11 @@
     margin-left: 0px;
 }
 
+.imgLogo{
+    width: 110px;
+    position: relative;
+    top: -5px;
+}
 
 .navbar{
     margin-bottom: 0px
@@ -30,8 +35,9 @@
 @media (min-width: 1000px) {
     .search{
         width:400px;
-    transition: width .5s;
-    
+        transition: width .5s;
+        position: relative;
+        left: 42px;
     }
     .search:focus{
         width: 500px;
@@ -51,4 +57,11 @@
 }
 .header-space{
     height: 50px;
+}
+
+.imgUser{
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    border: 1px solid #afadad;
 }

@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  username:string;
-  query:string;
+  username: string;
+  query: string;
   constructor(public service:DataService,private storage:LocalStorageService, private router:Router) {}
   
    search(query){ 
