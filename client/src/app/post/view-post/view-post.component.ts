@@ -72,8 +72,8 @@ export class ViewPostComponent implements OnInit {
         to: this.data.userId,
         form: this.service.user.userInfo.username,
         image: this.service.user.userInfo.image,
-        action: 'add like',
-        post: this.data.postContent.text.slice(0.50) + '...'
+        action: 'put like',
+        post: this.data.postContent.text.slice(0, 50) + '...'
       });
 
     }
@@ -92,6 +92,14 @@ export class ViewPostComponent implements OnInit {
   shareComment(postId, userId) {
     if (this.commentText) {
       this.service.shareComment({ postId, userId, commentContent: { text: this.commentText } }).subscribe(res => {
+        this.socket.sendNotification({
+          to: this.data.userId,
+          form: this.service.user.userInfo.username,
+          image: this.service.user.userInfo.image,
+          action: 'write comment on your Post',
+          post: (this.data.postContent.text.slice(0, 25) + ' > ' + this.commentText ).slice(0, 50) + '...'
+        });
+
         this.commentsLength++;
         this.commentSet.push({
           comment: {

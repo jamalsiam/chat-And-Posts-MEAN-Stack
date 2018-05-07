@@ -13,7 +13,7 @@ import { ChatService } from './chat/service/chat.service';
 export class AppComponent {
   notificationData: any;
   notificationId = [];
-   constructor(
+  constructor(
     private service: DataService,
     public storage: LocalStorageService,
     private route: Router,
@@ -49,13 +49,11 @@ export class AppComponent {
 
     this.socket.getNotification(id).subscribe(res => {
       this.notificationId.push(this.notificationId.length);
-      console.log(this.notificationId);
-      
       this.notificationData = {
-      name:  res.data.form + ' ' + res.data.action ,
-      event: res.data.post,
-      image:  ((res.data.image) ? 'data:image/jpeg;base64,' + res.data.image : ''),
-      time: 'Just Now'
+        name: res.data.form + ' ' + res.data.action,
+        event: res.data.post,
+        image: ((res.data.image) ? 'data:image/jpeg;base64,' + res.data.image : ''),
+        time: 'Just Now'
       };
     });
   }
