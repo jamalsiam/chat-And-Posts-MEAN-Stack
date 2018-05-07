@@ -130,7 +130,7 @@ module.exports = {
       {
         image
       },
-      function(err, affected, resp) {
+      function (err, affected, resp) {
         res.json({ status: "succses" });
       }
     );
@@ -143,7 +143,7 @@ module.exports = {
       {
         cover
       },
-      function(err, affected, resp) {
+      function (err, affected, resp) {
         res.json({ status: "succses" });
       }
     );
@@ -168,7 +168,7 @@ module.exports = {
         work,
         birth
       },
-      function(err, affected, resp) {
+      function (err, affected, resp) {
         res.json({ status: "succses" });
       }
     );
@@ -180,7 +180,7 @@ module.exports = {
       {
         interests
       },
-      function(err, affected, resp) {
+      function (err, affected, resp) {
         res.json({ status: "succses" });
       }
     );
@@ -222,13 +222,12 @@ module.exports = {
       });
   },
   checkToken: (req, res) => {
-    console.log(req.body);
     try {
-     if (jwt.verify(req.body.token , "NodeJS123").id === req.body.id ) {
-        res.status(200).send(true);         
-     } else {
-        res.status(200).json(false);        
-     }
+      if (jwt.verify(req.body.token, "NodeJS123").id === req.body.id) {
+        res.status(200).send(true);
+      } else {
+        res.status(200).json(false);
+      }
     } catch (error) {
       res.status(200).json(false);
     }

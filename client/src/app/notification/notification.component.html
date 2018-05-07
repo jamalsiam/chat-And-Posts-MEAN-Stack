@@ -1,0 +1,7 @@
+<div class="notification n{{eventNotnotificationNumer}}">
+  <span (click)="closeNotification()">X</span>
+  <img *ngIf="data.image" src="{{data.image}}" alt="">
+  <img *ngIf="!data.image" src="assets/profile.png" alt="">
+  <p> <b>{{data.name}}</b>  : {{data.event}} </p>
+  <time>{{data.time}}</time>
+</div>

@@ -18,6 +18,7 @@ export class ViewPostComponent implements OnInit {
   commentText: string;
   viewComments: boolean;
   commentSet: any;
+  notificationData: any;
   constructor(public service: DataService, private router: Router) { }
   deletePost(userId, postId) {
 
@@ -41,12 +42,20 @@ export class ViewPostComponent implements OnInit {
   }
   sharePost(newPost) {
     if (this.share !== 'Shared') {
+
       this.service.sharePost({
         _id: this.service.user.id,
         postContent: newPost
       })
         .subscribe(res => {
           this.share = 'Shared';
+          this.notificationData = {
+            name: 'User Shered The Post',
+            event: this.data.postContent.text.slice(0, 50) + '...',
+            image: 'data:image/jpeg;base64,' + this.service.user.userInfo.image,
+            time: 'Just Now'
+          };
+
         });
     }
   }
@@ -58,7 +67,7 @@ export class ViewPostComponent implements OnInit {
       this.checkUserLiked = true;
       this.likesLingth++;
     }
-    console.log(userId, postId);
+
     this.service.putOrRemoveLike({ postId, userId }).subscribe(res => {
       this.getLikeAndCommentLength();
     });

@@ -28,6 +28,7 @@ import { UserChatLabelComponent } from './chat/aside-bar/user-chat-label/user-ch
 import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
 import { AuthService } from './auth/auth-service/auth.service';
 import { ChatService } from './chat/service/chat.service';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ChatService } from './chat/service/chat.service';
     UserComponent,
     CommentComponent,
     UserChatLabelComponent,
-    ChatRoomComponent
+    ChatRoomComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
