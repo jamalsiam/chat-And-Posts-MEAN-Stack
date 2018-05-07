@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ChatService } from '../../chat/service/chat.service';
 
 @Component({
   selector: 'viewPost',
@@ -19,7 +20,7 @@ export class ViewPostComponent implements OnInit {
   viewComments: boolean;
   commentSet: any;
   notificationData: any;
-  constructor(public service: DataService, private router: Router) { }
+  constructor(public service: DataService, private router: Router, private socket: ChatService) { }
   deletePost(userId, postId) {
 
     this.service.deletePost({ userId: userId, postId: postId }).subscribe(res => {
@@ -52,20 +53,29 @@ export class ViewPostComponent implements OnInit {
           this.notificationData = {
             name: 'User Shered The Post',
             event: this.data.postContent.text.slice(0, 50) + '...',
-            image: 'data:image/jpeg;base64,' + this.service.user.userInfo.image,
+            image: ((this.service.user.userInfo.image) ? 'data:image/jpeg;base64,' +  this.service.user.userInfo.image : ''),
             time: 'Just Now'
           };
-
         });
     }
   }
   putOrRemoveLike(postId, userId) {
+
     if (this.checkUserLiked) {
       this.checkUserLiked = false;
       this.likesLingth--;
+
     } else {
       this.checkUserLiked = true;
       this.likesLingth++;
+      this.socket.sendNotification({
+        to: this.data.userId,
+        form: this.service.user.userInfo.username,
+        image: this.service.user.userInfo.image,
+        action: 'add like',
+        post: this.data.postContent.text.slice(0.50) + '...'
+      });
+
     }
 
     this.service.putOrRemoveLike({ postId, userId }).subscribe(res => {

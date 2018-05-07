@@ -3,6 +3,7 @@ import { DataService } from './data.service';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Router } from '@angular/router';
 import { AuthService } from './auth/auth-service/auth.service';
+import { ChatService } from './chat/service/chat.service';
 
 @Component({
   selector: 'app-root',
@@ -11,18 +12,22 @@ import { AuthService } from './auth/auth-service/auth.service';
 })
 export class AppComponent {
   notificationData: any;
-  constructor(
+  notificationId = [];
+   constructor(
     private service: DataService,
     public storage: LocalStorageService,
     private route: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private socket: ChatService
   ) {
     this.notificationData = {
       name: 'Chat WebSite',
       event: 'meet new friends here',
-      image: 'https://www.codyhub.com/wp-content/uploads/2017/07/i2.jpg',
+      image: 'assets/icon.jpeg',
       time: 'Just Now'
     };
+
+    this.getNotification(this.storage.get('chatUserId'));
     this.route.events.subscribe(val => {
       if (this.storage.get('chatUserId') && this.storage.get('token')) {
         this.service
@@ -37,6 +42,23 @@ export class AppComponent {
           });
       }
     });
+
   }
+
+  getNotification(id: string) {
+
+    this.socket.getNotification(id).subscribe(res => {
+      this.notificationId.push(this.notificationId.length);
+      console.log(this.notificationId);
+      
+      this.notificationData = {
+      name:  res.data.form + ' ' + res.data.action ,
+      event: res.data.post,
+      image:  ((res.data.image) ? 'data:image/jpeg;base64,' + res.data.image : ''),
+      time: 'Just Now'
+      };
+    });
+  }
+
 
 }

@@ -1,9 +1,10 @@
-<div [class]="storage.get('chatUserId')? 'haveId' : '' " >
-        <app-header *ngIf="storage.get('chatUserId')" ></app-header>
+<div [class]="storage.get('chatUserId')? 'haveId' : '' ">
+        <app-header *ngIf="storage.get('chatUserId')"></app-header>
         <app-aside-bar *ngIf="storage.get('chatUserId')"></app-aside-bar>
-        <div class="content"  >
-                <router-outlet ></router-outlet>
+        <div class="content">
+                <router-outlet></router-outlet>
         </div>
-        
+
 </div>
 <app-notification [data]="notificationData"></app-notification>
+<app-notification  *ngFor="let x of notificationId" [data]="notificationData"></app-notification>
