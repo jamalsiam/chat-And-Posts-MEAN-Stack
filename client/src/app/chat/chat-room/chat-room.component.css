@@ -19,12 +19,23 @@
     .messagesContainer{
         margin-bottom: 60px;
     }
-   
+    .callContainer button{
+        background: none;
+        border: 1px solid #8888;
+        border-radius: 50%;
+        padding-top: 4px;
+        margin: 0px 14px;
+        color: #4073ad;
+    }   
 }
+
+
 .headerMessenger{
     background: #e5e7e8;
     z-index: 1;
 }
+
+
 
 .bold{
     font-weight: bold;
@@ -169,3 +180,30 @@
     z-index: 0;
 }
 
+
+.onlineUser{
+    background: #1dfd1d;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    z-index: 1;
+    border: 2px solid #f8f8f8;
+    position: relative;
+    top: 1px;
+}
+
+
+.offlineUser{
+    background: #c7c6c6;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    z-index: 1;
+    border: 2px solid #f8f8f8;
+    position: relative;
+    top: 1px;
+}
+
+ 

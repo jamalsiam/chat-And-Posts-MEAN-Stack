@@ -29,6 +29,7 @@ import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
 import { AuthService } from './auth/auth-service/auth.service';
 import { ChatService } from './chat/service/chat.service';
 import { NotificationComponent } from './notification/notification.component';
+import { CallComponent } from './chat/call/call.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { NotificationComponent } from './notification/notification.component';
     CommentComponent,
     UserChatLabelComponent,
     ChatRoomComponent,
-    NotificationComponent
+    NotificationComponent,
+    CallComponent
   ],
   imports: [
     BrowserModule,

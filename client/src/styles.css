@@ -43,7 +43,7 @@ body {
   border-top-color: #e5e4e4!important;
 }
 .headerMessenger{
-  width: 100%;
+  width: calc(100% - 75px);
   height: 65px;
   position: fixed;
   top: 50px;
@@ -70,6 +70,22 @@ body {
 }
 .headerMessenger .info p{
   margin: 0!important;
+}
+
+.callContainer{
+  width: 76px;
+  position: absolute;
+  right: 0px;
+  top: 20px;
+}
+.callContainer button{
+  background: none;
+  border: 1px solid #8888;
+  border-radius: 50%;
+  padding-top: 4px;
+  margin: 0px 4px;
+  color: #4073ad;
+  cursor: pointer;
 }
 }
 
@@ -118,6 +134,9 @@ body {
   }
   .textMessage{
     width: 100%!important;
+  }
+  .headerMessenger{
+    width: 100%;
   }
 }
 

@@ -1,28 +1,29 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { DataService } from "../../data.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { interval } from "rxjs/observable/interval";
-import { ChatService } from "../service/chat.service";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DataService } from '../../data.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { interval } from 'rxjs/observable/interval';
+import { ChatService } from '../service/chat.service';
 
 @Component({
-  selector: "app-chat-room",
-  templateUrl: "./chat-room.component.html",
-  styleUrls: ["./chat-room.component.css"]
+  selector: 'app-chat-room',
+  templateUrl: './chat-room.component.html',
+  styleUrls: ['./chat-room.component.css']
 })
 export class ChatRoomComponent implements OnInit {
   photoMessage: string;
   textMessage: string;
   receiverId: string;
+  online: any;
   oldMessages: any;
-  userInfo: any = { image: "" };
+  userInfo: any = { image: '' };
   constructor(
     public service: DataService,
     public messageService: ChatService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.photoMessage = "";
-    this.textMessage = "";
+    this.photoMessage = '';
+    this.textMessage = '';
   }
   sendMessage() {
     const record = {
@@ -43,8 +44,8 @@ export class ChatRoomComponent implements OnInit {
           record
         );
       });
-      this.textMessage = "";
-      this.photoMessage = "";
+      this.textMessage = '';
+      this.photoMessage = '';
     }
     if (
       this.messageService.listOfAllUserInMessage.indexOf(this.receiverId) === -1
@@ -69,21 +70,39 @@ export class ChatRoomComponent implements OnInit {
   }
   getImage(image) {
     if (image) {
-      return "data:image/jpeg;base64," + image;
+      return 'data:image/jpeg;base64,' + image;
     } else {
-      return "assets/profile.png";
+      return 'assets/profile.png';
     }
   }
 
+  call(video, toId) {
+    this.messageService.videoCallSection = true;
+    this.messageService.isSender = true;
+    console.log(this.service.user);
+    this.messageService.recordCaller = {
+      from: {
+        image: this.service.user.userInfo.image,
+        id: this.service.user.id,
+        name: this.service.user.userInfo.username,
+        audio: true,
+        key: {},
+        video
+      }, toId };
+    this.router.navigate(['/call/1']);
+  }
   ngOnInit() {
     this.route.params.subscribe(query => {
-      if (query.id !== "undefined") {
+      if (query.id !== 'undefined') {
+        this.messageService.checkUserOnline(query.id).subscribe(res => {
+          this.online = res.status;
+        });
         this.messageService
           .deleteMessageFromQueue({
             profileId: this.service.user.id,
             userId: query.id
           })
-          .subscribe(res => {});
+          .subscribe(res => { });
         this.receiverId = query.id;
         this.messageService
           .gitMessages({
@@ -91,11 +110,12 @@ export class ChatRoomComponent implements OnInit {
             userId: this.receiverId
           })
           .subscribe(res => {
-            if (res["data"] !== "fail") {
-              this.oldMessages = res["message"];
-              this.userInfo = res["user"];
+            if (res['data'] !== 'fail') {
+              this.oldMessages = res['message'];
+              this.userInfo = res['user'];
+              this.online = this.userInfo.status;
             } else {
-              this.router.navigate(["/"]);
+              this.router.navigate(['/']);
             }
           });
         this.messageService
@@ -105,19 +125,19 @@ export class ChatRoomComponent implements OnInit {
             this.oldMessages = this.oldMessages.concat(resNewMessage);
           });
       } else {
-        this.router.navigate(["/"]);
+        this.router.navigate(['/']);
       }
     });
   }
   ngOnDestroy() {
     this.route.params.subscribe(query => {
-      if (query.id !== "undefined") {
+      if (query.id !== 'undefined') {
         this.messageService
           .deleteMessageFromQueue({
             profileId: this.service.user.id,
             userId: query.id
           })
-          .subscribe(res => {});
+          .subscribe(res => { });
       }
     });
   }

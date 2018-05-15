@@ -37,6 +37,18 @@ io.on('connection', socket => {
     socket.broadcast.emit(data.to+ 'notification', {data});
     
   });
+  
+  socket.on('requestCall', (data) => {
+    if ( data.data !== undefined ) {
+      socket.broadcast.emit(data.data.toId+ 'requestCall', data.data.from);
+    }
+  });
+
+
+  socket.on('responseCall', (data) => {
+    socket.broadcast.emit(data.toId+ 'responseCall', data);
+  });
+  
 });
 
 //user APIs

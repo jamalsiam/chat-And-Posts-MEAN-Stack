@@ -9,6 +9,11 @@ export class ChatService {
   totalNotfy: any;
   listOfAllUserInMessage: any;
   socket: io;
+  videoCallSection = false;
+  isSender = false;
+  callKey: any;
+  recordCaller: any;
+  recordReceiver: any;
   constructor(
     private http: Http,
     public storage: LocalStorageService,
@@ -17,7 +22,7 @@ export class ChatService {
     this.totalNotfy = [];
     this.listOfAllUserInMessage = [];
     this.socket = io('http://localhost:8000');
-    this.socket.on('connection', function() {});
+    this.socket.on('connection', function () { });
     this.userOnline();
     this.userOfflineByWindow();
   }
@@ -48,10 +53,53 @@ export class ChatService {
       });
     }
   }
+
+ /*(1)*/
+ sendNotificationCallFromCaller(data) {
+  if (this.userService.user.id) {
+    this.socket.emit('requestCall', {
+      data
+    });
+  }
+}
+
+/*(2)*/
+receiveSentNotificationByReceiver() {
+  const observable = new Observable<{ id: string; status: boolean }>(
+    observer => {
+      this.socket.on(this.userService.user.id + 'requestCall', function (data) {
+        observer.next(data);
+      });
+    }
+  );
+  return observable;
+}
+
+/*(3)*/
+sendResponseOfNotificationCallToSender(data) {
+  if (this.userService.user.id) {
+    this.socket.emit('responseCall', data);
+  }
+}
+
+/*(4)*/
+receiveResponseOfNotificationCall() {
+  const observable = new Observable<{ id: string; status: boolean }>(
+    observer => {
+      this.socket.on(this.userService.user.id + 'responseCall', function (data) {
+        observer.next(data);
+      });
+    }
+  );
+  return observable;
+}
+
+
+
   checkUserOnline(id) {
     const observable = new Observable<{ id: string; status: boolean }>(
       observer => {
-        this.socket.on(id, function(data) {
+        this.socket.on(id, function (data) {
           observer.next(data);
         });
       }
@@ -59,13 +107,13 @@ export class ChatService {
     return observable;
   }
   sendNotification(data) {
-    this.socket.emit('notification', data );
+    this.socket.emit('notification', data);
   }
 
   getNotification(data) {
     const observable = new Observable<any>(
       observer => {
-        this.socket.on(data + 'notification', function(res) {
+        this.socket.on(data + 'notification', function (res) {
           observer.next(res);
         });
       }
@@ -74,7 +122,7 @@ export class ChatService {
   }
   checkUserNotifyNumberMessage(user1, user2) {
     const observable = new Observable(observer => {
-      this.socket.on(user1 + '-' + user2 + '-NotifyNumber', function(data) {
+      this.socket.on(user1 + '-' + user2 + '-NotifyNumber', function (data) {
         observer.next(data);
       });
     });
@@ -96,7 +144,7 @@ export class ChatService {
 
   receiveMessage(user1Id, user2Id) {
     const observable = new Observable<any>(observer => {
-      this.socket.on(`${user1Id}-${user2Id}-NotifyNumbercontent`, function(
+      this.socket.on(`${user1Id}-${user2Id}-NotifyNumbercontent`, function (
         data
       ) {
         observer.next(data);
@@ -107,7 +155,7 @@ export class ChatService {
 
   addUserToListMessenger(user1) {
     const observable = new Observable(observer => {
-      this.socket.on(user1 + 'list', function(data) {
+      this.socket.on(user1 + 'list', function (data) {
         observer.next(data);
       });
     });

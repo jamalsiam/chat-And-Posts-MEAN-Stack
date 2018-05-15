@@ -13,12 +13,17 @@ import { ChatService } from './chat/service/chat.service';
 export class AppComponent {
   notificationData: any;
   notificationId = [];
-  constructor(
+  ringingSection = false;
+  nameCaller: string;
+  imageCaller: string;
+  idCaller: string;
+  callType: string;
+    constructor(
     private service: DataService,
     public storage: LocalStorageService,
     private route: Router,
     private auth: AuthService,
-    private socket: ChatService
+    private chat: ChatService,
   ) {
     this.notificationData = {
       name: 'Chat WebSite',
@@ -42,12 +47,26 @@ export class AppComponent {
           });
       }
     });
+    /*(2)*/
+    this.chat.receiveSentNotificationByReceiver().subscribe(res => {
+      this.chat.recordReceiver = res;
+      this.nameCaller = res['name'];
+      this.imageCaller = res['image'];
+      this.idCaller = res['id'];
+      this.callType = res['video'] ? 'video call' : 'call';
+      this.ringingSection = true;
+
+
+      setTimeout(() => {
+        this.ringingSection = false;
+      }, 20 * 1000);
+    });
 
   }
 
   getNotification(id: string) {
 
-    this.socket.getNotification(id).subscribe(res => {
+    this.chat.getNotification(id).subscribe(res => {
       this.notificationId.push(this.notificationId.length);
       this.notificationData = {
         name: res.data.form + ' ' + res.data.action,
@@ -58,5 +77,15 @@ export class AppComponent {
     });
   }
 
+  answer() {
+    this.chat.videoCallSection = true;
+    this.ringingSection = false;
+    this.route.navigate(['/call/2']);
+  }
+
+  end() {
+    this.ringingSection = false;
+    this.chat.videoCallSection = false;
+  }
 
 }

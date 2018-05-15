@@ -1,0 +1,56 @@
+.ringing{
+    position: fixed;
+    top: 0px;
+    margin: auto;
+    right: calc(50% - 115px);
+    background: #707071;
+    color: white;
+    border: 1px solid #b3aeae;
+    border-radius: 6px;
+    width: 230px;
+    min-height: 60px;
+    padding: 5px 10px;
+    z-index: 125;
+}
+
+.ringing p {
+    font-size: 12px;
+    position: absolute;
+    left: 50px;
+    top: 8px;
+}
+
+.ringing img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+
+.ringing  .call{
+    position: absolute;
+    bottom: 8px;
+    left: 68px;
+    top: unset;
+    border-radius: 50%;
+    border: 1px solid #19ff19;
+    padding: 3px;
+    font-size: 13px;
+    color: #19ff19;
+    cursor: pointer;
+}
+
+.ringing .x{
+    position: absolute;
+    bottom: 8px;
+    right: 70px;
+    border: 1px solid #ffa1a1;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    text-align: center;
+    color: #ffaaaa;
+    font-weight: 600;
+    cursor: pointer;
+}

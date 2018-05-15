@@ -8,6 +8,8 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { UserComponent } from './user/user/user.component';
 import { OriginalPostComponent } from './post/original-post/original-post.component';
 import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
+import { CallComponent } from './chat/call/call.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -40,6 +42,10 @@ const routes: Routes = [
   {
     path: 'originalpost',
     component: OriginalPostComponent
+  },
+  {
+    path: 'call/:type',
+    component: CallComponent
   },
   {
     path: '**',

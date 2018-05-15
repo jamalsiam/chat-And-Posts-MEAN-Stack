@@ -7,4 +7,13 @@
 
 </div>
 <app-notification [data]="notificationData"></app-notification>
-<app-notification  *ngFor="let x of notificationId" [data]="notificationData"></app-notification>
+<app-notification *ngFor="let x of notificationId" [data]="notificationData"></app-notification>
+
+<section *ngIf="ringingSection" class="ringing">
+        <img *ngIf="!imageCaller" src="assets/profile.png" alt="">
+        <img *ngIf="imageCaller" src="data:image/jpeg;base64,{{imageCaller}}" alt="">
+        <p>you have a {{callType}} from {{nameCaller}}</p>
+
+        <span (click)="answer()" class="call glyphicon glyphicon-earphone "></span>
+        <span (click)="end()" class="x">x</span>
+</section>
